@@ -1,4 +1,4 @@
-#include "catch.hpp"
+#include <catch.hpp>
 #include "Cell.h"
 
 TEST_CASE("Cell class test") {
@@ -9,5 +9,10 @@ TEST_CASE("Cell class test") {
 	SECTION("Check isAliva function FALSE") {
 		Cell cell(0, 0, false);
 		REQUIRE(cell.isAlive() == false);
+	}
+
+	SECTION("getX() hardcode return false check") {
+		Cell cell(1, 1, true);
+		REQUIRE(cell.getX() == false);
 	}
 }
