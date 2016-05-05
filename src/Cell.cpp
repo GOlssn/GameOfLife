@@ -13,16 +13,17 @@ Cell::~Cell()
 
 int Cell::getX() const
 {
-	return false;
+	return x;
 }
 
 int Cell::getY() const
 {
-	return false;
+	return y;
 }
 
 void Cell::kill()
 {
+	alive = false;
 }
 
 void Cell::revive()
