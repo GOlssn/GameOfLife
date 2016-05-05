@@ -3,11 +3,18 @@
 
 class Cell {
 	public:
-		Cell();
+		Cell(int pX, int pY, int pAlive);
 		~Cell();
+		int getX();
+		int getY();
+		void kill();
+		void revive();
+		bool isAlive();
 
 	private:
-
+		int x;
+		int y;
+		bool alive;
 };
 
 #endif // CELL_H
