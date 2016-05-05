@@ -1,6 +1,6 @@
 #include "Cell.h"
 
-Cell::Cell(int pX, int pY, int pAlive)
+Cell::Cell(int pX, int pY, bool pAlive)
 {
 	x = pX;
 	y = pY;
@@ -11,12 +11,12 @@ Cell::~Cell()
 {
 }
 
-int Cell::getX()
+int Cell::getX() const
 {
 	return 0;
 }
 
-int Cell::getY()
+int Cell::getY() const
 {
 	return 0;
 }
@@ -27,9 +27,10 @@ void Cell::kill()
 
 void Cell::revive()
 {
+	alive = true;
 }
 
-bool Cell::isAlive()
+bool Cell::isAlive() const
 {
-	return false;
+	return alive;
 }

@@ -22,10 +22,13 @@ add_custom_target(headers SOURCES ${HEADERS})
 set(SRC_LIST
     src/main.cpp
     src/Cell.cpp
+	src/GameOfLifeTest.cpp
 )
 
 set(TEST_LIST
     test/CatchMain.cpp
+	src/GameOfLifeTest.cpp
+	src/Cell.cpp
 )
 
 # Om Debug mode
