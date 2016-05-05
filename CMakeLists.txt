@@ -21,6 +21,7 @@ add_custom_target(headers SOURCES ${HEADERS})
 # lägger dem i listan SRC_LIST.
 set(SRC_LIST
     src/main.cpp
+    src/Cell.cpp
 )
 
 set(TEST_LIST
