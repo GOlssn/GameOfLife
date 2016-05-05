@@ -7,8 +7,8 @@
 */
 
 #include "screen.h"
-#include "cstring"
-#include "algorithm"
+#include <cstring>
+#include <algorithm>
 
 #include <iostream>
 

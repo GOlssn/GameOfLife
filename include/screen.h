@@ -9,7 +9,7 @@
 #ifndef SCREEN
 #define SCREEN
 
-#include "terminal/terminal.h"
+#include "terminal.h"
 #include <cstdint>
 #include <string>
 
