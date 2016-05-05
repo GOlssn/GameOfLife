@@ -3,7 +3,7 @@
 
 class Cell {
 	public:
-		Cell(int pX, int pY, int pAlive);
+		Cell(int pX, int pY, bool pAlive);
 		~Cell();
 		int getX();
 		int getY();

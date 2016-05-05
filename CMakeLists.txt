@@ -26,6 +26,7 @@ set(SRC_LIST
 
 set(TEST_LIST
     test/CatchMain.cpp
+    test/GameOfLifeTest.cpp
 )
 
 # Om Debug mode

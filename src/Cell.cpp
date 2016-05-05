@@ -1,6 +1,6 @@
 #include "Cell.h"
 
-Cell::Cell(int pX, int pY, int pAlive)
+Cell::Cell(int pX, int pY, bool pAlive)
 {
 	x = pX;
 	y = pY;
@@ -13,12 +13,12 @@ Cell::~Cell()
 
 int Cell::getX()
 {
-	return 0;
+	return false;
 }
 
 int Cell::getY()
 {
-	return 0;
+	return false;
 }
 
 void Cell::kill()
