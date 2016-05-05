@@ -12,6 +12,7 @@ set (CMAKE_CXX_STANDARD 11)
 # header filer som inkluderas i koden)
 include_directories($ENV{TOOLS_INCLUDE})
 include_directories(include)
+add_subdirectory(terminal)
 
 file(GLOB_RECURSE HEADERS "include/*.*")
 add_custom_target(headers SOURCES ${HEADERS})
@@ -20,6 +21,7 @@ add_custom_target(headers SOURCES ${HEADERS})
 # lägger dem i listan SRC_LIST.
 set(SRC_LIST
     src/main.cpp
+    src/Cell.cpp
 )
 
 set(TEST_LIST
@@ -41,4 +43,6 @@ endif (CMAKE_BUILD_TYPE STREQUAL "Debug")
 # SRC_LIST. Första parametern är namnet på målet (Target)
 add_executable(${PROJECT_NAME} ${SRC_LIST})
 add_executable(${PROJECT_NAME}-Test ${TEST_LIST})
+
+target_link_libraries(${PROJECT_NAME} Terminal-SHARED)
 
