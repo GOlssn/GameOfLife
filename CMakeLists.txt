@@ -26,9 +26,9 @@ set(SRC_LIST
 
 set(TEST_LIST
     test/CatchMain.cpp
+    src/Cell.cpp
     test/GameOfLifeTest.cpp
 )
-
 # Om Debug mode
 if (CMAKE_BUILD_TYPE STREQUAL "Debug")
     # Skriv ut meddelandet Debug mode samt sätt kompilator

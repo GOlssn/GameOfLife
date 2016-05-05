@@ -5,11 +5,11 @@ class Cell {
 	public:
 		Cell(int pX, int pY, bool pAlive);
 		~Cell();
-		int getX();
-		int getY();
+		int getX() const;
+		int getY() const;
 		void kill();
 		void revive();
-		bool isAlive();
+		bool isAlive() const;
 
 	private:
 		int x;

@@ -11,12 +11,12 @@ Cell::~Cell()
 {
 }
 
-int Cell::getX()
+int Cell::getX() const
 {
 	return false;
 }
 
-int Cell::getY()
+int Cell::getY() const
 {
 	return false;
 }
@@ -27,9 +27,10 @@ void Cell::kill()
 
 void Cell::revive()
 {
+	alive = true;
 }
 
-bool Cell::isAlive()
+bool Cell::isAlive() const
 {
-	return false;
+	return alive;
 }
