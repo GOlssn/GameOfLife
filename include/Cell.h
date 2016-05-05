@@ -1,7 +1,6 @@
 #ifndef CELL_H
 #define CELL_H
 
-
 class Cell {
 	public:
 		Cell();
@@ -11,8 +10,4 @@ class Cell {
 
 };
 
-#endif // !CELL_H
-
-
-
-
+#endif // CELL_H
