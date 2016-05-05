@@ -1,4 +1,6 @@
-#pragma once
+#ifndef CELL_H
+#define CELL_H
+
 
 class Cell {
 	public:
@@ -8,3 +10,9 @@ class Cell {
 	private:
 
 };
+
+#endif // !CELL_H
+
+
+
+
