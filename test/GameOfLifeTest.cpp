@@ -11,8 +11,19 @@ TEST_CASE("Cell class test") {
 		REQUIRE(cell.isAlive() == false);
 	}
 
-	SECTION("getX() hardcode return false check") {
+	SECTION("getX()") {
 		Cell cell(1, 1, true);
-		REQUIRE(cell.getX() == false);
+		REQUIRE(cell.getX() == 1); 
+	}
+
+	SECTION("getY()") {
+		Cell cell(1, 1, true);
+		REQUIRE(cell.getY() == 1);
+	}
+
+	SECTION("cell.kill() turn alive cell to false") {
+		Cell cell(1, 1, true);
+		cell.kill();
+		REQUIRE(cell.isAlive() == false);
 	}
 }
