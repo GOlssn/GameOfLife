@@ -12,6 +12,8 @@ set (CMAKE_CXX_STANDARD 11)
 # header filer som inkluderas i koden)
 include_directories($ENV{TOOLS_INCLUDE})
 include_directories(include)
+
+# Add Terminal as subdirectory
 add_subdirectory(terminal)
 
 file(GLOB_RECURSE HEADERS "include/*.*")
@@ -22,11 +24,13 @@ add_custom_target(headers SOURCES ${HEADERS})
 set(SRC_LIST
     src/main.cpp
     src/Cell.cpp
+    src/Screen.cpp
 )
 
 set(TEST_LIST
-    test/CatchMain.cpp
+    src/Screen.cpp
     src/Cell.cpp
+    test/CatchMain.cpp
     test/GameOfLifeTest.cpp
 )
 # Om Debug mode
@@ -46,4 +50,5 @@ add_executable(${PROJECT_NAME} ${SRC_LIST})
 add_executable(${PROJECT_NAME}-Test ${TEST_LIST})
 
 target_link_libraries(${PROJECT_NAME} Terminal-SHARED)
+target_link_libraries(${PROJECT_NAME}-Test Terminal-SHARED)
 

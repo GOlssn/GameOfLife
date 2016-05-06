@@ -1,4 +1,4 @@
-
+#include "screen.h"
 int main(int argc, char *args[]) {
 	for (int i = 0; i < argc; i+2) {
 		if (args[i] == "-f") {
@@ -23,5 +23,13 @@ int main(int argc, char *args[]) {
 			//Print error message plus help and exit?
 		}
 	}
+
+	Terminal terminal;
+	Screen screen(80, 24);
+	screen.fill(' ', TerminalColor(COLOR::BLACK, COLOR::WHITE));
+
+	screen.draw(terminal);
+
+	system("pause");
 	return 0;
 }
