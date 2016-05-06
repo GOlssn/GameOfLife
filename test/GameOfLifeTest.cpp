@@ -6,7 +6,7 @@ TEST_CASE("Cell class test") {
 		Cell cell(0,0,true);
 		REQUIRE(cell.isAlive() == true);
 	}
-	SECTION("Check isAliva function FALSE") {
+	SECTION("Check isAlive function FALSE") {
 		Cell cell(0, 0, false);
 		REQUIRE(cell.isAlive() == false);
 	}
