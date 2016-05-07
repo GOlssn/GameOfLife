@@ -1,14 +1,13 @@
-#include "screen.h"
+#include "GameEngine.h"
 #include <iostream>
 #include <string>
 int main(int argc, char *argv[]) {
-
+	GameEngine ge;
 	for (int i = 1; i < argc; i+=2) {
 		std::cout << argv[i] << std::endl;
 		std::string s = argv[i];
 		if (s == "-f") {
 			//read from file
-			std::cout << "HEJ";
 		}
 		else if (s == "-h") {
 			//show help
@@ -29,12 +28,8 @@ int main(int argc, char *argv[]) {
 			//Print error message plus help and exit?
 		}
 	}
-
-	Terminal terminal;
-	Screen screen(80, 24);
-	screen.fill(' ', TerminalColor(COLOR::BLACK, COLOR::WHITE));
-
-	screen.draw(terminal);
-	system("pause");
+	
+	ge.run();
+	
 	return 0;
 }
