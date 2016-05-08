@@ -10,7 +10,8 @@ int main(int argc, char *argv[]) {
 			//read from file
 		}
 		else if (s == "-h") {
-			//show help
+			ge.showHelp();
+			exit(1);
 		}
 		else if (s == "-or") {
 			//set odd rule
@@ -22,7 +23,7 @@ int main(int argc, char *argv[]) {
 			//set number of generations
 		}
 		else if (s == "-s") {
-			//set size of window W,H
+			ge.setWindowSize(argv[i + 1]);
 		}
 		else {
 			//Print error message plus help and exit?
