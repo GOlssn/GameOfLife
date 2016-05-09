@@ -1,35 +1,26 @@
 #include <catch.hpp>
 #include "Cell.h"
 #include "GameEngine.h"
+#include <fstream>
 
 TEST_CASE("Cell class test") {
 	SECTION("Check isAlive function TRUE") {
-		Cell cell(0,0,true);
+		Cell cell(true);
 		REQUIRE(cell.isAlive() == true);
 	}
 	SECTION("Check isAlive function FALSE") {
-		Cell cell(0, 0, false);
+		Cell cell(false);
 		REQUIRE(cell.isAlive() == false);
 	}
 
-	SECTION("getX()") {
-		Cell cell(1, 1, true);
-		REQUIRE(cell.getX() == 1); 
-	}
-
-	SECTION("getY()") {
-		Cell cell(1, 1, true);
-		REQUIRE(cell.getY() == 1);
-	}
-
 	SECTION("cell.kill() turn alive cell to false") {
-		Cell cell(1, 1, true);
+		Cell cell(true);
 		cell.kill();
 		REQUIRE(cell.isAlive() == false);
 	}
 
 	SECTION("cell.revive() turn dead cell to alive") {
-		Cell cell(0, 0, false);
+		Cell cell(false);
 		cell.revive();
 		REQUIRE(cell.isAlive() == true);
 	}
@@ -61,5 +52,15 @@ TEST_CASE("GameEngine Class test") {
 		ge.setGenerations("200");
 		REQUIRE(ge.getGenerations() == 200);
 	}
-	
+
+	SECTION("Test read from file") {
+		std::ofstream file;
+		file.open("test.txt");
+		file << "2x2\n0,0\n1,1";
+		file.close();
+		GameEngine ge;
+		Cell c;
+		ge.readStartCellsFromFile("test.txt");
+		REQUIRE(ge.getCell() == true);
+	}
 }

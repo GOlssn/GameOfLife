@@ -1,6 +1,10 @@
 #include "GameEngine.h"
 #include "screen.h"
 #include "Cell.h"
+#include <fstream>
+
+const std::string DELIM = ",";
+
 GameEngine::GameEngine()
 {
 
@@ -47,9 +51,54 @@ void GameEngine::setEvenRule(std::string rule)
 {
 }
 
-//Sätter startceller, läser från fil om startparameter används
+
+/**
+* @author Pontus Stenlund
+* @brief Reads from file and sets windowsize and which cells 
+* to be alive.
+* @param file is the string that holds the name of the file to be read.
+*/
 void GameEngine::readStartCellsFromFile(std::string file)
 {
+	/*
+	ex:
+	80x24
+	10,10
+	10,11
+	10,20 
+	etc
+	*/
+	std::ifstream inFile(file);
+	if (inFile.good())
+	{
+		std::string size;
+		getline(inFile, size);
+		setWindowSize(size);
+		//initCellMap();
+
+		std::string tmp;
+		std::size_t pos;
+		int posX;
+		int posY;
+		while (getline(inFile, tmp))
+		{
+			pos = tmp.find(DELIM);
+			posX = stoi(tmp.substr(0, pos));
+			tmp.erase(0, pos + DELIM.size());
+
+			posY = stoi(tmp);
+
+			cellMap[posY][posX]->revive();
+		}
+	}
+
+	inFile.close();
+}
+
+bool GameEngine::getCell()
+{
+	// hardcoded for testcase
+	return cellMap[1][1]->isAlive();
 }
 
 //Sätter startceller random
