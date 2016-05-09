@@ -1,5 +1,8 @@
+#include <vector>
+
 #include "GameEngine.h"
 #include "screen.h"
+#include "Cell.h"
 
 GameEngine::GameEngine()
 {
@@ -14,6 +17,7 @@ void GameEngine::run() {
 
 	screen.draw(terminal);
 	system("pause");
+
 }
 
 //Sätter storlek på fönstret ifall startparameter används

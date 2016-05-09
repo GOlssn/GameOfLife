@@ -1,6 +1,7 @@
 #include "GameEngine.h"
 #include <iostream>
 #include <string>
+
 int main(int argc, char *argv[]) {
 	GameEngine ge;
 	for (int i = 1; i < argc; i+=2) {
@@ -23,6 +24,7 @@ int main(int argc, char *argv[]) {
 			//set number of generations
 		}
 		else if (s == "-s") {
+			// -s 80x24
 			ge.setWindowSize(argv[i + 1]);
 		}
 		else {

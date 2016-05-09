@@ -3,6 +3,7 @@
 
 class Cell {
 	public:
+		Cell() { }
 		Cell(int pX, int pY, bool pAlive);
 		~Cell();
 		int getX() const;
