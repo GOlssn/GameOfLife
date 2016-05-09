@@ -7,6 +7,8 @@
 #define GAMEENGINE_H
 
 #include <string>
+#include <vector>
+#include "Cell.h"
 
 class GameEngine {
 	private:
@@ -18,7 +20,7 @@ class GameEngine {
 		int y = 24;
 		/**Member variale that holds the generations value (the times to iterate)*/
 		int generations = 500;
-		//vector<Cell> cellmap;
+		std::vector<std::vector<Cell*>> cellMap;
 	
 	public:
 		GameEngine();
@@ -29,6 +31,7 @@ class GameEngine {
 		void setOddRule(std::string rule);
 		void setEvenRule(std::string rule);
 		void readStartCellsFromFile(std::string file);
+		bool getCell();
 		void setStartCellsRandom();
 		int getX() const;
 		void setX(int pX);
