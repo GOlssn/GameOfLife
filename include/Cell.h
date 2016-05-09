@@ -3,15 +3,15 @@
 
 class Cell {
 	public:
-		Cell() { alive = false; }
-		Cell(bool pAlive);
+		Cell();
 		~Cell();
 		void kill();
 		void revive();
 		bool isAlive() const;
 
 	private:
-		bool alive;
+
+		bool alive = false;
 };
 
 #endif // CELL_H

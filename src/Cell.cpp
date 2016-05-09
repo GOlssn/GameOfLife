@@ -1,13 +1,16 @@
 #include "Cell.h"
 
-Cell::Cell(bool pAlive)
+
+Cell::Cell()
 {
-	alive = pAlive;
+
+	
 }
 
 Cell::~Cell()
 {
 }
+
 
 void Cell::kill()
 {

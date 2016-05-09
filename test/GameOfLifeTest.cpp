@@ -5,22 +5,25 @@
 
 TEST_CASE("Cell class test") {
 	SECTION("Check isAlive function TRUE") {
-		Cell cell(true);
+		Cell cell;
+		cell.revive();
 		REQUIRE(cell.isAlive() == true);
 	}
 	SECTION("Check isAlive function FALSE") {
-		Cell cell(false);
+		Cell cell;
 		REQUIRE(cell.isAlive() == false);
 	}
 
+
 	SECTION("cell.kill() turn alive cell to false") {
-		Cell cell(true);
+
+		Cell cell;
 		cell.kill();
 		REQUIRE(cell.isAlive() == false);
 	}
 
 	SECTION("cell.revive() turn dead cell to alive") {
-		Cell cell(false);
+		Cell cell;
 		cell.revive();
 		REQUIRE(cell.isAlive() == true);
 	}
@@ -52,6 +55,26 @@ TEST_CASE("GameEngine Class test") {
 		ge.setGenerations("200");
 		REQUIRE(ge.getGenerations() == 200);
 	}
+	SECTION("Test function initCellMap() rows and columns") {
+		GameEngine ge;
+		ge.initCellMap();
+		REQUIRE(ge.getVector().size() == 24);
+		REQUIRE(ge.getVector().at(0).size() == 80);
+	}
+	SECTION("Test function setStartCellsRandom(), if random alive cell works") {
+		GameEngine ge;
+		ge.setStartCellsRandom();
+		bool aliveCell = false;
+		for (auto row : ge.getVector()) {
+			for (auto cell : row) {
+				if (cell->isAlive()) {
+					aliveCell = true;
+				}
+			}
+		}
+		REQUIRE(aliveCell == true);
+	}
+	
 
 	SECTION("Test read from file") {
 		std::ofstream file;
@@ -63,4 +86,5 @@ TEST_CASE("GameEngine Class test") {
 		ge.readStartCellsFromFile("test.txt");
 		REQUIRE(ge.getCell() == true);
 	}
+	
 }
