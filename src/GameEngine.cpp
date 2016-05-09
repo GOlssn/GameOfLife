@@ -3,7 +3,6 @@
 #include "GameEngine.h"
 #include "screen.h"
 #include "Cell.h"
-
 GameEngine::GameEngine()
 {
 
@@ -11,6 +10,7 @@ GameEngine::GameEngine()
 
 void GameEngine::run() {
 	// Om cellmap.size() == 0 kör setStartCellsRandom()
+	
 	Terminal terminal;
 	Screen screen(x, y);
 	screen.fill(' ', TerminalColor(COLOR::BLACK, COLOR::WHITE));
@@ -32,6 +32,12 @@ void GameEngine::setWindowSize(std::string size)
 //Sätter antalet generationer ifall startparameter används
 void GameEngine::setGenerations(std::string pGenerations)
 {
+	generations = stoi(pGenerations);
+}
+
+int GameEngine::getGenerations() const
+{
+	return generations;
 }
 
 //Sätter oddRule om startparameter används

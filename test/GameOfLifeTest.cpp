@@ -56,5 +56,10 @@ TEST_CASE("GameEngine Class test") {
 		REQUIRE(ge.getX() == 10);
 		REQUIRE(ge.getY() == 15);
 	}
+	SECTION("Test function setGenerations and getGenerations") {
+		GameEngine ge;
+		ge.setGenerations("200");
+		REQUIRE(ge.getGenerations() == 200);
+	}
 	
 }

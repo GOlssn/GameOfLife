@@ -1,12 +1,13 @@
+/**
+* @author: Daniel Jennebo, Gustav Olsson, Pontus Stenlund
+* This class handles runtime of program
+*/
+
 #ifndef GAMEENGINE_H
 #define GAMEENGINE_H
 
 #include <string>
 
-
-/**
-* This class handles runtime of program
-*/
 class GameEngine {
 	private:
 		//Rule oddRule = new Rule;
@@ -15,6 +16,7 @@ class GameEngine {
 		int x = 80;
 		/**Member variable that holds the y-axels value of window*/
 		int y = 24;
+		/**Member variale that holds the generations value (the times to iterate)*/
 		int generations = 500;
 		//vector<Cell> cellmap;
 	
@@ -23,6 +25,7 @@ class GameEngine {
 		void run();
 		void setWindowSize(std::string size);
 		void setGenerations(std::string pGenerations);
+		int getGenerations() const;
 		void setOddRule(std::string rule);
 		void setEvenRule(std::string rule);
 		void readStartCellsFromFile(std::string file);
@@ -32,8 +35,6 @@ class GameEngine {
 		int getY() const;
 		void setY(int pY);
 		std::string showHelp();
-
-
 
 };
 
