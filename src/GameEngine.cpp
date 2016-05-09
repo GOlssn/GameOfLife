@@ -105,7 +105,7 @@ void GameEngine::readStartCellsFromFile(std::string file)
 		std::string size;
 		getline(inFile, size);
 		setWindowSize(size);
-		//initCellMap();
+		initCellMap();
 
 		std::string tmp;
 		std::size_t pos;
