@@ -25,13 +25,16 @@ set(SRC_LIST
     src/main.cpp
     src/Cell.cpp
     src/Screen.cpp
+	src/GameEngine.cpp
 )
 
 set(TEST_LIST
     src/Screen.cpp
     src/Cell.cpp
+	src/GameEngine.cpp
     test/CatchMain.cpp
     test/GameOfLifeTest.cpp
+		
 )
 # Om Debug mode
 if (CMAKE_BUILD_TYPE STREQUAL "Debug")

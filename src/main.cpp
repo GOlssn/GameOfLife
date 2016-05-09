@@ -1,36 +1,36 @@
-#include "screen.h"
-
-int main(int argc, char *args[]) {
-	for (int i = 0; i < argc; i+2) {
-		if (args[i] == "-f") {
+#include "GameEngine.h"
+#include <iostream>
+#include <string>
+int main(int argc, char *argv[]) {
+	GameEngine ge;
+	for (int i = 1; i < argc; i+=2) {
+		std::cout << argv[i] << std::endl;
+		std::string s = argv[i];
+		if (s == "-f") {
 			//read from file
 		}
-		else if (args[i] == "-h") {
-			//show help
+		else if (s == "-h") {
+			ge.showHelp();
+			exit(1);
 		}
-		else if (args[i] == "-or") {
+		else if (s == "-or") {
 			//set odd rule
 		}
-		else if (args[i] == "-er") {
+		else if (s == "-er") {
 			//set even rule
 		}
-		else if (args[i] == "-g") {
+		else if (s == "-g") {
 			//set number of generations
 		}
-		else if (args[i] == "-s") {
-			//set size of window W,H
+		else if (s == "-s") {
+			ge.setWindowSize(argv[i + 1]);
 		}
 		else {
 			//Print error message plus help and exit?
 		}
 	}
-
-	Terminal terminal;
-	Screen screen(80, 24);
-	screen.fill(' ', TerminalColor(COLOR::BLACK, COLOR::WHITE));
-
-	screen.draw(terminal);
-
-	system("pause");
+	
+	ge.run();
+	
 	return 0;
 }
