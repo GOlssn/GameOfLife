@@ -1,4 +1,5 @@
 #include "screen.h"
+
 int main(int argc, char *args[]) {
 	for (int i = 0; i < argc; i+2) {
 		if (args[i] == "-f") {
