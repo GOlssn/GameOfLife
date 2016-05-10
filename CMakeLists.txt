@@ -27,6 +27,7 @@ set(SRC_LIST
     src/Screen.cpp
 	src/GameEngine.cpp
 	src/ConwayRule.cpp
+	src/RuleFactory.cpp
 )
 
 set(TEST_LIST
@@ -36,6 +37,7 @@ set(TEST_LIST
     test/CatchMain.cpp
     test/GameOfLifeTest.cpp
 	src/ConwayRule.cpp
+	src/RuleFactory.cpp
 )
 
 # Om Debug mode

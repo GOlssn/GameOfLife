@@ -9,7 +9,7 @@
 #include<vector>
 #include <string>
 #include "Cell.h"
-#include "Rule.h"
+#include "ConwayRule.h"
 
 class GameEngine {
 	private:
@@ -31,13 +31,14 @@ class GameEngine {
 	
 	public:
 		GameEngine();
+		~GameEngine();
 		void run();
 		void setWindowSize(std::string size);
 		void setGenerations(std::string pGenerations);
 		int getGenerations() const;
 
-		void setOddRule(Rule* rule);
-		void setEvenRule(Rule* rule);
+		void setOddRule(Rule *rule);
+		void setEvenRule(Rule *rule);
 		void readStartCellsFromFile(std::string file);
 		bool getCell();
 		void setStartCellsRandom();

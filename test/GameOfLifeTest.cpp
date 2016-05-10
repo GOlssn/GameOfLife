@@ -1,8 +1,8 @@
 #include <catch.hpp>
-#include "Cell.h"
 #include "GameEngine.h"
 #include "ConwayRule.h"
 #include <fstream>
+#include "memstat.hpp"
 
 TEST_CASE("Cell class test") {
 	SECTION("Check isAlive function TRUE") {
@@ -72,12 +72,18 @@ TEST_CASE("GameEngine Class test") {
 		}
 		REQUIRE(aliveCell == true);
 	}
+	SECTION("Test destructor") {
+		GameEngine ge;
+		ge.initCellMap();
+		ge.~GameEngine();
+		REQUIRE(ge.getVector().size() == 0);
+	}
 	
 
 }
 
 TEST_CASE("Testing Conway Rule") {
-
+	
 	std::vector<std::vector<Cell*>> cellMap;
 	std::vector<Cell*> cellMapRow;
 
@@ -108,9 +114,14 @@ TEST_CASE("Testing Conway Rule") {
 
 		// When rules are applied
 		std::vector<std::vector<Cell*>> newCellMap = rule->applyRules(cellMap);
-
+		
 		// Then that cell should be dead
 		REQUIRE(!newCellMap[1][1]->isAlive());
+		for (auto row : newCellMap) {
+			for (auto cell : row) {
+				delete cell;
+			}
+		}
 
 	}
 
@@ -126,6 +137,11 @@ TEST_CASE("Testing Conway Rule") {
 
 		// Then that cell should still be alive
 		REQUIRE(newCellMap[1][1]->isAlive());
+		for (auto row : newCellMap) {
+			for (auto cell : row) {
+				delete cell;
+			}
+		}
 	}
 
 	SECTION("A living cell with more than three living neighbours will die") {
@@ -142,6 +158,11 @@ TEST_CASE("Testing Conway Rule") {
 
 		// Then that cell should be dead
 		REQUIRE(!newCellMap[1][1]->isAlive());
+		for (auto row : newCellMap) {
+			for (auto cell : row) {
+				delete cell;
+			}
+		}
 	}
 
 	SECTION("A dead cell with exactly three neighbours is alive after applying rules") {
@@ -157,6 +178,11 @@ TEST_CASE("Testing Conway Rule") {
 
 		// Then that cell should be alive
 		REQUIRE(newCellMap[1][1]->isAlive());
+		for (auto row : newCellMap) {
+			for (auto cell : row) {
+				delete cell;
+			}
+		}
 	}
 
 	SECTION("Testing grid wrap functionality") {
@@ -178,6 +204,11 @@ TEST_CASE("Testing Conway Rule") {
 		REQUIRE(newCellMap[2][0]->isAlive());
 		REQUIRE(newCellMap[2][1]->isAlive());
 		REQUIRE(newCellMap[2][2]->isAlive());
+		for (auto row : newCellMap) {
+			for (auto cell : row) {
+				delete cell;
+			}
+		}
 	}
 
 	SECTION("Test read from file") {
@@ -190,5 +221,12 @@ TEST_CASE("Testing Conway Rule") {
 		ge.readStartCellsFromFile("test.txt");
 		REQUIRE(ge.getCell() == true);
 	}
+
+	for (auto row : cellMap) {
+		for (auto cell : row) {
+			delete cell;
+		}
+	}
+	delete rule;
 	
 }
