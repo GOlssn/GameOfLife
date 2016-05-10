@@ -205,7 +205,7 @@ void GameEngine::initCellMap() {
 }
 
 
-
+/**
 * @author Daniel Jennebo.
 * @brief Function returns membervariable x.
 * @return membervariable x as int.
