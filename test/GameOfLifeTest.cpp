@@ -81,19 +81,19 @@ TEST_CASE("Testing Conway Rule") {
 	std::vector<std::vector<Cell*>> cellMap;
 	std::vector<Cell*> cellMapRow;
 
-	cellMapRow.push_back(new Cell(0, 1, false));
-	cellMapRow.push_back(new Cell(1, 0, false));
-	cellMapRow.push_back(new Cell(0, 1, false));
+	cellMapRow.push_back(new Cell());
+	cellMapRow.push_back(new Cell());
+	cellMapRow.push_back(new Cell());
 	cellMap.push_back(cellMapRow);
 	cellMapRow.clear();
-	cellMapRow.push_back(new Cell(0, 1, false));
-	cellMapRow.push_back(new Cell(1, 1, false));
-	cellMapRow.push_back(new Cell(0, 1, false));
+	cellMapRow.push_back(new Cell());
+	cellMapRow.push_back(new Cell());
+	cellMapRow.push_back(new Cell());
 	cellMap.push_back(cellMapRow);
 	cellMapRow.clear();
-	cellMapRow.push_back(new Cell(0, 1, false));
-	cellMapRow.push_back(new Cell(0, 1, false));
-	cellMapRow.push_back(new Cell(0, 1, false));
+	cellMapRow.push_back(new Cell());
+	cellMapRow.push_back(new Cell());
+	cellMapRow.push_back(new Cell());
 	cellMap.push_back(cellMapRow);
 	cellMapRow.clear();
 

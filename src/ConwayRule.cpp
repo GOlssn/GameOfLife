@@ -13,7 +13,7 @@ vector<vector<Cell*>> ConwayRule::applyRules(vector<vector<Cell*>> &cellMap) {
 
 	for (vector<Cell*> row : cellMap) {
 		for (Cell* cell : row) {
-			newCellMapRow.push_back(new Cell(0, 0, false));
+			newCellMapRow.push_back(new Cell());
 		}
 		newCellMap.push_back(newCellMapRow);
 		newCellMapRow.clear();

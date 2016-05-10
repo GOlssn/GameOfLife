@@ -1,4 +1,5 @@
-#include <vector>#include "GameEngine.h"
+#include <vector>
+#include "GameEngine.h"
 #include "screen.h"
 #include "Cell.h"
 #include <random>
