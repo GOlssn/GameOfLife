@@ -2,6 +2,7 @@
 #include "memstat.hpp"
 #include <iostream>
 #include <string>
+
 int main(int argc, char *argv[]) {
 	GameEngine ge;
 	//RuleFactory rf;
@@ -27,6 +28,7 @@ int main(int argc, char *argv[]) {
 			ge.setGenerations(argv[i+1]);
 		}
 		else if ((s == "-s") && !readFromFile) {
+			// -s 80x24
 			ge.setWindowSize(argv[i + 1]);
 		}
 		else {

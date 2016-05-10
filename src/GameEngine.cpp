@@ -1,4 +1,4 @@
-#include "..\include\GameEngine.h"
+#include <vector>
 #include "GameEngine.h"
 #include "screen.h"
 #include "Cell.h"
@@ -62,7 +62,6 @@ int GameEngine::getGenerations() const
 	return generations;
 }
 
-
 /**
 * Function sets membervariable oddRule value to params value. 
 * @param rule contains a rule object.
@@ -71,7 +70,6 @@ void GameEngine::setOddRule(/*Rule rule*/)
 {
 	//oddRule = rule;
 }
-
 
 /**
 * Function sets membervariable evenRule value to params value.
@@ -150,7 +148,6 @@ void GameEngine::setStartCellsRandom()
 	}
 }
 
-
 /**
 * Function initiate the cellMap vector with dead cells
 */
@@ -183,7 +180,6 @@ void GameEngine::setX(int pX)
 	x = pX;
 }
 
-
 /**
 * Function returns membervariable y.
 * @return membervariable y as int.
@@ -201,7 +197,6 @@ void GameEngine::setY(int pY)
 {
 	y = pY;
 }
-
 
 /**
 * Function returns a string with help.

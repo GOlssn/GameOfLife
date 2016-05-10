@@ -26,6 +26,7 @@ set(SRC_LIST
     src/Cell.cpp
     src/Screen.cpp
 	src/GameEngine.cpp
+	src/ConwayRule.cpp
 )
 
 set(TEST_LIST
@@ -34,8 +35,9 @@ set(TEST_LIST
 	src/GameEngine.cpp
     test/CatchMain.cpp
     test/GameOfLifeTest.cpp
-		
+	src/ConwayRule.cpp
 )
+
 # Om Debug mode
 if (CMAKE_BUILD_TYPE STREQUAL "Debug")
     # Skriv ut meddelandet Debug mode samt sätt kompilator

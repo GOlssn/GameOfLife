@@ -11,6 +11,7 @@ class Cell {
 
 	private:
 
+
 		bool alive = false;
 };
 
