@@ -27,6 +27,7 @@ class GameEngine {
 	
 	public:
 		GameEngine();
+		~GameEngine();
 		void run();
 		void setWindowSize(std::string size);
 		void setGenerations(std::string pGenerations);

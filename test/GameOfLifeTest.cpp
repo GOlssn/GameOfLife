@@ -71,6 +71,12 @@ TEST_CASE("GameEngine Class test") {
 		}
 		REQUIRE(aliveCell == true);
 	}
+	SECTION("Test destructor") {
+		GameEngine ge;
+		ge.initCellMap();
+		ge.~GameEngine();
+		REQUIRE(ge.getVector().size() == 0);
+	}
 	
 	
 }

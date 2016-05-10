@@ -1,6 +1,7 @@
 #include "GameEngine.h"
 #include <iostream>
 #include <string>
+#include "memstat.hpp"
 int main(int argc, char *argv[]) {
 	GameEngine ge;
 	for (int i = 1; i < argc; i+=2) {
