@@ -1,4 +1,5 @@
 #include "GameEngine.h"
+#include "memstat.hpp"
 #include <iostream>
 #include <string>
 int main(int argc, char *argv[]) {
