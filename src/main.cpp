@@ -30,6 +30,9 @@ int main(int argc, char *argv[]) {
 		}
 		else {
 			//Print error message plus help and exit?
+			std::cout << "Unknown argument was used, here is a list of known arguments" << std::endl << std::endl;
+			ge.showHelp();
+			exit(1);
 		}
 	}
 	
