@@ -1,3 +1,6 @@
+#ifndef RULE_H
+#define RULE_H
+
 #include <vector>
 #include "Cell.h"
 
@@ -9,3 +12,7 @@ class Rule {
 		virtual ~Rule() { }
 		virtual vector<vector<Cell*>> applyRules(vector<vector<Cell*>> &cellMap) = 0;
 };
+
+#endif // !RULE_H
+
+
