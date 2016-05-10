@@ -1,12 +1,13 @@
 #include "RuleFactory.h"
+#include <algorithm>
 
 RuleFactory::RuleFactory() {
 	
 }
 
-/*static Rule RuleFactory::createRule(std::string rule) {
-	//omvandla tolower?
+Rule* RuleFactory::createRule(std::string rule) {
+	std::transform(rule.begin(), rule.end(), rule.begin(), ::tolower);
 	if (rule == "conway") {
-		//Return conwayrule;
+		return new ConwayRule();
 	}
-}*/
+}

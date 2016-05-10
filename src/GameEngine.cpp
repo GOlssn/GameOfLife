@@ -14,12 +14,13 @@ const std::string DELIM = ",";
 */
 GameEngine::GameEngine()
 {
-
+	oddRule = new ConwayRule();
+	evenRule = new ConwayRule();
 }
 
 /**
 * @author Daniel Jennebo.
-* @brief Destructor for GameEngine class. Deletes pointers in cellMap
+* @brief Destructor for GameEngine class. Deletes pointers in cellMap and rule pointer members
 */
 GameEngine::~GameEngine() {
 	for (auto row : cellMap) {
@@ -28,6 +29,9 @@ GameEngine::~GameEngine() {
 		}
 	}
 	cellMap.clear();
+	delete oddRule;
+	delete evenRule;
+
 }
 
 /**
@@ -89,9 +93,10 @@ int GameEngine::getGenerations() const
 * @brief Function sets membervariable oddRule value to params value. 
 * @param rule contains a rule object.
 */
-void GameEngine::setOddRule(/*Rule rule*/)
+void GameEngine::setOddRule(Rule *rule)
 {
-	//oddRule = rule;
+	delete oddRule;
+	oddRule = rule;
 }
 
 /**
@@ -100,9 +105,10 @@ void GameEngine::setOddRule(/*Rule rule*/)
 * @brief Function sets membervariable evenRule value to params value.
 * @param rule contains a rule object.
 */
-void GameEngine::setEvenRule(/*Rule rule*/)
+void GameEngine::setEvenRule(Rule *rule)
 {
-	//evenRule = rule;
+	delete evenRule;
+	evenRule = rule;
 }
 
 
