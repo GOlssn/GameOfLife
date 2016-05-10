@@ -2,35 +2,26 @@
 #include "Cell.h"
 #include "GameEngine.h"
 #include "ConwayRule.h"
+#include <fstream>
 
 TEST_CASE("Cell class test") {
 	SECTION("Check isAlive function TRUE") {
-		Cell cell(0,0,true);
+		Cell cell;
+		cell.revive();
 		REQUIRE(cell.isAlive() == true);
 	}
 	SECTION("Check isAlive function FALSE") {
-		Cell cell(0, 0, false);
+		Cell cell;
 		REQUIRE(cell.isAlive() == false);
 	}
-
-	SECTION("getX()") {
-		Cell cell(1, 1, true);
-		REQUIRE(cell.getX() == 1); 
-	}
-
-	SECTION("getY()") {
-		Cell cell(1, 1, true);
-		REQUIRE(cell.getY() == 1);
-	}
-
 	SECTION("cell.kill() turn alive cell to false") {
-		Cell cell(1, 1, true);
+		Cell cell;
 		cell.kill();
 		REQUIRE(cell.isAlive() == false);
 	}
 
 	SECTION("cell.revive() turn dead cell to alive") {
-		Cell cell(0, 0, false);
+		Cell cell;
 		cell.revive();
 		REQUIRE(cell.isAlive() == true);
 	}
@@ -62,7 +53,27 @@ TEST_CASE("GameEngine Class test") {
 		ge.setGenerations("200");
 		REQUIRE(ge.getGenerations() == 200);
 	}
+	SECTION("Test function initCellMap() rows and columns") {
+		GameEngine ge;
+		ge.initCellMap();
+		REQUIRE(ge.getVector().size() == 24);
+		REQUIRE(ge.getVector().at(0).size() == 80);
+	}
+	SECTION("Test function setStartCellsRandom(), if random alive cell works") {
+		GameEngine ge;
+		ge.setStartCellsRandom();
+		bool aliveCell = false;
+		for (auto row : ge.getVector()) {
+			for (auto cell : row) {
+				if (cell->isAlive()) {
+					aliveCell = true;
+				}
+			}
+		}
+		REQUIRE(aliveCell == true);
+	}
 	
+
 }
 
 TEST_CASE("Testing Conway Rule") {
@@ -169,4 +180,15 @@ TEST_CASE("Testing Conway Rule") {
 		REQUIRE(newCellMap[2][2]->isAlive());
 	}
 
+	SECTION("Test read from file") {
+		std::ofstream file;
+		file.open("test.txt");
+		file << "2x2\n0,0\n1,1";
+		file.close();
+		GameEngine ge;
+		Cell c;
+		ge.readStartCellsFromFile("test.txt");
+		REQUIRE(ge.getCell() == true);
+	}
+	
 }
