@@ -13,7 +13,6 @@ int main(int argc, char *argv[]) {
 			readFromFile = true;
 		}
 		else if (s == "-h") {
-			//2 leaks
 			std::cout << ge.showHelp();
 			return 0;
 		}
