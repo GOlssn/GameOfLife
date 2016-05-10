@@ -8,14 +8,13 @@ int main(int argc, char *argv[]) {
 	//RuleFactory rf;
 	bool readFromFile = false;
 	for (int i = 1; i < argc; i+=2) {
-		std::cout << argv[i] << std::endl;
 		std::string s = argv[i];
 		if (s == "-f") {
 			ge.readStartCellsFromFile(argv[i + 1]);
 			readFromFile = true;
 		}
 		else if (s == "-h") {
-			ge.showHelp();
+			std::cout << ge.showHelp() << std::endl;
 			exit(1);
 		}
 		else if (s == "-or") {
@@ -34,7 +33,7 @@ int main(int argc, char *argv[]) {
 		else {
 			//Print error message plus help and exit?
 			std::cout << "Unknown argument was used, here is a list of known arguments" << std::endl << std::endl;
-			ge.showHelp();
+			std::cout << ge.showHelp() << std::endl;
 			exit(1);
 		}
 	}

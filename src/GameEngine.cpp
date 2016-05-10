@@ -66,18 +66,18 @@ int GameEngine::getGenerations() const
 * Function sets membervariable oddRule value to params value. 
 * @param rule contains a rule object.
 */
-void GameEngine::setOddRule(/*Rule rule*/)
+void GameEngine::setOddRule(Rule* rule)
 {
-	//oddRule = rule;
+	oddRule = rule;
 }
 
 /**
 * Function sets membervariable evenRule value to params value.
 * @param rule contains a rule object.
 */
-void GameEngine::setEvenRule(/*Rule rule*/)
+void GameEngine::setEvenRule(Rule* rule)
 {
-	//evenRule = rule;
+	evenRule = rule;
 }
 
 
