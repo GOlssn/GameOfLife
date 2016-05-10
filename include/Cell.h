@@ -10,6 +10,8 @@ class Cell {
 		bool isAlive() const;
 
 	private:
+
+
 		bool alive = false;
 };
 
