@@ -1,6 +1,7 @@
 #include <catch.hpp>
 #include "Cell.h"
 #include "GameEngine.h"
+#include "ConwayRule.h"
 
 TEST_CASE("Cell class test") {
 	SECTION("Check isAlive function TRUE") {
@@ -62,4 +63,110 @@ TEST_CASE("GameEngine Class test") {
 		REQUIRE(ge.getGenerations() == 200);
 	}
 	
+}
+
+TEST_CASE("Testing Conway Rule") {
+
+	std::vector<std::vector<Cell*>> cellMap;
+	std::vector<Cell*> cellMapRow;
+
+	cellMapRow.push_back(new Cell(0, 1, false));
+	cellMapRow.push_back(new Cell(1, 0, false));
+	cellMapRow.push_back(new Cell(0, 1, false));
+	cellMap.push_back(cellMapRow);
+	cellMapRow.clear();
+	cellMapRow.push_back(new Cell(0, 1, false));
+	cellMapRow.push_back(new Cell(1, 1, false));
+	cellMapRow.push_back(new Cell(0, 1, false));
+	cellMap.push_back(cellMapRow);
+	cellMapRow.clear();
+	cellMapRow.push_back(new Cell(0, 1, false));
+	cellMapRow.push_back(new Cell(0, 1, false));
+	cellMapRow.push_back(new Cell(0, 1, false));
+	cellMap.push_back(cellMapRow);
+	cellMapRow.clear();
+
+	Rule *rule = new ConwayRule();
+
+	SECTION("A living cell that has less than two living neighbours will die") {
+
+		// Given there is one cell at coordinates 1,1 that is alive
+		// And no more than ONE of the surrounding cells are alive
+		cellMap[1][1]->revive();
+		cellMap[0][1]->revive();
+
+		// When rules are applied
+		std::vector<std::vector<Cell*>> newCellMap = rule->applyRules(cellMap);
+
+		// Then that cell should be dead
+		REQUIRE(!newCellMap[1][1]->isAlive());
+
+	}
+
+	SECTION("A living cell with two to three living neighbours will survive") {
+		// Given there is one cell at coordinates 1,1 that is alive
+		// And two of its neighbours are alive
+		cellMap[1][1]->revive();
+		cellMap[0][0]->revive();
+		cellMap[0][1]->revive();
+
+		// When the rules are applied
+		std::vector<std::vector<Cell*>> newCellMap = rule->applyRules(cellMap);
+
+		// Then that cell should still be alive
+		REQUIRE(newCellMap[1][1]->isAlive());
+	}
+
+	SECTION("A living cell with more than three living neighbours will die") {
+		// Given there is one cell at coordinates 1,1 that is alive
+		// And four of its neighbours are alive
+		cellMap[1][1]->revive();
+		cellMap[0][0]->revive();
+		cellMap[0][1]->revive();
+		cellMap[1][0]->revive();
+		cellMap[1][2]->revive();
+
+		// When the rules are applied
+		std::vector<std::vector<Cell*>> newCellMap = rule->applyRules(cellMap);
+
+		// Then that cell should be dead
+		REQUIRE(!newCellMap[1][1]->isAlive());
+	}
+
+	SECTION("A dead cell with exactly three neighbours is alive after applying rules") {
+		// Given there is one cell at coordinates 1,1 that is dead
+		// And exactly three of its neighbours are alive
+		cellMap[1][1]->kill();
+		cellMap[0][0]->revive();
+		cellMap[0][1]->revive();
+		cellMap[1][0]->revive();
+
+		// When the rules are applied
+		std::vector<std::vector<Cell*>> newCellMap = rule->applyRules(cellMap);
+
+		// Then that cell should be alive
+		REQUIRE(newCellMap[1][1]->isAlive());
+	}
+
+	SECTION("Testing grid wrap functionality") {
+		// Given there are cells at coordinates 1,1 | 0,0 | 0,1 that are alive
+		cellMap[0][0]->revive();
+		cellMap[0][1]->revive();
+		cellMap[1][1]->revive();
+
+		// When rules are applied
+		std::vector<std::vector<Cell*>> newCellMap = rule->applyRules(cellMap);
+
+		// Then all cells should be alive
+		REQUIRE(newCellMap[0][0]->isAlive());
+		REQUIRE(newCellMap[0][1]->isAlive());
+		REQUIRE(newCellMap[0][2]->isAlive());
+		REQUIRE(newCellMap[1][0]->isAlive());
+		REQUIRE(newCellMap[1][1]->isAlive());
+		REQUIRE(newCellMap[1][2]->isAlive());
+		REQUIRE(newCellMap[2][0]->isAlive());
+		REQUIRE(newCellMap[2][1]->isAlive());
+		REQUIRE(newCellMap[2][2]->isAlive());
+	}
+
 }
