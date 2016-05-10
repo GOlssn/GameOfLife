@@ -1,21 +1,44 @@
-#include "..\include\GameEngine.h"
+
+#include <vector>
 #include "GameEngine.h"
 #include "screen.h"
 #include "Cell.h"
 #include <random>
+#include <fstream>
 
+const std::string DELIM = ",";
 /**
-* Default constuct for GameEngine class
+
+* @author Daniel Jennebo.
+* @brief Default constuct for GameEngine class.
 */
 GameEngine::GameEngine()
 {
+	oddRule = new ConwayRule();
+	evenRule = new ConwayRule();
+}
+
+/**
+* @author Daniel Jennebo.
+* @brief Destructor for GameEngine class. Deletes pointers in cellMap and rule pointer members
+*/
+GameEngine::~GameEngine() {
+	for (auto row : cellMap) {
+		for (auto cell : row) {
+			delete cell;
+		}
+	}
+	cellMap.clear();
+	delete oddRule;
+	delete evenRule;
 
 }
 
 /**
-* Function handles the programs runtime
+* @brief Function handles the programs runtime.
 */
 void GameEngine::run() {
+
 	if (cellMap.size() == 0) {
 		setStartCellsRandom();
 	}
@@ -27,9 +50,12 @@ void GameEngine::run() {
 	system("pause");
 }
 
+
 /**
-* Function sets x and y values to determine size of terminal window
-* @param size contains a string with "WIDTHxHEIGHT"
+
+* @author Daniel Jennebo.
+* @brief Function sets x and y values to determine size of terminal window.
+* @param size contains a string with "WIDTHxHEIGHT".
 */
 void GameEngine::setWindowSize(std::string size)
 {
@@ -39,8 +65,11 @@ void GameEngine::setWindowSize(std::string size)
 	setY(stoi(size.substr(size.find("x")+1)));
 }
 
+
 /**
-* Function sets number of generations to iterate trough. Sets the membervariable to params value.
+
+* @author Daniel Jennebo.
+* @brief Function sets number of generations to iterate trough. Sets the membervariable to params value.
 * @param pGenerations contains a string with number of generations.
 */
 void GameEngine::setGenerations(std::string pGenerations)
@@ -49,7 +78,9 @@ void GameEngine::setGenerations(std::string pGenerations)
 }
 
 /**
-* Function returns membervariable generations.
+
+* @author Daniel Jennebo.
+* @brief Function returns membervariable generations.
 * @return membervariable generations as int.
 */
 int GameEngine::getGenerations() const
@@ -58,31 +89,84 @@ int GameEngine::getGenerations() const
 }
 
 /**
-* Function sets membervariable oddRule value to params value. 
+* @author Daniel Jennebo.
+* @brief Function sets membervariable oddRule value to params value. 
 * @param rule contains a rule object.
 */
-void GameEngine::setOddRule(/*Rule rule*/)
+void GameEngine::setOddRule(Rule *rule)
 {
-	//oddRule = rule;
+	delete oddRule;
+	oddRule = rule;
 }
 
 /**
-* Function sets membervariable evenRule value to params value.
+
+* @author Daniel Jennebo.
+* @brief Function sets membervariable evenRule value to params value.
 * @param rule contains a rule object.
 */
-void GameEngine::setEvenRule(/*Rule rule*/)
+void GameEngine::setEvenRule(Rule *rule)
 {
-	//evenRule = rule;
+	delete evenRule;
+	evenRule = rule;
 }
 
-//Sätter startceller, läser från fil om startparameter används
+
+
+/**
+* @author Pontus Stenlund
+* @brief Reads from file and sets windowsize and which cells 
+* to be alive.
+* @param file is the string that holds the name of the file to be read.
+*/
 void GameEngine::readStartCellsFromFile(std::string file)
 {
+	/*
+	ex:
+	80x24
+	10,10
+	10,11
+	10,20 
+	etc
+	*/
+	std::ifstream inFile(file);
+	if (inFile.good())
+	{
+		std::string size;
+		getline(inFile, size);
+		setWindowSize(size);
+		initCellMap();
 
+		std::string tmp;
+		std::size_t pos;
+		int posX;
+		int posY;
+		while (getline(inFile, tmp))
+		{
+			pos = tmp.find(DELIM);
+			posX = stoi(tmp.substr(0, pos));
+			tmp.erase(0, pos + DELIM.size());
+
+			posY = stoi(tmp);
+
+			cellMap[posY][posX]->revive();
+		}
+	}
+
+	inFile.close();
+}
+
+
+bool GameEngine::getCell()
+{
+	// hardcoded for testcase
+	return cellMap[1][1]->isAlive();
 }
 
 /**
-* Function make random number of cells alive at random places in cellMap
+
+* @author Daniel Jennebo.
+* @brief Function make random number of cells alive at random places in cellMap.
 */
 void GameEngine::setStartCellsRandom()
 {
@@ -99,7 +183,9 @@ void GameEngine::setStartCellsRandom()
 }
 
 /**
-* Function initiate the cellMap vector with dead cells
+
+* @author Daniel Jennebo.
+* @brief Function initiate the cellMap vector with dead cells.
 */
 void GameEngine::initCellMap() {
 	std::vector<Cell*> tmp;
@@ -113,7 +199,9 @@ void GameEngine::initCellMap() {
 }
 
 /**
-* Function returns membervariable x.
+
+* @author Daniel Jennebo.
+* @brief Function returns membervariable x.
 * @return membervariable x as int.
 */
 int GameEngine::getX() const
@@ -122,7 +210,9 @@ int GameEngine::getX() const
 }
 
 /**
-* Function sets membervariable x to params value.
+
+* @author Daniel Jennebo.
+* @brief Function sets membervariable x to params value.
 * @param pX (int) contains number of columns.
 */
 void GameEngine::setX(int pX)
@@ -131,7 +221,9 @@ void GameEngine::setX(int pX)
 }
 
 /**
-* Function returns membervariable y.
+
+* @author Daniel Jennebo.
+* @brief Function returns membervariable y.
 * @return membervariable y as int.
 */
 int GameEngine::getY() const
@@ -140,7 +232,9 @@ int GameEngine::getY() const
 }
 
 /**
-* Function sets membervariable y to params value.
+
+* @author Daniel Jennebo.
+* @brief Function sets membervariable y to params value.
 * @param pY (int) contains number of columns.
 */
 void GameEngine::setY(int pY)
@@ -149,7 +243,9 @@ void GameEngine::setY(int pY)
 }
 
 /**
-* Function returns a string with help.
+
+* @author Daniel Jennebo.
+* @brief Function returns a string with help.
 * @return help - Contains help information.
 */
 std::string GameEngine::showHelp()
