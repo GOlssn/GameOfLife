@@ -1,6 +1,7 @@
 #include <catch.hpp>
 #include "GameEngine.h"
 #include "ConwayRule.h"
+#include "PontusRule.h"
 #include <fstream>
 #include "memstat.hpp"
 #include "DanielRule.h"
@@ -97,12 +98,14 @@ TEST_CASE("GameEngine Class test") {
 		}
 		REQUIRE(aliveCell == true);
 	}
+
 	SECTION("Test read from file") {
 		std::ofstream file;
 		file.open("test.txt");
 		file << "2x2\n0,0\n1,1";
 		file.close();
 		GameEngine ge;
+
 		ge.readStartCellsFromFile("test.txt");
 		REQUIRE(ge.getCell() == true);
 	}
@@ -237,6 +240,7 @@ TEST_CASE("Testing Conway Rule") {
 			}
 		}
 	}
+
 	delete rule;
 }
 
@@ -359,4 +363,431 @@ TEST_CASE("Testing Daniel Rule") {
 	}
 
 	delete drule;
+
+}
+
+TEST_CASE("Testing Pontus Rule") {
+
+	std::vector<std::vector<Cell*>> cellMap;
+	std::vector<Cell*> cellMapRow;
+
+	cellMapRow.push_back(new Cell());
+	cellMapRow.push_back(new Cell());
+	cellMapRow.push_back(new Cell());
+	cellMap.push_back(cellMapRow);
+	cellMapRow.clear();
+	cellMapRow.push_back(new Cell());
+	cellMapRow.push_back(new Cell());
+	cellMapRow.push_back(new Cell());
+	cellMap.push_back(cellMapRow);
+	cellMapRow.clear();
+	cellMapRow.push_back(new Cell());
+	cellMapRow.push_back(new Cell());
+	cellMapRow.push_back(new Cell());
+	cellMap.push_back(cellMapRow);
+	cellMapRow.clear();
+
+	Rule *rule = new PontusRule();
+
+	SECTION("A living cell that has one neighbour vill live") {
+
+		// Given there is one cell at coordinates 1,1 that is alive
+		cellMap[0][1]->revive();
+		cellMap[1][1]->revive();
+		
+
+		// When rules are applied
+		std::vector<std::vector<Cell*>> newCellMap = rule->applyRules(cellMap);
+
+		// Then that cell should be alive
+		REQUIRE(newCellMap[1][1]->isAlive());
+
+		for (auto row : newCellMap) {
+			for (auto cell : row) {
+				delete cell;
+			}
+		}
+
+	}
+
+	SECTION("A living cell that has two neighbours vill live") {
+
+		// Given there is one cell at coordinates 1,1 that is alive
+		cellMap[0][0]->revive();
+		cellMap[0][1]->revive();
+		cellMap[1][1]->revive();
+
+
+		// When rules are applied
+		std::vector<std::vector<Cell*>> newCellMap = rule->applyRules(cellMap);
+
+		// Then that cell should be alive
+		REQUIRE(newCellMap[1][1]->isAlive());
+
+		for (auto row : newCellMap) {
+			for (auto cell : row) {
+				delete cell;
+			}
+		}
+
+	}
+
+	SECTION("A living cell that has three neighbours vill live") {
+
+		// Given there is one cell at coordinates 1,1 that is alive
+		cellMap[0][0]->revive();
+		cellMap[0][1]->revive();
+		cellMap[0][2]->revive();
+		cellMap[1][1]->revive();
+
+
+		// When rules are applied
+		std::vector<std::vector<Cell*>> newCellMap = rule->applyRules(cellMap);
+
+		// Then that cell should be alive
+		REQUIRE(newCellMap[1][1]->isAlive());
+
+		for (auto row : newCellMap) {
+			for (auto cell : row) {
+				delete cell;
+			}
+		}
+
+	}
+
+	SECTION("A living cell that has four neighbours vill live") {
+
+		// Given there is one cell at coordinates 1,1 that is alive
+		cellMap[0][0]->revive();
+		cellMap[0][1]->revive();
+		cellMap[0][2]->revive();
+		cellMap[1][0]->revive();
+		cellMap[1][1]->revive();
+
+
+		// When rules are applied
+		std::vector<std::vector<Cell*>> newCellMap = rule->applyRules(cellMap);
+
+		// Then that cell should be alive
+		REQUIRE(newCellMap[1][1]->isAlive());
+
+		for (auto row : newCellMap) {
+			for (auto cell : row) {
+				delete cell;
+			}
+		}
+
+	}
+
+	SECTION("A living cell that has five neighbours vill live") {
+
+		// Given there is one cell at coordinates 1,1 that is alive
+		cellMap[0][0]->revive();
+		cellMap[0][1]->revive();
+		cellMap[0][2]->revive();
+		cellMap[1][0]->revive();
+		cellMap[1][1]->revive();
+		cellMap[1][2]->revive();
+
+
+		// When rules are applied
+		std::vector<std::vector<Cell*>> newCellMap = rule->applyRules(cellMap);
+
+		// Then that cell should be alive
+		REQUIRE(newCellMap[1][1]->isAlive());
+
+		for (auto row : newCellMap) {
+			for (auto cell : row) {
+				delete cell;
+			}
+		}
+
+	}
+
+	SECTION("A living cell that has six neighbours vill live") {
+
+		// Given there is one cell at coordinates 1,1 that is alive
+		cellMap[0][0]->revive();
+		cellMap[0][1]->revive();
+		cellMap[0][2]->revive();
+		cellMap[1][0]->revive();
+		cellMap[1][1]->revive();
+		cellMap[1][2]->revive();
+		cellMap[2][0]->revive();
+
+
+		// When rules are applied
+		std::vector<std::vector<Cell*>> newCellMap = rule->applyRules(cellMap);
+
+		// Then that cell should be alive
+		REQUIRE(newCellMap[1][1]->isAlive());
+
+		for (auto row : newCellMap) {
+			for (auto cell : row) {
+				delete cell;
+			}
+		}
+
+	}
+
+	SECTION("A living cell that has seven neighbours vill live") {
+
+		// Given there is one cell at coordinates 1,1 that is alive
+		cellMap[0][0]->revive();
+		cellMap[0][1]->revive();
+		cellMap[0][2]->revive();
+		cellMap[1][0]->revive();
+		cellMap[1][1]->revive();
+		cellMap[1][2]->revive();
+		cellMap[2][0]->revive();
+		cellMap[2][1]->revive();
+
+
+		// When rules are applied
+		std::vector<std::vector<Cell*>> newCellMap = rule->applyRules(cellMap);
+
+		// Then that cell should be alive
+		REQUIRE(newCellMap[1][1]->isAlive());
+
+		for (auto row : newCellMap) {
+			for (auto cell : row) {
+				delete cell;
+			}
+		}
+
+	}
+
+	SECTION("A dead cell that has one neighbour will revive") {
+		// Given there is one cell at coordinates 1,1 that is dead
+		cellMap[0][0]->revive();
+		cellMap[1][1]->kill();
+
+		// When rules are applied
+		std::vector<std::vector<Cell*>> newCellMap = rule->applyRules(cellMap);
+
+		// Then that cell should be alive
+		REQUIRE(newCellMap[1][1]->isAlive());
+
+		for (auto row : newCellMap) {
+			for (auto cell : row) {
+				delete cell;
+			}
+		}
+	}
+
+	SECTION("A dead cell that has two neighbour will revive") {
+		// Given there is one cell at coordinates 1,1 that is dead
+		cellMap[0][0]->revive();
+		cellMap[0][1]->revive();
+		cellMap[1][1]->kill();
+
+		// When rules are applied
+		std::vector<std::vector<Cell*>> newCellMap = rule->applyRules(cellMap);
+
+		// Then that cell should be alive
+		REQUIRE(newCellMap[1][1]->isAlive());
+
+		for (auto row : newCellMap) {
+			for (auto cell : row) {
+				delete cell;
+			}
+		}
+	}
+
+	SECTION("A dead cell that has three neighbour will revive") {
+		// Given there is one cell at coordinates 1,1 that is dead
+		cellMap[0][0]->revive();
+		cellMap[0][1]->revive();
+		cellMap[0][2]->revive();
+		cellMap[1][1]->kill();
+
+		// When rules are applied
+		std::vector<std::vector<Cell*>> newCellMap = rule->applyRules(cellMap);
+
+		// Then that cell should be alive
+		REQUIRE(newCellMap[1][1]->isAlive());
+
+		for (auto row : newCellMap) {
+			for (auto cell : row) {
+				delete cell;
+			}
+		}
+	}
+
+	SECTION("A dead cell that has four neighbour will revive") {
+		// Given there is one cell at coordinates 1,1 that is dead
+		cellMap[0][0]->revive();
+		cellMap[0][1]->revive();
+		cellMap[0][2]->revive();
+		cellMap[1][0]->revive();
+		cellMap[1][1]->kill();
+
+		// When rules are applied
+		std::vector<std::vector<Cell*>> newCellMap = rule->applyRules(cellMap);
+
+		// Then that cell should be alive
+		REQUIRE(newCellMap[1][1]->isAlive());
+
+		for (auto row : newCellMap) {
+			for (auto cell : row) {
+				delete cell;
+			}
+		}
+	}
+
+	SECTION("A dead cell that has five neighbour will revive") {
+		// Given there is one cell at coordinates 1,1 that is dead
+		cellMap[0][0]->revive();
+		cellMap[0][1]->revive();
+		cellMap[0][2]->revive();
+		cellMap[1][0]->revive();
+		cellMap[1][2]->revive();
+		cellMap[1][1]->kill();
+
+		// When rules are applied
+		std::vector<std::vector<Cell*>> newCellMap = rule->applyRules(cellMap);
+
+		// Then that cell should be alive
+		REQUIRE(newCellMap[1][1]->isAlive());
+
+		for (auto row : newCellMap) {
+			for (auto cell : row) {
+				delete cell;
+			}
+		}
+	}
+
+	SECTION("A dead cell that has six neighbour will revive") {
+		// Given there is one cell at coordinates 1,1 that is dead
+		cellMap[0][0]->revive();
+		cellMap[0][1]->revive();
+		cellMap[0][2]->revive();
+		cellMap[1][0]->revive();
+		cellMap[1][2]->revive();
+		cellMap[2][0]->revive();
+		cellMap[1][1]->kill();
+
+		// When rules are applied
+		std::vector<std::vector<Cell*>> newCellMap = rule->applyRules(cellMap);
+
+		// Then that cell should be alive
+		REQUIRE(newCellMap[1][1]->isAlive());
+
+		for (auto row : newCellMap) {
+			for (auto cell : row) {
+				delete cell;
+			}
+		}
+	}
+
+	SECTION("A dead cell that has seven neighbour will revive") {
+		// Given there is one cell at coordinates 1,1 that is dead
+		cellMap[0][0]->revive();
+		cellMap[0][1]->revive();
+		cellMap[0][2]->revive();
+		cellMap[1][0]->revive();
+		cellMap[1][2]->revive();
+		cellMap[2][0]->revive();
+		cellMap[2][1]->revive();
+		cellMap[1][1]->kill();
+
+		// When rules are applied
+		std::vector<std::vector<Cell*>> newCellMap = rule->applyRules(cellMap);
+
+		// Then that cell should be alive
+		REQUIRE(newCellMap[1][1]->isAlive());
+
+		for (auto row : newCellMap) {
+			for (auto cell : row) {
+				delete cell;
+			}
+		}
+	}
+
+	SECTION("A living cell with zero neighbours will die") {
+		// Given there is one cell at coordinates 1,1 that is living
+		cellMap[1][1]->revive();
+
+		// When rules are applied
+		std::vector<std::vector<Cell*>> newCellMap = rule->applyRules(cellMap);
+
+		// Then that cell should be dead
+		REQUIRE(!newCellMap[1][1]->isAlive());
+
+			for (auto row : newCellMap) {
+				for (auto cell : row) {
+					delete cell;
+				}
+			}
+	}
+
+	SECTION("A living cell with eight neighbours will die") {
+		// Given there is one cell at coordinates 1,1 that is living
+		cellMap[0][0]->revive();
+		cellMap[0][1]->revive();
+		cellMap[0][2]->revive();
+		cellMap[1][0]->revive();
+		cellMap[1][1]->revive();
+		cellMap[1][2]->revive();
+		cellMap[2][0]->revive();
+		cellMap[2][1]->revive();
+		cellMap[2][2]->revive();
+
+		// When rules are applied
+		std::vector<std::vector<Cell*>> newCellMap = rule->applyRules(cellMap);
+
+		// Then that cell should be dead
+		REQUIRE(!newCellMap[1][1]->isAlive());
+
+		for (auto row : newCellMap) {
+			for (auto cell : row) {
+				delete cell;
+			}
+		}
+	}
+
+	SECTION("A dead cell with zero neighbours will not turn to living") {
+		// Given there is one cell at coordinates 1,1 that is dead
+		cellMap[1][1]->kill();
+
+		// When rules are applied
+		std::vector<std::vector<Cell*>> newCellMap = rule->applyRules(cellMap);
+
+		// Then that cell should be dead
+		REQUIRE(!newCellMap[1][1]->isAlive());
+
+		for (auto row : newCellMap) {
+			for (auto cell : row) {
+				delete cell;
+			}
+		}
+	}
+
+	SECTION("A dead cell with eight neighbours will not turn to living") {
+		// Given there is one cell at coordinates 1,1 that is dead
+		cellMap[0][0]->revive();
+		cellMap[0][1]->revive();
+		cellMap[0][2]->revive();
+		cellMap[1][0]->revive();
+		cellMap[1][1]->kill();
+		cellMap[1][2]->revive();
+		cellMap[2][0]->revive();
+		cellMap[2][1]->revive();
+		cellMap[2][2]->revive();
+
+		// When rules are applied
+		std::vector<std::vector<Cell*>> newCellMap = rule->applyRules(cellMap);
+
+		// Then that cell should be dead
+		REQUIRE(!newCellMap[1][1]->isAlive());
+
+		for (auto row : newCellMap) {
+			for (auto cell : row) {
+				delete cell;
+			}
+		}
+	}
+
+	delete rule;
+
 }

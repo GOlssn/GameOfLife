@@ -4,6 +4,7 @@
 #include <string>
 #include "ConwayRule.h"
 #include "DanielRule.h"
+#include "PontusRule.h"
 
 class RuleFactory {
 public:

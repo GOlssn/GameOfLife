@@ -121,8 +121,10 @@ int GameEngine::getGenerations() const
 * @brief Function sets membervariable oddRule value to params value. 
 * @param rule contains a rule object.
 */
+
 void GameEngine::setOddRule(Rule *rule)
 {
+
 	delete oddRule;
 	oddRule = rule;
 }
@@ -133,8 +135,10 @@ void GameEngine::setOddRule(Rule *rule)
 * @brief Function sets membervariable evenRule value to params value.
 * @param rule contains a rule object.
 */
+
 void GameEngine::setEvenRule(Rule *rule)
 {
+
 	delete evenRule;
 	evenRule = rule;
 }
@@ -193,6 +197,7 @@ bool GameEngine::getCell()
 
 /**
 
+
 * @author Daniel Jennebo.
 * @brief Function make random number of cells alive at random places in cellMap.
 */
@@ -212,6 +217,7 @@ void GameEngine::setStartCellsRandom()
 
 /**
 
+
 * @author Daniel Jennebo.
 * @brief Function initiate the cellMap vector with dead cells.
 */
@@ -227,8 +233,8 @@ void GameEngine::initCellMap() {
 	}
 }
 
-/**
 
+/**
 * @author Daniel Jennebo.
 * @brief Function returns membervariable x.
 * @return membervariable x as int.
@@ -239,6 +245,7 @@ int GameEngine::getX() const
 }
 
 /**
+
 
 * @author Daniel Jennebo.
 * @brief Function sets membervariable x to params value.
@@ -251,6 +258,7 @@ void GameEngine::setX(int pX)
 
 /**
 
+
 * @author Daniel Jennebo.
 * @brief Function returns membervariable y.
 * @return membervariable y as int.
@@ -262,6 +270,7 @@ int GameEngine::getY() const
 
 /**
 
+
 * @author Daniel Jennebo.
 * @brief Function sets membervariable y to params value.
 * @param pY (int) contains number of columns.
@@ -272,6 +281,7 @@ void GameEngine::setY(int pY)
 }
 
 /**
+
 
 * @author Daniel Jennebo.
 * @brief Function returns a string with help.
