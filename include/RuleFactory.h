@@ -3,6 +3,7 @@
 
 #include <string>
 #include "ConwayRule.h"
+#include "DanielRule.h"
 
 class RuleFactory {
 public:

@@ -10,5 +10,8 @@ Rule* RuleFactory::createRule(std::string rule) {
 	if (rule == "conway") {
 		return new ConwayRule();
 	}
+	if (rule == "daniel") {
+		return new DanielRule();
+	}
 	return new ConwayRule();
 }
