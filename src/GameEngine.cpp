@@ -1,5 +1,8 @@
 
 #include <vector>
+#include <thread>
+#include <chrono>
+#include <iostream>
 #include "GameEngine.h"
 #include "screen.h"
 #include "Cell.h"
@@ -39,14 +42,41 @@ GameEngine::~GameEngine() {
 */
 void GameEngine::run() {
 
-	if (cellMap.size() == 0) {
-		setStartCellsRandom();
-	}
-	
 	Terminal terminal;
 	Screen screen(x, y);
 	screen.fill(' ', TerminalColor(COLOR::BLACK, COLOR::WHITE));
-	screen.draw(terminal);
+
+	if (cellMap.size() == 0) {
+		setStartCellsRandom();
+	}
+
+	for (int i = 1; i <= generations; i++) {
+
+		for (int y = 0; y < cellMap.size(); y++) {
+			for (int x = 0; x < cellMap[y].size(); x++) {
+				if (cellMap[y][x]->isAlive()) {
+					screen.set(x, y, ' ', TerminalColor(COLOR::BLACK, cellMap[y][x]->getColor()));
+				}
+				else {
+					screen.set(x, y, ' ', TerminalColor(COLOR::BLACK, COLOR::WHITE));
+				}
+			}
+		}
+
+		if (i % 2 == 0) {
+			cellMap = evenRule->applyRules(cellMap);
+		}
+		else {
+			cellMap = oddRule->applyRules(cellMap);
+		}
+
+		screen.draw(terminal);
+		std::this_thread::sleep_for(std::chrono::seconds(1));
+		std::cout << std::endl << std::endl;
+		
+	}
+	
+	
 	system("pause");
 }
 
@@ -149,7 +179,7 @@ void GameEngine::readStartCellsFromFile(std::string file)
 
 			posY = stoi(tmp);
 
-			cellMap[posY][posX]->revive();
+			cellMap[posX][posY]->revive();
 		}
 	}
 
@@ -171,7 +201,7 @@ bool GameEngine::getCell()
 void GameEngine::setStartCellsRandom()
 {
 	initCellMap();
-	std::default_random_engine generator;
+	std::default_random_engine generator(time(0));
 	std::uniform_int_distribution<int> cellNumRand(1,x*y);
 	std::uniform_int_distribution<int> rowRand(0, y-1);
 	std::uniform_int_distribution<int> colRand(0, x-1);
@@ -189,9 +219,10 @@ void GameEngine::setStartCellsRandom()
 */
 void GameEngine::initCellMap() {
 	std::vector<Cell*> tmp;
+
 	for (int row = 0; row < y; row++) {
-		for (int col = 0; col < x; col++) {
-			tmp.push_back(new Cell);
+		for (int cell = 0; cell < x; cell++) {
+			tmp.push_back(new Cell());
 		}
 		cellMap.push_back(tmp);
 		tmp.clear();
