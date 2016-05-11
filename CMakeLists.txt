@@ -28,6 +28,7 @@ set(SRC_LIST
 	src/GameEngine.cpp
 	src/ConwayRule.cpp
 	src/RuleFactory.cpp
+	src/Rule.cpp
 )
 
 set(TEST_LIST
@@ -38,6 +39,7 @@ set(TEST_LIST
     test/GameOfLifeTest.cpp
 	src/ConwayRule.cpp
 	src/RuleFactory.cpp
+	src/Rule.cpp
 )
 
 # Om Debug mode
