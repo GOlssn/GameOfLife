@@ -213,7 +213,7 @@ void GameEngine::setStartCellsRandom()
 
 	int numberOfAlive = cellNumRand(generator);
 	for (int i = 0; i < numberOfAlive; i++) {
-		cellMap[rowRand(generator)][colRand(generator)]->revive();
+		cellMap[rowRand(generator)].at(colRand(generator))->revive();
 	}
 }
 
@@ -225,6 +225,7 @@ void GameEngine::setStartCellsRandom()
 */
 void GameEngine::initCellMap() {
 	std::vector<Cell*> tmp;
+
 	for (int row = 0; row < y; row++) {
 		for (int cell = 0; cell < x; cell++) {
 			tmp.push_back(new Cell());
