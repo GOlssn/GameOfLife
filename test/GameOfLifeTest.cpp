@@ -56,6 +56,7 @@ TEST_CASE("GameEngine Class test") {
 	SECTION("Test function initCellMap() rows and columns") {
 		GameEngine ge;
 		ge.initCellMap();
+
 		REQUIRE(ge.getVector().size() == 24);
 		REQUIRE(ge.getVector().at(0).size() == 80);
 	}
