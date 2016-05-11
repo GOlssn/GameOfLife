@@ -42,44 +42,42 @@ GameEngine::~GameEngine() {
 */
 void GameEngine::run() {
 
-	Terminal terminal;
-	Screen screen(x, y);
-	screen.fill(' ', TerminalColor(COLOR::BLACK, COLOR::WHITE));
-
 	if (cellMap.size() == 0) {
 		setStartCellsRandom();
 	}
-
+	drawOnScreen();
 	for (int i = 1; i <= generations; i++) {
-
-		for (int y = 0; y < cellMap.size(); y++) {
-			for (int x = 0; x < cellMap[y].size(); x++) {
-				if (cellMap[y][x]->isAlive()) {
-					screen.set(x, y, ' ', TerminalColor(COLOR::BLACK, cellMap[y][x]->getColor()));
-				}
-				else {
-					screen.set(x, y, ' ', TerminalColor(COLOR::BLACK, COLOR::WHITE));
-				}
-			}
-		}
-
 		if (i % 2 == 0) {
 			cellMap = evenRule->applyRules(cellMap);
 		}
 		else {
 			cellMap = oddRule->applyRules(cellMap);
 		}
-
-		screen.draw(terminal);
-		std::this_thread::sleep_for(std::chrono::seconds(1));
-		std::cout << std::endl << std::endl;
-		
+		drawOnScreen();
 	}
-	
-	
-	system("pause");
 }
 
+/**
+* @author Daniel Jennebo, Gustav Olsson
+* @brief This function handles draw on screen (print the alive and dead cells to terminal)
+*/
+void GameEngine::drawOnScreen() {
+	Terminal terminal;
+	Screen screen(x, y);
+	screen.fill(' ', TerminalColor(COLOR::BLACK, COLOR::WHITE));
+	for (int y = 0; y < cellMap.size(); y++) {
+		for (int x = 0; x < cellMap[y].size(); x++) {
+			if (cellMap[y][x]->isAlive()) {
+				screen.set(x, y, ' ', TerminalColor(COLOR::BLACK, cellMap[y][x]->getColorAlive()));
+			}
+			else {
+				screen.set(x, y, ' ', TerminalColor(COLOR::BLACK, cellMap[y][x]->getColorDead()));
+			}
+		}
+	}
+	screen.draw(terminal);
+	std::this_thread::sleep_for(std::chrono::seconds(1));
+}
 
 /**
 
