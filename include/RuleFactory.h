@@ -3,6 +3,7 @@
 
 #include <string>
 #include "ConwayRule.h"
+#include "PontusRule.h"
 
 class RuleFactory {
 public:
