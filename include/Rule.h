@@ -10,7 +10,8 @@ class Rule {
 	public:
 		Rule() { }
 		virtual ~Rule() { }
-		virtual vector<vector<Cell*>> applyRules(vector<vector<Cell*>> &cellMap) = 0;
+		virtual vector<vector<Cell*>> applyRules(vector<vector<Cell*>> &cellMap);
+		virtual void specificRule(Cell* cell, int pNeighboursAlive) = 0;
 };
 
 #endif // !RULE_H

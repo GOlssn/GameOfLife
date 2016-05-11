@@ -79,10 +79,10 @@ TEST_CASE("GameEngine Class test") {
 		file << "2x2\n0,0\n1,1";
 		file.close();
 		GameEngine ge;
+
 		ge.readStartCellsFromFile("test.txt");
 		REQUIRE(ge.getCell() == true);
 	}
-	
 
 }
 
@@ -215,11 +215,6 @@ TEST_CASE("Testing Conway Rule") {
 		}
 	}
 
-	for (auto row : cellMap) {
-		for (auto cell : row) {
-			delete cell;
-		}
-	}
 	delete rule;
 	
 }
