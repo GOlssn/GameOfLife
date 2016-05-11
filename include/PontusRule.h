@@ -7,7 +7,7 @@
 class PontusRule : public Rule {
 	public:
 		PontusRule() {}
-		void specificRule(Cell *cell, int pNeighboursAlive);
+		void specificRule(Cell *cell, vector<Cell*> pNeighboursAlive);
 };
 #endif // !PONTUSRULE_H
 
