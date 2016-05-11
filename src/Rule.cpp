@@ -10,8 +10,6 @@ vector<vector<Cell*>> Rule::applyRules(vector<vector<Cell*>> &cellMap) {
 	int tmpI = 0;
 	int tmpJ = 0;
 
-
-
 	for (vector<Cell*> row : cellMap) {
 		for (Cell* cell : row) {
 			newCellMapRow.push_back(new Cell());

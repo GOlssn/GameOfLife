@@ -9,6 +9,7 @@ class ConwayRule : public Rule {
 		ConwayRule() { }
 		void specificRule(Cell* cell, int pNeighboursAlive);
 };
+
 #endif // !CONWAYRULE_H
 
 

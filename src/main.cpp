@@ -6,6 +6,7 @@
 int main(int argc, char *argv[]) {
 	GameEngine ge;
 	bool readFromFile = false;
+
 	for (int i = 1; i < argc; i+=2) {
 		std::string s = argv[i];
 		if (s == "-f") {
