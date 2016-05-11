@@ -179,7 +179,7 @@ void GameEngine::readStartCellsFromFile(std::string file)
 
 			posY = stoi(tmp);
 
-			cellMap[posX][posY]->revive();
+			cellMap[posY][posX]->revive();
 		}
 	}
 
