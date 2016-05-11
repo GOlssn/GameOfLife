@@ -72,6 +72,16 @@ TEST_CASE("GameEngine Class test") {
 		}
 		REQUIRE(aliveCell == true);
 	}
+	SECTION("Test read from file") {
+		std::ofstream file;
+		file.open("test.txt");
+		file << "2x2\n0,0\n1,1";
+		file.close();
+		GameEngine ge;
+		ge.readStartCellsFromFile("test.txt");
+		REQUIRE(ge.getCell() == true);
+	}
+
 }
 
 TEST_CASE("Testing Conway Rule") {
@@ -200,23 +210,6 @@ TEST_CASE("Testing Conway Rule") {
 			for (auto cell : row) {
 				delete cell;
 			}
-		}
-	}
-
-	SECTION("Test read from file") {
-		std::ofstream file;
-		file.open("test.txt");
-		file << "2x2\n0,0\n1,1";
-		file.close();
-		GameEngine ge;
-		Cell c;
-		ge.readStartCellsFromFile("test.txt");
-		REQUIRE(ge.getCell() == true);
-	}
-
-	for (auto row : cellMap) {
-		for (auto cell : row) {
-			delete cell;
 		}
 	}
 	delete rule;
