@@ -57,7 +57,10 @@ TEST_CASE("GameEngine Class test") {
 		GameEngine ge;
 		ge.initCellMap();
 		REQUIRE(ge.getVector().size() == 24);
-		REQUIRE(ge.getVector().at(0).size() == 80);
+		for (int i = 0; i < ge.getVector().size(); i++) {
+			REQUIRE(ge.getVector().at(i).size() == 80);
+		}
+		
 	}
 	SECTION("Test function setStartCellsRandom(), if random alive cell works") {
 		GameEngine ge;

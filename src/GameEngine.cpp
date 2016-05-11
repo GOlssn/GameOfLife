@@ -189,8 +189,8 @@ void GameEngine::setStartCellsRandom()
 */
 void GameEngine::initCellMap() {
 	std::vector<Cell*> tmp;
-	for (int col = 0; col < y; col++) {
-		for (int row = 0; row < x; row++) {
+	for (int row = 0; row < y; row++) {
+		for (int col = 0; col < x; col++) {
 			tmp.push_back(new Cell);
 		}
 		cellMap.push_back(tmp);
