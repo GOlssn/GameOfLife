@@ -10,8 +10,8 @@
 #include <fstream>
 
 const std::string DELIM = ",";
-/**
 
+/**
 * @author Daniel Jennebo.
 * @brief Default constuct for GameEngine class.
 */
@@ -23,7 +23,7 @@ GameEngine::GameEngine()
 
 /**
 * @author Daniel Jennebo.
-* @brief Destructor for GameEngine class. Deletes pointers in cellMap and rule pointer members
+* @brief Destructor for GameEngine class. Deletes pointers in #cellMap and rule pointer members
 */
 GameEngine::~GameEngine() {
 	for (auto row : cellMap) {
@@ -82,7 +82,7 @@ void GameEngine::drawOnScreen() {
 /**
 
 * @author Daniel Jennebo.
-* @brief Function sets x and y values to determine size of terminal window.
+* @brief Function sets #x and #y values to determine size of terminal window.
 * @param size contains a string with "WIDTHxHEIGHT".
 */
 void GameEngine::setWindowSize(std::string size)
@@ -97,7 +97,7 @@ void GameEngine::setWindowSize(std::string size)
 /**
 
 * @author Daniel Jennebo.
-* @brief Function sets number of generations to iterate trough. Sets the membervariable to params value.
+* @brief Function sets number of generations to iterate trough. Sets the membervariable #generations to params value.
 * @param pGenerations contains a string with number of generations.
 */
 void GameEngine::setGenerations(std::string pGenerations)
@@ -108,7 +108,7 @@ void GameEngine::setGenerations(std::string pGenerations)
 /**
 
 * @author Daniel Jennebo.
-* @brief Function returns membervariable generations.
+* @brief Function returns membervariable #generations.
 * @return membervariable generations as int.
 */
 int GameEngine::getGenerations() const
@@ -118,7 +118,7 @@ int GameEngine::getGenerations() const
 
 /**
 * @author Daniel Jennebo.
-* @brief Function sets membervariable oddRule value to params value. 
+* @brief Function sets membervariable #oddRule value to params value. 
 * @param rule contains a rule object.
 */
 
@@ -132,7 +132,7 @@ void GameEngine::setOddRule(Rule *rule)
 /**
 
 * @author Daniel Jennebo.
-* @brief Function sets membervariable evenRule value to params value.
+* @brief Function sets membervariable #evenRule value to params value.
 * @param rule contains a rule object.
 */
 
@@ -236,8 +236,8 @@ void GameEngine::initCellMap() {
 
 /**
 * @author Daniel Jennebo.
-* @brief Function returns membervariable x.
-* @return membervariable x as int.
+* @brief Function returns membervariable #x.
+* @return membervariable #x as int.
 */
 int GameEngine::getX() const
 {
@@ -248,7 +248,7 @@ int GameEngine::getX() const
 
 
 * @author Daniel Jennebo.
-* @brief Function sets membervariable x to params value.
+* @brief Function sets membervariable #x to params value.
 * @param pX (int) contains number of columns.
 */
 void GameEngine::setX(int pX)
@@ -260,7 +260,7 @@ void GameEngine::setX(int pX)
 
 
 * @author Daniel Jennebo.
-* @brief Function returns membervariable y.
+* @brief Function returns membervariable #y.
 * @return membervariable y as int.
 */
 int GameEngine::getY() const
@@ -272,7 +272,7 @@ int GameEngine::getY() const
 
 
 * @author Daniel Jennebo.
-* @brief Function sets membervariable y to params value.
+* @brief Function sets membervariable #y to params value.
 * @param pY (int) contains number of columns.
 */
 void GameEngine::setY(int pY)
@@ -281,8 +281,6 @@ void GameEngine::setY(int pY)
 }
 
 /**
-
-
 * @author Daniel Jennebo.
 * @brief Function returns a string with help.
 * @return help - Contains help information.
@@ -293,6 +291,10 @@ std::string GameEngine::showHelp()
 	return help;
 }
 
+/**
+* @author Daniel Jennebo.
+* @brief Returns the vector #cellMap.
+*/
 std::vector<std::vector<Cell*>> GameEngine::getVector()
 {
 	return cellMap;

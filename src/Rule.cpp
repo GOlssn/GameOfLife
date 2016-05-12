@@ -2,6 +2,10 @@
 
 using std::vector;
 
+/**
+* @author Pontus Stenlund
+* @brief PONTUS
+*/
 vector<vector<Cell*>> Rule::applyRules(vector<vector<Cell*>> &cellMap) {
 
 	vector<vector<Cell*>> newCellMap;
