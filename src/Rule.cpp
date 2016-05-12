@@ -2,8 +2,11 @@
 
 using std::vector;
 
+/**
+* @author Pontus Stenlund
+* @brief PONTUS
+*/
 void Rule::applyRules(const vector<vector<Cell*>> &cellMap, vector<vector<Cell*>> &newCellMap) {
-
 	vector<Cell*> neighboursAlive;
 	int tmpI = 0;
 	int tmpJ = 0;

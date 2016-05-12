@@ -1,6 +1,6 @@
 /**
 * @author: Daniel Jennebo, Gustav Olsson, Pontus Stenlund
-* This class handles runtime of program
+* @brief This class handles runtime of program
 */
 
 #ifndef GAMEENGINE_H
@@ -18,10 +18,10 @@ class GameEngine {
 		/**Member variable that holds the evenRule*/
 		Rule *evenRule;
 
-		/**Member variable that holds the height value of window*/
+		/**Member variable that holds the width value of window*/
 		int x = 80;
 
-		/**Member variable that holds the width value of window*/
+		/**Member variable that holds the height value of window*/
 		int y = 24;
 		/**Member variale that holds the generations value (the times to iterate)*/
 		int generations = 500;
@@ -41,7 +41,6 @@ class GameEngine {
 		void setOddRule(Rule *rule);
 		void setEvenRule(Rule *rule);
 		void readStartCellsFromFile(std::string file);
-		bool getCell();
 		void setStartCellsRandom();
 		int getX() const;
 		void setX(int pX);

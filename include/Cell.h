@@ -1,3 +1,10 @@
+/**
+* @author Daniel Jennebo
+* @brief This class represents a cell that is a 1 by 1 tile in a cellmap.
+* The cell can be either dead or alive and has an age.
+* It also has one color for alive and one for dead.
+*/
+
 #ifndef CELL_H
 #define CELL_H
 
@@ -5,7 +12,7 @@
 
 class Cell {
 	public:
-		Cell() : colorAlive(COLOR::GREEN), colorDead(COLOR::WHITE) { }
+		Cell();
 		~Cell();
 		void kill();
 		void revive();

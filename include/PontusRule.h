@@ -1,4 +1,7 @@
-
+/**
+* @author Pontus Stenlund
+* @brief PONTUS
+*/
 #ifndef PONTUSRULE_H
 #define PONTUSRULE_H
 
