@@ -32,6 +32,7 @@ TEST_CASE("Cell class test") {
 		Terminal t;
 		Cell cell;
 		cell.setColorAlive(COLOR::BLUE);
+
 		REQUIRE(static_cast<int>(cell.getColorAlive()) == static_cast<int>(COLOR::BLUE));
 	}
 	//KOLLA TEST, KAN INTE HA == COLOR::BLUE
@@ -39,6 +40,7 @@ TEST_CASE("Cell class test") {
 		Terminal t;
 		Cell cell;
 		cell.setColorDead(COLOR::BLUE);
+
 		REQUIRE(static_cast<int>(cell.getColorDead()) == static_cast<int>(COLOR::BLUE));
 	}
 
@@ -114,7 +116,9 @@ TEST_CASE("GameEngine Class test") {
 TEST_CASE("Testing Conway Rule") {
 	
 	std::vector<std::vector<Cell*>> cellMap;
+	std::vector<std::vector<Cell*>> newCellMap;
 	std::vector<Cell*> cellMapRow;
+	std::vector<Cell*> newCellMapRow;
 
 	cellMapRow.push_back(new Cell());
 	cellMapRow.push_back(new Cell());
@@ -131,8 +135,25 @@ TEST_CASE("Testing Conway Rule") {
 	cellMapRow.push_back(new Cell());
 	cellMap.push_back(cellMapRow);
 	cellMapRow.clear();
-
+	
+	newCellMapRow.push_back(new Cell());
+	newCellMapRow.push_back(new Cell());
+	newCellMapRow.push_back(new Cell());
+	newCellMap.push_back(newCellMapRow);
+	newCellMapRow.clear();
+	newCellMapRow.push_back(new Cell());
+	newCellMapRow.push_back(new Cell());
+	newCellMapRow.push_back(new Cell());
+	newCellMap.push_back(newCellMapRow);
+	newCellMapRow.clear();
+	newCellMapRow.push_back(new Cell());
+	newCellMapRow.push_back(new Cell());
+	newCellMapRow.push_back(new Cell());
+	newCellMap.push_back(newCellMapRow);
+	newCellMapRow.clear();
+	
 	Rule *rule = new ConwayRule();
+
 
 	SECTION("A living cell that has less than two living neighbours will die") {
 
@@ -142,15 +163,11 @@ TEST_CASE("Testing Conway Rule") {
 		cellMap[0][1]->revive();
 
 		// When rules are applied
-		std::vector<std::vector<Cell*>> newCellMap = rule->applyRules(cellMap);
+
+		rule->applyRules(cellMap, newCellMap);
 		
 		// Then that cell should be dead
 		REQUIRE(!newCellMap[1][1]->isAlive());
-		for (auto row : newCellMap) {
-			for (auto cell : row) {
-				delete cell;
-			}
-		}
 
 	}
 
@@ -162,15 +179,12 @@ TEST_CASE("Testing Conway Rule") {
 		cellMap[0][1]->revive();
 
 		// When the rules are applied
-		std::vector<std::vector<Cell*>> newCellMap = rule->applyRules(cellMap);
+
+		rule->applyRules(cellMap, newCellMap);
 
 		// Then that cell should still be alive
 		REQUIRE(newCellMap[1][1]->isAlive());
-		for (auto row : newCellMap) {
-			for (auto cell : row) {
-				delete cell;
-			}
-		}
+
 	}
 
 	SECTION("A living cell with more than three living neighbours will die") {
@@ -183,15 +197,12 @@ TEST_CASE("Testing Conway Rule") {
 		cellMap[1][2]->revive();
 
 		// When the rules are applied
-		std::vector<std::vector<Cell*>> newCellMap = rule->applyRules(cellMap);
+
+		rule->applyRules(cellMap, newCellMap);
 
 		// Then that cell should be dead
 		REQUIRE(!newCellMap[1][1]->isAlive());
-		for (auto row : newCellMap) {
-			for (auto cell : row) {
-				delete cell;
-			}
-		}
+
 	}
 
 	SECTION("A dead cell with exactly three neighbours is alive after applying rules") {
@@ -203,15 +214,12 @@ TEST_CASE("Testing Conway Rule") {
 		cellMap[1][0]->revive();
 
 		// When the rules are applied
-		std::vector<std::vector<Cell*>> newCellMap = rule->applyRules(cellMap);
+
+		rule->applyRules(cellMap, newCellMap);
 
 		// Then that cell should be alive
 		REQUIRE(newCellMap[1][1]->isAlive());
-		for (auto row : newCellMap) {
-			for (auto cell : row) {
-				delete cell;
-			}
-		}
+
 	}
 
 	SECTION("Testing grid wrap functionality") {
@@ -221,7 +229,8 @@ TEST_CASE("Testing Conway Rule") {
 		cellMap[1][1]->revive();
 
 		// When rules are applied
-		std::vector<std::vector<Cell*>> newCellMap = rule->applyRules(cellMap);
+
+		rule->applyRules(cellMap, newCellMap);
 
 		// Then all cells should be alive
 		REQUIRE(newCellMap[0][0]->isAlive());
@@ -233,19 +242,30 @@ TEST_CASE("Testing Conway Rule") {
 		REQUIRE(newCellMap[2][0]->isAlive());
 		REQUIRE(newCellMap[2][1]->isAlive());
 		REQUIRE(newCellMap[2][2]->isAlive());
-		for (auto row : newCellMap) {
-			for (auto cell : row) {
-				delete cell;
-			}
+
+	}
+
+	for (auto row : cellMap) {
+		for (auto cell : row) {
+			delete cell;
+		}
+	}
+
+	for (auto row : newCellMap) {
+		for (auto cell : row) {
+			delete cell;
 		}
 	}
 
 	delete rule;
 }
 
+
 TEST_CASE("Testing Daniel Rule") {
 	std::vector<std::vector<Cell*>> cellMap;
+	std::vector<std::vector<Cell*>> newCellMap;
 	std::vector<Cell*> cellMapRow;
+	std::vector<Cell*> newCellMapRow;
 
 	cellMapRow.push_back(new Cell());
 	cellMapRow.push_back(new Cell());
@@ -262,21 +282,34 @@ TEST_CASE("Testing Daniel Rule") {
 	cellMapRow.push_back(new Cell());
 	cellMap.push_back(cellMapRow);
 	cellMapRow.clear();
+
+	newCellMapRow.push_back(new Cell());
+	newCellMapRow.push_back(new Cell());
+	newCellMapRow.push_back(new Cell());
+	newCellMap.push_back(newCellMapRow);
+	newCellMapRow.clear();
+	newCellMapRow.push_back(new Cell());
+	newCellMapRow.push_back(new Cell());
+	newCellMapRow.push_back(new Cell());
+	newCellMap.push_back(newCellMapRow);
+	newCellMapRow.clear();
+	newCellMapRow.push_back(new Cell());
+	newCellMapRow.push_back(new Cell());
+	newCellMapRow.push_back(new Cell());
+	newCellMap.push_back(newCellMapRow);
+	newCellMapRow.clear();
+
 	Rule *drule = new DanielRule();
 
 	SECTION("When one alive cell is over age 4 it should die") {
 		
 		cellMap[1][1]->revive();
 		cellMap[1][1]->setAge(4);
-		std::vector<std::vector<Cell*>> newCellMap = drule->applyRules(cellMap);
+
+		drule->applyRules(cellMap, newCellMap);
 
 		REQUIRE(!newCellMap[1][1]->isAlive());
 
-		for (auto row : newCellMap) {
-			for (auto cell : row) {
-				delete cell;
-			}
-		}
 	}
 
 	SECTION("When one alive cell has 4 or more alive neighbours it should die") {
@@ -288,63 +321,55 @@ TEST_CASE("Testing Daniel Rule") {
 		cellMap[0][0]->revive();
 
 	
-		std::vector<std::vector<Cell*>> newCellMap = drule->applyRules(cellMap);
+
+		drule->applyRules(cellMap, newCellMap);
 
 		REQUIRE(!newCellMap[1][1]->isAlive());
 
-		for (auto row : newCellMap) {
-			for (auto cell : row) {
-				delete cell;
-			}
-		}
 	}
 
 	SECTION("When one alive cell is age 1, coloralive should be YELLOW") {
 		cellMap[1][1]->revive();//Cause rule increses age by 1
-		std::vector<std::vector<Cell*>> newCellMap = drule->applyRules(cellMap);
+
+		drule->applyRules(cellMap, newCellMap);
+
 		REQUIRE(static_cast<int>(newCellMap[1][1]->getColorAlive()) == static_cast<int>(COLOR::YELLOW));
 		REQUIRE(newCellMap[1][1]->getAge() == 1);
-		for (auto row : newCellMap) {
-			for (auto cell : row) {
-				delete cell;
-			}
-		}
+
 	}
+
 	SECTION("When one alive cell is age 2, coloralive should be CYAN") {
 		cellMap[1][1]->revive();
 		cellMap[1][1]->setAge(1);//Cause rule increses age by 1
-		std::vector<std::vector<Cell*>> newCellMap = drule->applyRules(cellMap);
+
+		drule->applyRules(cellMap, newCellMap);
+
 		REQUIRE(static_cast<int>(newCellMap[1][1]->getColorAlive()) == static_cast<int>(COLOR::CYAN));
 		REQUIRE(newCellMap[1][1]->getAge() == 2);
-		for (auto row : newCellMap) {
-			for (auto cell : row) {
-				delete cell;
-			}
-		}
+
 	}
+
 	SECTION("When one alive cell is age 3, coloralive should be BLUE") {
 		cellMap[1][1]->revive();
 		cellMap[1][1]->setAge(2);//Cause rule increses age by 1
-		std::vector<std::vector<Cell*>> newCellMap = drule->applyRules(cellMap);
+
+		drule->applyRules(cellMap, newCellMap);
+
 		REQUIRE(static_cast<int>(newCellMap[1][1]->getColorAlive()) == static_cast<int>(COLOR::BLUE));
 		REQUIRE(newCellMap[1][1]->getAge() == 3);
-		for (auto row : newCellMap) {
-			for (auto cell : row) {
-				delete cell;
-			}
-		}
 	}
+
+	}
+
 	SECTION("When one alive cell is age 4, coloralive should be RED") {
 		cellMap[1][1]->revive();
 		cellMap[1][1]->setAge(3); //Cause rule increses age by 1
-		std::vector<std::vector<Cell*>> newCellMap = drule->applyRules(cellMap);
+
+		drule->applyRules(cellMap, newCellMap);
+
 		REQUIRE(static_cast<int>(newCellMap[1][1]->getColorAlive()) == static_cast<int>(COLOR::RED));
 		REQUIRE(newCellMap[1][1]->getAge() == 4);
-		for (auto row : newCellMap) {
-			for (auto cell : row) {
-				delete cell;
-			}
-		}
+
 	}
 
 	SECTION("When one dead cell has 2 neighbours that is age 1 or more, the cell should come to life") {
@@ -352,12 +377,21 @@ TEST_CASE("Testing Daniel Rule") {
 		cellMap[1][1]->setAge(1);
 		cellMap[1][0]->revive();
 		cellMap[1][0]->setAge(1);
-		std::vector<std::vector<Cell*>> newCellMap = drule->applyRules(cellMap);
+
+		drule->applyRules(cellMap, newCellMap);
 		REQUIRE(newCellMap[0][0]->isAlive());
-		for (auto row : newCellMap) {
-			for (auto cell : row) {
-				delete cell;
-			}
+
+	}
+
+	for (auto row : cellMap) {
+		for (auto cell : row) {
+			delete cell;
+		}
+	}
+
+	for (auto row : newCellMap) {
+		for (auto cell : row) {
+			delete cell;
 		}
 	}
 
@@ -368,7 +402,9 @@ TEST_CASE("Testing Daniel Rule") {
 TEST_CASE("Testing Pontus Rule") {
 
 	std::vector<std::vector<Cell*>> cellMap;
+	std::vector<std::vector<Cell*>> newCellMap;
 	std::vector<Cell*> cellMapRow;
+	std::vector<Cell*> newCellMapRow;
 
 	cellMapRow.push_back(new Cell());
 	cellMapRow.push_back(new Cell());
@@ -385,6 +421,22 @@ TEST_CASE("Testing Pontus Rule") {
 	cellMapRow.push_back(new Cell());
 	cellMap.push_back(cellMapRow);
 	cellMapRow.clear();
+
+	newCellMapRow.push_back(new Cell());
+	newCellMapRow.push_back(new Cell());
+	newCellMapRow.push_back(new Cell());
+	newCellMap.push_back(newCellMapRow);
+	newCellMapRow.clear();
+	newCellMapRow.push_back(new Cell());
+	newCellMapRow.push_back(new Cell());
+	newCellMapRow.push_back(new Cell());
+	newCellMap.push_back(newCellMapRow);
+	newCellMapRow.clear();
+	newCellMapRow.push_back(new Cell());
+	newCellMapRow.push_back(new Cell());
+	newCellMapRow.push_back(new Cell());
+	newCellMap.push_back(newCellMapRow);
+	newCellMapRow.clear();
 
 	Rule *rule = new PontusRule();
 
@@ -394,22 +446,16 @@ TEST_CASE("Testing Pontus Rule") {
 		// with one living neighbour
 		cellMap[0][1]->revive();
 		cellMap[1][1]->revive();
-		
 
 		// When rules are applied
-		std::vector<std::vector<Cell*>> newCellMap = rule->applyRules(cellMap);
+
+		rule->applyRules(cellMap, newCellMap);
 
 		// Then that cell should be alive
 		REQUIRE(newCellMap[1][1]->isAlive());
 
-		for (auto row : newCellMap) {
-			for (auto cell : row) {
-				delete cell;
-			}
-		}
-
 	}
-
+	
 	SECTION("A living cell that has two neighbours vill live") {
 
 		// Given there is one cell at coordinates 1,1 that is alive
@@ -420,16 +466,11 @@ TEST_CASE("Testing Pontus Rule") {
 
 
 		// When rules are applied
-		std::vector<std::vector<Cell*>> newCellMap = rule->applyRules(cellMap);
+
+		rule->applyRules(cellMap, newCellMap);
 
 		// Then that cell should be alive
 		REQUIRE(newCellMap[1][1]->isAlive());
-
-		for (auto row : newCellMap) {
-			for (auto cell : row) {
-				delete cell;
-			}
-		}
 
 	}
 
@@ -444,16 +485,11 @@ TEST_CASE("Testing Pontus Rule") {
 
 
 		// When rules are applied
-		std::vector<std::vector<Cell*>> newCellMap = rule->applyRules(cellMap);
+
+		rule->applyRules(cellMap, newCellMap);
 
 		// Then that cell should be alive
 		REQUIRE(newCellMap[1][1]->isAlive());
-
-		for (auto row : newCellMap) {
-			for (auto cell : row) {
-				delete cell;
-			}
-		}
 
 	}
 
@@ -469,19 +505,14 @@ TEST_CASE("Testing Pontus Rule") {
 
 
 		// When rules are applied
-		std::vector<std::vector<Cell*>> newCellMap = rule->applyRules(cellMap);
+
+		rule->applyRules(cellMap, newCellMap);
 
 		// Then that cell should be alive
 		REQUIRE(newCellMap[1][1]->isAlive());
 
-		for (auto row : newCellMap) {
-			for (auto cell : row) {
-				delete cell;
-			}
-		}
-
 	}
-
+	
 	SECTION("A living cell that has five neighbours vill live") {
 
 		// Given there is one cell at coordinates 1,1 that is alive
@@ -495,16 +526,12 @@ TEST_CASE("Testing Pontus Rule") {
 
 
 		// When rules are applied
-		std::vector<std::vector<Cell*>> newCellMap = rule->applyRules(cellMap);
+
+		rule->applyRules(cellMap, newCellMap);
 
 		// Then that cell should be alive
 		REQUIRE(newCellMap[1][1]->isAlive());
 
-		for (auto row : newCellMap) {
-			for (auto cell : row) {
-				delete cell;
-			}
-		}
 
 	}
 
@@ -522,16 +549,11 @@ TEST_CASE("Testing Pontus Rule") {
 
 
 		// When rules are applied
-		std::vector<std::vector<Cell*>> newCellMap = rule->applyRules(cellMap);
+
+		rule->applyRules(cellMap, newCellMap);
 
 		// Then that cell should be alive
 		REQUIRE(newCellMap[1][1]->isAlive());
-
-		for (auto row : newCellMap) {
-			for (auto cell : row) {
-				delete cell;
-			}
-		}
 
 	}
 
@@ -550,16 +572,11 @@ TEST_CASE("Testing Pontus Rule") {
 
 
 		// When rules are applied
-		std::vector<std::vector<Cell*>> newCellMap = rule->applyRules(cellMap);
+
+		rule->applyRules(cellMap, newCellMap);
 
 		// Then that cell should be alive
 		REQUIRE(newCellMap[1][1]->isAlive());
-
-		for (auto row : newCellMap) {
-			for (auto cell : row) {
-				delete cell;
-			}
-		}
 
 	}
 
@@ -570,18 +587,14 @@ TEST_CASE("Testing Pontus Rule") {
 		cellMap[1][1]->kill();
 
 		// When rules are applied
-		std::vector<std::vector<Cell*>> newCellMap = rule->applyRules(cellMap);
+
+		rule->applyRules(cellMap, newCellMap);
 
 		// Then that cell should be alive
 		REQUIRE(newCellMap[1][1]->isAlive());
 
-		for (auto row : newCellMap) {
-			for (auto cell : row) {
-				delete cell;
-			}
-		}
 	}
-
+	
 	SECTION("A dead cell that has two neighbour will revive") {
 		// Given there is one cell at coordinates 1,1 that is dead
 		// with two living neighbours
@@ -590,16 +603,12 @@ TEST_CASE("Testing Pontus Rule") {
 		cellMap[1][1]->kill();
 
 		// When rules are applied
-		std::vector<std::vector<Cell*>> newCellMap = rule->applyRules(cellMap);
+
+		rule->applyRules(cellMap, newCellMap);
 
 		// Then that cell should be alive
 		REQUIRE(newCellMap[1][1]->isAlive());
 
-		for (auto row : newCellMap) {
-			for (auto cell : row) {
-				delete cell;
-			}
-		}
 	}
 
 	SECTION("A dead cell that has three neighbour will revive") {
@@ -611,16 +620,12 @@ TEST_CASE("Testing Pontus Rule") {
 		cellMap[1][1]->kill();
 
 		// When rules are applied
-		std::vector<std::vector<Cell*>> newCellMap = rule->applyRules(cellMap);
+
+		rule->applyRules(cellMap, newCellMap);
 
 		// Then that cell should be alive
 		REQUIRE(newCellMap[1][1]->isAlive());
 
-		for (auto row : newCellMap) {
-			for (auto cell : row) {
-				delete cell;
-			}
-		}
 	}
 
 	SECTION("A dead cell that has four neighbour will revive") {
@@ -633,16 +638,12 @@ TEST_CASE("Testing Pontus Rule") {
 		cellMap[1][1]->kill();
 
 		// When rules are applied
-		std::vector<std::vector<Cell*>> newCellMap = rule->applyRules(cellMap);
+
+		rule->applyRules(cellMap, newCellMap);
 
 		// Then that cell should be alive
 		REQUIRE(newCellMap[1][1]->isAlive());
 
-		for (auto row : newCellMap) {
-			for (auto cell : row) {
-				delete cell;
-			}
-		}
 	}
 
 	SECTION("A dead cell that has five neighbour will revive") {
@@ -656,16 +657,12 @@ TEST_CASE("Testing Pontus Rule") {
 		cellMap[1][1]->kill();
 
 		// When rules are applied
-		std::vector<std::vector<Cell*>> newCellMap = rule->applyRules(cellMap);
+
+		rule->applyRules(cellMap, newCellMap);
 
 		// Then that cell should be alive
 		REQUIRE(newCellMap[1][1]->isAlive());
 
-		for (auto row : newCellMap) {
-			for (auto cell : row) {
-				delete cell;
-			}
-		}
 	}
 
 	SECTION("A dead cell that has six neighbour will revive") {
@@ -680,16 +677,12 @@ TEST_CASE("Testing Pontus Rule") {
 		cellMap[1][1]->kill();
 
 		// When rules are applied
-		std::vector<std::vector<Cell*>> newCellMap = rule->applyRules(cellMap);
+
+		rule->applyRules(cellMap, newCellMap);
 
 		// Then that cell should be alive
 		REQUIRE(newCellMap[1][1]->isAlive());
 
-		for (auto row : newCellMap) {
-			for (auto cell : row) {
-				delete cell;
-			}
-		}
 	}
 
 	SECTION("A dead cell that has seven neighbour will revive") {
@@ -705,16 +698,12 @@ TEST_CASE("Testing Pontus Rule") {
 		cellMap[1][1]->kill();
 
 		// When rules are applied
-		std::vector<std::vector<Cell*>> newCellMap = rule->applyRules(cellMap);
+
+		rule->applyRules(cellMap, newCellMap);
 
 		// Then that cell should be alive
 		REQUIRE(newCellMap[1][1]->isAlive());
 
-		for (auto row : newCellMap) {
-			for (auto cell : row) {
-				delete cell;
-			}
-		}
 	}
 
 	SECTION("A living cell with zero neighbours will die") {
@@ -723,16 +712,12 @@ TEST_CASE("Testing Pontus Rule") {
 		cellMap[1][1]->revive();
 
 		// When rules are applied
-		std::vector<std::vector<Cell*>> newCellMap = rule->applyRules(cellMap);
+
+		rule->applyRules(cellMap, newCellMap);
 
 		// Then that cell should be dead
 		REQUIRE(!newCellMap[1][1]->isAlive());
 
-			for (auto row : newCellMap) {
-				for (auto cell : row) {
-					delete cell;
-				}
-			}
 	}
 
 	SECTION("A living cell with eight neighbours will die") {
@@ -749,16 +734,12 @@ TEST_CASE("Testing Pontus Rule") {
 		cellMap[2][2]->revive();
 
 		// When rules are applied
-		std::vector<std::vector<Cell*>> newCellMap = rule->applyRules(cellMap);
+
+		rule->applyRules(cellMap, newCellMap);
 
 		// Then that cell should be dead
 		REQUIRE(!newCellMap[1][1]->isAlive());
 
-		for (auto row : newCellMap) {
-			for (auto cell : row) {
-				delete cell;
-			}
-		}
 	}
 
 	SECTION("A dead cell with zero neighbours will not turn to living") {
@@ -767,16 +748,12 @@ TEST_CASE("Testing Pontus Rule") {
 		cellMap[1][1]->kill();
 
 		// When rules are applied
-		std::vector<std::vector<Cell*>> newCellMap = rule->applyRules(cellMap);
+
+		rule->applyRules(cellMap, newCellMap);
 
 		// Then that cell should be dead
 		REQUIRE(!newCellMap[1][1]->isAlive());
 
-		for (auto row : newCellMap) {
-			for (auto cell : row) {
-				delete cell;
-			}
-		}
 	}
 
 	SECTION("A dead cell with eight neighbours will not turn to living") {
@@ -793,15 +770,23 @@ TEST_CASE("Testing Pontus Rule") {
 		cellMap[2][2]->revive();
 
 		// When rules are applied
-		std::vector<std::vector<Cell*>> newCellMap = rule->applyRules(cellMap);
+
+		rule->applyRules(cellMap, newCellMap);
 
 		// Then that cell should be dead
 		REQUIRE(!newCellMap[1][1]->isAlive());
+	}
 
-		for (auto row : newCellMap) {
-			for (auto cell : row) {
-				delete cell;
-			}
+
+	for (auto row : cellMap) {
+		for (auto cell : row) {
+			delete cell;
+		}
+	}
+
+	for (auto row : newCellMap) {
+		for (auto cell : row) {
+			delete cell;
 		}
 	}
 

@@ -28,6 +28,7 @@ class GameEngine {
 
 		/**Member variable that holds the cellMap with the cells states*/
 		std::vector<std::vector<Cell*>> cellMap;
+		std::vector<std::vector<Cell*>> newCellMap;
 	
 	public:
 		GameEngine();
@@ -48,7 +49,7 @@ class GameEngine {
 		std::string showHelp();
 		std::vector<std::vector<Cell*>> getVector();
 		void initCellMap();
-		void drawOnScreen();
+		void drawOnScreen(vector<vector<Cell*>> pCellMap);
 
 };
 

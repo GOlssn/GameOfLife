@@ -6,21 +6,10 @@ using std::vector;
 * @author Pontus Stenlund
 * @brief PONTUS
 */
-vector<vector<Cell*>> Rule::applyRules(vector<vector<Cell*>> &cellMap) {
-
-	vector<vector<Cell*>> newCellMap;
-	vector<Cell*> newCellMapRow;
+void Rule::applyRules(const vector<vector<Cell*>> &cellMap, vector<vector<Cell*>> &newCellMap) {
 	vector<Cell*> neighboursAlive;
 	int tmpI = 0;
 	int tmpJ = 0;
-
-	for (vector<Cell*> row : cellMap) {
-		for (Cell* cell : row) {
-			newCellMapRow.push_back(new Cell());
-		}
-		newCellMap.push_back(newCellMapRow);
-		newCellMapRow.clear();
-	}
 
 	for (int i = 0; i < cellMap.size(); i++) { //Row
 		for (int j = 0; j < cellMap[i].size(); j++) { //Each cell in row
@@ -64,13 +53,4 @@ vector<vector<Cell*>> Rule::applyRules(vector<vector<Cell*>> &cellMap) {
 			neighboursAlive.clear();
 		}
 	}
-
-	for (auto row : cellMap) {
-		for (auto cell : row) {
-			delete cell;
-		}
-	}
-	cellMap.clear();
-
-	return newCellMap;
 }
