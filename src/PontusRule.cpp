@@ -4,11 +4,8 @@
 * @author Pontus Stenlund
 * @param cell contains the current cell being checked in applyRules function.
 * @param pNeighboursAlive contains the living cell neighbours to the current cell (param cell).
-* @brief This is the special rule made by pontus, the rules are:
-* - A living cell with one to seven neighbours will live on
-* - A living cell with zero or eight neighbours will die
-* - A dead cell with one to seven neighbours will live
-* - A dead cell with zero or eight neighbours will continue to be dead
+* @brief Applies the specific rule for pontusRule of who lives and who dies.
+* @see Rule::applyRules(vector<vector<Cell*>> &cellMap)
 */
 void PontusRule::specificRule(Cell *cell, vector<Cell*> pNeighboursAlive) {
 	if (cell->isAlive()) {
