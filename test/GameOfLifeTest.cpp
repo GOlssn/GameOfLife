@@ -359,7 +359,6 @@ TEST_CASE("Testing Daniel Rule") {
 		REQUIRE(newCellMap[1][1]->getAge() == 3);
 	}
 
-	}
 
 	SECTION("When one alive cell is age 4, coloralive should be RED") {
 		cellMap[1][1]->revive();
