@@ -10,4 +10,11 @@ Rule* RuleFactory::createRule(std::string rule) {
 	if (rule == "conway") {
 		return new ConwayRule();
 	}
+	else if (rule == "daniel") {
+		return new DanielRule();
+	}
+	else if (rule == "pontus") {
+		return new PontusRule();
+	}
+	return new ConwayRule();
 }

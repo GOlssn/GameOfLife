@@ -29,6 +29,8 @@ set(SRC_LIST
 	src/ConwayRule.cpp
 	src/RuleFactory.cpp
 	src/Rule.cpp
+	src/DanielRule.cpp
+	src/PontusRule.cpp
 )
 
 set(TEST_LIST
@@ -40,6 +42,8 @@ set(TEST_LIST
 	src/ConwayRule.cpp
 	src/RuleFactory.cpp
 	src/Rule.cpp
+	src/DanielRule.cpp
+	src/PontusRule.cpp
 )
 
 # Om Debug mode

@@ -6,7 +6,7 @@ vector<vector<Cell*>> Rule::applyRules(vector<vector<Cell*>> &cellMap) {
 
 	vector<vector<Cell*>> newCellMap;
 	vector<Cell*> newCellMapRow;
-	int neighboursAlive = 0;
+	vector<Cell*> neighboursAlive;
 	int tmpI = 0;
 	int tmpJ = 0;
 
@@ -43,7 +43,7 @@ vector<vector<Cell*>> Rule::applyRules(vector<vector<Cell*>> &cellMap) {
 					}
 
 					if ((cellMap[i + m][j + n]->isAlive()) && !(i + m == i && j + n == j)) {
-						++neighboursAlive;
+						neighboursAlive.push_back(cellMap[i + m][j + n]);
 					}
 
 					i = tmpI;
@@ -53,11 +53,11 @@ vector<vector<Cell*>> Rule::applyRules(vector<vector<Cell*>> &cellMap) {
 
 			if (cellMap[i][j]->isAlive()) {
 				newCellMap[i][j]->revive();
+				newCellMap[i][j]->setAge(cellMap[i][j]->getAge()+1);
 			}
 
 			specificRule(newCellMap[i][j], neighboursAlive);
-
-			neighboursAlive = 0;
+			neighboursAlive.clear();
 		}
 	}
 

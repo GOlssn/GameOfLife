@@ -42,26 +42,11 @@ GameEngine::~GameEngine() {
 */
 void GameEngine::run() {
 
-	Terminal terminal;
-	Screen screen(x, y);
-	screen.fill(' ', TerminalColor(COLOR::BLACK, COLOR::WHITE));
-
 	if (cellMap.size() == 0) {
 		setStartCellsRandom();
 	}
-
+	drawOnScreen();
 	for (int i = 1; i <= generations; i++) {
-
-		for (int y = 0; y < cellMap.size(); y++) {
-			for (int x = 0; x < cellMap[y].size(); x++) {
-				if (cellMap[y][x]->isAlive()) {
-					screen.set(x, y, ' ', TerminalColor(COLOR::BLACK, cellMap[y][x]->getColor()));
-				}
-				else {
-					screen.set(x, y, ' ', TerminalColor(COLOR::BLACK, COLOR::WHITE));
-				}
-			}
-		}
 
 		if (i % 2 == 0) {
 			cellMap = evenRule->applyRules(cellMap);
@@ -69,12 +54,32 @@ void GameEngine::run() {
 		else {
 			cellMap = oddRule->applyRules(cellMap);
 		}
-
-		screen.draw(terminal);
-		std::this_thread::sleep_for(std::chrono::milliseconds(700));
+		drawOnScreen();
 	}
 }
 
+/**
+* @author Daniel Jennebo, Gustav Olsson
+* @brief This function handles draw on screen (print the alive and dead cells to terminal)
+*/
+void GameEngine::drawOnScreen() {
+	Terminal terminal;
+	Screen screen(x, y);
+	screen.fill(' ', TerminalColor(COLOR::BLACK, COLOR::WHITE));
+	for (int y = 0; y < cellMap.size(); y++) {
+		for (int x = 0; x < cellMap[y].size(); x++) {
+			if (cellMap[y][x]->isAlive()) {
+				screen.set(x, y, ' ', TerminalColor(COLOR::BLACK, cellMap[y][x]->getColorAlive()));
+			}
+			else {
+				screen.set(x, y, ' ', TerminalColor(COLOR::BLACK, cellMap[y][x]->getColorDead()));
+			}
+		}
+	}
+
+	screen.draw(terminal);
+	std::this_thread::sleep_for(std::chrono::seconds(1));
+}
 
 /**
 
@@ -118,8 +123,10 @@ int GameEngine::getGenerations() const
 * @brief Function sets membervariable oddRule value to params value. 
 * @param rule contains a rule object.
 */
+
 void GameEngine::setOddRule(Rule *rule)
 {
+
 	delete oddRule;
 	oddRule = rule;
 }
@@ -130,8 +137,10 @@ void GameEngine::setOddRule(Rule *rule)
 * @brief Function sets membervariable evenRule value to params value.
 * @param rule contains a rule object.
 */
+
 void GameEngine::setEvenRule(Rule *rule)
 {
+
 	delete evenRule;
 	evenRule = rule;
 }
@@ -190,6 +199,7 @@ bool GameEngine::getCell()
 
 /**
 
+
 * @author Daniel Jennebo.
 * @brief Function make random number of cells alive at random places in cellMap.
 */
@@ -203,17 +213,19 @@ void GameEngine::setStartCellsRandom()
 
 	int numberOfAlive = cellNumRand(generator);
 	for (int i = 0; i < numberOfAlive; i++) {
-		cellMap[rowRand(generator)][colRand(generator)]->revive();
+		cellMap[rowRand(generator)].at(colRand(generator))->revive();
 	}
 }
 
 /**
+
 
 * @author Daniel Jennebo.
 * @brief Function initiate the cellMap vector with dead cells.
 */
 void GameEngine::initCellMap() {
 	std::vector<Cell*> tmp;
+
 	for (int row = 0; row < y; row++) {
 		for (int cell = 0; cell < x; cell++) {
 			tmp.push_back(new Cell());
@@ -223,8 +235,8 @@ void GameEngine::initCellMap() {
 	}
 }
 
-/**
 
+/**
 * @author Daniel Jennebo.
 * @brief Function returns membervariable x.
 * @return membervariable x as int.
@@ -235,6 +247,7 @@ int GameEngine::getX() const
 }
 
 /**
+
 
 * @author Daniel Jennebo.
 * @brief Function sets membervariable x to params value.
@@ -247,6 +260,7 @@ void GameEngine::setX(int pX)
 
 /**
 
+
 * @author Daniel Jennebo.
 * @brief Function returns membervariable y.
 * @return membervariable y as int.
@@ -258,6 +272,7 @@ int GameEngine::getY() const
 
 /**
 
+
 * @author Daniel Jennebo.
 * @brief Function sets membervariable y to params value.
 * @param pY (int) contains number of columns.
@@ -268,6 +283,7 @@ void GameEngine::setY(int pY)
 }
 
 /**
+
 
 * @author Daniel Jennebo.
 * @brief Function returns a string with help.

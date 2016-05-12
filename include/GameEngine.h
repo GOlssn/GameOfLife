@@ -49,6 +49,7 @@ class GameEngine {
 		std::string showHelp();
 		std::vector<std::vector<Cell*>> getVector();
 		void initCellMap();
+		void drawOnScreen();
 
 };
 
