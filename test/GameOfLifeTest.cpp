@@ -32,14 +32,14 @@ TEST_CASE("Cell class test") {
 		Terminal t;
 		Cell cell;
 		cell.setColorAlive(COLOR::BLUE);
-		//REQUIRE(cell.getColorAlive() == COLOR::BLUE);
+		REQUIRE(static_cast<int>(cell.getColorAlive()) == static_cast<int>(COLOR::BLUE));
 	}
 	//KOLLA TEST, KAN INTE HA == COLOR::BLUE
 	SECTION("cell.getColorDead() & cell.setColorDead() testing set and get of member color") {
 		Terminal t;
 		Cell cell;
 		cell.setColorDead(COLOR::BLUE);
-		//REQUIRE(cell.getColorAlive() == COLOR::BLUE);
+		REQUIRE(static_cast<int>(cell.getColorDead()) == static_cast<int>(COLOR::BLUE));
 	}
 
 	SECTION("cell.getAge() & cell.setAge() testing set and get of member age") {
@@ -302,7 +302,7 @@ TEST_CASE("Testing Daniel Rule") {
 	SECTION("When one alive cell is age 1, coloralive should be YELLOW") {
 		cellMap[1][1]->revive();//Cause rule increses age by 1
 		std::vector<std::vector<Cell*>> newCellMap = drule->applyRules(cellMap);
-		//REQUIRE(cellMap[1][1]->getColorAlive() == COLOR::YELLOW);
+		REQUIRE(static_cast<int>(newCellMap[1][1]->getColorAlive()) == static_cast<int>(COLOR::YELLOW));
 		REQUIRE(newCellMap[1][1]->getAge() == 1);
 		for (auto row : newCellMap) {
 			for (auto cell : row) {
@@ -314,7 +314,7 @@ TEST_CASE("Testing Daniel Rule") {
 		cellMap[1][1]->revive();
 		cellMap[1][1]->setAge(1);//Cause rule increses age by 1
 		std::vector<std::vector<Cell*>> newCellMap = drule->applyRules(cellMap);
-		//REQUIRE(cellMap[1][1]->getColorAlive() == COLOR::CYAN);
+		REQUIRE(static_cast<int>(newCellMap[1][1]->getColorAlive()) == static_cast<int>(COLOR::CYAN));
 		REQUIRE(newCellMap[1][1]->getAge() == 2);
 		for (auto row : newCellMap) {
 			for (auto cell : row) {
@@ -326,7 +326,7 @@ TEST_CASE("Testing Daniel Rule") {
 		cellMap[1][1]->revive();
 		cellMap[1][1]->setAge(2);//Cause rule increses age by 1
 		std::vector<std::vector<Cell*>> newCellMap = drule->applyRules(cellMap);
-		//REQUIRE(cellMap[1][1]->getColorAlive() == COLOR::BLUE);
+		REQUIRE(static_cast<int>(newCellMap[1][1]->getColorAlive()) == static_cast<int>(COLOR::BLUE));
 		REQUIRE(newCellMap[1][1]->getAge() == 3);
 		for (auto row : newCellMap) {
 			for (auto cell : row) {
@@ -338,7 +338,7 @@ TEST_CASE("Testing Daniel Rule") {
 		cellMap[1][1]->revive();
 		cellMap[1][1]->setAge(3); //Cause rule increses age by 1
 		std::vector<std::vector<Cell*>> newCellMap = drule->applyRules(cellMap);
-		//REQUIRE(cellMap[1][1]->getColorAlive() == COLOR::RED);
+		REQUIRE(static_cast<int>(newCellMap[1][1]->getColorAlive()) == static_cast<int>(COLOR::RED));
 		REQUIRE(newCellMap[1][1]->getAge() == 4);
 		for (auto row : newCellMap) {
 			for (auto cell : row) {
