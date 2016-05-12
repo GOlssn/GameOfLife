@@ -7,7 +7,7 @@ using std::vector;
 class ConwayRule : public Rule {
 	public:
 		ConwayRule() { }
-		void specificRule(Cell* cell, int pNeighboursAlive);
+		void specificRule(Cell* cell, vector<Cell*> pNeighboursAlive);
 };
 
 #endif // !CONWAYRULE_H

@@ -5,17 +5,27 @@
 
 class Cell {
 	public:
-		Cell() : color(COLOR::GREEN) { }
+		Cell() : colorAlive(COLOR::GREEN), colorDead(COLOR::WHITE) { }
 		~Cell();
 		void kill();
 		void revive();
 		bool isAlive() const;
-		COLOR getColor() const { return color; }
-		void setColor(COLOR pColor) { color = pColor; }
+		COLOR getColorAlive() const;
+		void setColorAlive(COLOR pColor);
+		COLOR getColorDead() const;
+		void setColorDead(COLOR pColor);
+		int getAge() const;
+		void setAge(int pAge);
 
 	private:
-		COLOR color;
+		/**Membervariable that holds the color for alivecell*/
+		COLOR colorAlive;
+		/**Membervariable that holds the color for deadcell*/
+		COLOR colorDead;
+		/**Membervariable that holds true or false if cell are alive or dead*/
 		bool alive = false;
+		/**Membervariable that holds the age for cell*/
+		int age = 0;
 };
 
 #endif // CELL_H

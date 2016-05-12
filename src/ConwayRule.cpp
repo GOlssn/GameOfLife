@@ -1,8 +1,8 @@
 #include "ConwayRule.h"
 
-void ConwayRule::specificRule(Cell *cell, int pNeighboursAlive) {
+void ConwayRule::specificRule(Cell *cell, vector<Cell*> pNeighboursAlive) {
 	if (cell->isAlive()) {
-		if (pNeighboursAlive > 3 || pNeighboursAlive < 2) {
+		if (pNeighboursAlive.size() > 3 || pNeighboursAlive.size() < 2) {
 			cell->kill();
 		}
 		else {
@@ -10,7 +10,7 @@ void ConwayRule::specificRule(Cell *cell, int pNeighboursAlive) {
 		}
 	}
 	else {
-		if (pNeighboursAlive == 3) {
+		if (pNeighboursAlive.size() == 3) {
 			cell->revive();
 		}
 	}
