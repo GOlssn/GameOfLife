@@ -84,9 +84,8 @@ TEST_CASE("GameEngine Class test") {
 		file << "2x2\n0,0\n1,1";
 		file.close();
 		GameEngine ge;
-
 		ge.readStartCellsFromFile("test.txt");
-		REQUIRE(ge.getCell() == true);
+		REQUIRE(ge.getVector()[1][1]->isAlive());
 	}
 
 }
