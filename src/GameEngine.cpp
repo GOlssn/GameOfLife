@@ -31,7 +31,13 @@ GameEngine::~GameEngine() {
 			delete cell;
 		}
 	}
+	for (auto row : newCellMap) {
+		for (auto cell : row) {
+			delete cell;
+		}
+	}
 	cellMap.clear();
+	newCellMap.clear();
 	delete oddRule;
 	delete evenRule;
 
@@ -45,16 +51,18 @@ void GameEngine::run() {
 	if (cellMap.size() == 0) {
 		setStartCellsRandom();
 	}
-	drawOnScreen();
+
+	drawOnScreen(cellMap);
 	for (int i = 1; i <= generations; i++) {
 
 		if (i % 2 == 0) {
-			cellMap = evenRule->applyRules(cellMap);
+			evenRule->applyRules(newCellMap, cellMap);
+			drawOnScreen(cellMap);
 		}
 		else {
-			cellMap = oddRule->applyRules(cellMap);
+			oddRule->applyRules(cellMap, newCellMap);
+			drawOnScreen(newCellMap);
 		}
-		drawOnScreen();
 	}
 }
 
@@ -62,17 +70,17 @@ void GameEngine::run() {
 * @author Daniel Jennebo, Gustav Olsson
 * @brief This function handles draw on screen (print the alive and dead cells to terminal)
 */
-void GameEngine::drawOnScreen() {
+void GameEngine::drawOnScreen(vector<vector<Cell*>> pCellMap) {
 	Terminal terminal;
 	Screen screen(x, y);
 	screen.fill(' ', TerminalColor(COLOR::BLACK, COLOR::WHITE));
-	for (int y = 0; y < cellMap.size(); y++) {
-		for (int x = 0; x < cellMap[y].size(); x++) {
-			if (cellMap[y][x]->isAlive()) {
-				screen.set(x, y, ' ', TerminalColor(COLOR::BLACK, cellMap[y][x]->getColorAlive()));
+	for (int y = 0; y < pCellMap.size(); y++) {
+		for (int x = 0; x < pCellMap[y].size(); x++) {
+			if (pCellMap[y][x]->isAlive()) {
+				screen.set(x, y, ' ', TerminalColor(COLOR::BLACK, pCellMap[y][x]->getColorAlive()));
 			}
 			else {
-				screen.set(x, y, ' ', TerminalColor(COLOR::BLACK, cellMap[y][x]->getColorDead()));
+				screen.set(x, y, ' ', TerminalColor(COLOR::BLACK, pCellMap[y][x]->getColorDead()));
 			}
 		}
 	}
@@ -225,12 +233,16 @@ void GameEngine::setStartCellsRandom()
 */
 void GameEngine::initCellMap() {
 	std::vector<Cell*> tmp;
+	std::vector<Cell*> newTmp;
 
 	for (int row = 0; row < y; row++) {
 		for (int cell = 0; cell < x; cell++) {
 			tmp.push_back(new Cell());
+			newTmp.push_back(new Cell());
 		}
 		cellMap.push_back(tmp);
+		newCellMap.push_back(newTmp);
+		newTmp.clear();
 		tmp.clear();
 	}
 }
