@@ -188,13 +188,6 @@ void GameEngine::readStartCellsFromFile(std::string file)
 	inFile.close();
 }
 
-
-bool GameEngine::getCell()
-{
-	// hardcoded for testcase
-	return cellMap[1][1]->isAlive();
-}
-
 /**
 
 

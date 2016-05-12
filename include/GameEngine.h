@@ -40,7 +40,6 @@ class GameEngine {
 		void setOddRule(Rule *rule);
 		void setEvenRule(Rule *rule);
 		void readStartCellsFromFile(std::string file);
-		bool getCell();
 		void setStartCellsRandom();
 		int getX() const;
 		void setX(int pX);

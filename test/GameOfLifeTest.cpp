@@ -105,9 +105,8 @@ TEST_CASE("GameEngine Class test") {
 		file << "2x2\n0,0\n1,1";
 		file.close();
 		GameEngine ge;
-
 		ge.readStartCellsFromFile("test.txt");
-		REQUIRE(ge.getCell() == true);
+		REQUIRE(ge.getVector()[1][1]->isAlive());
 	}
 
 }
@@ -392,6 +391,7 @@ TEST_CASE("Testing Pontus Rule") {
 	SECTION("A living cell that has one neighbour vill live") {
 
 		// Given there is one cell at coordinates 1,1 that is alive
+		// with one living neighbour
 		cellMap[0][1]->revive();
 		cellMap[1][1]->revive();
 		
@@ -413,6 +413,7 @@ TEST_CASE("Testing Pontus Rule") {
 	SECTION("A living cell that has two neighbours vill live") {
 
 		// Given there is one cell at coordinates 1,1 that is alive
+		// with two living neighbours
 		cellMap[0][0]->revive();
 		cellMap[0][1]->revive();
 		cellMap[1][1]->revive();
@@ -435,6 +436,7 @@ TEST_CASE("Testing Pontus Rule") {
 	SECTION("A living cell that has three neighbours vill live") {
 
 		// Given there is one cell at coordinates 1,1 that is alive
+		// with three living neighbours
 		cellMap[0][0]->revive();
 		cellMap[0][1]->revive();
 		cellMap[0][2]->revive();
@@ -458,6 +460,7 @@ TEST_CASE("Testing Pontus Rule") {
 	SECTION("A living cell that has four neighbours vill live") {
 
 		// Given there is one cell at coordinates 1,1 that is alive
+		// with four living neighbours
 		cellMap[0][0]->revive();
 		cellMap[0][1]->revive();
 		cellMap[0][2]->revive();
@@ -482,6 +485,7 @@ TEST_CASE("Testing Pontus Rule") {
 	SECTION("A living cell that has five neighbours vill live") {
 
 		// Given there is one cell at coordinates 1,1 that is alive
+		// with five living neighbours
 		cellMap[0][0]->revive();
 		cellMap[0][1]->revive();
 		cellMap[0][2]->revive();
@@ -507,6 +511,7 @@ TEST_CASE("Testing Pontus Rule") {
 	SECTION("A living cell that has six neighbours vill live") {
 
 		// Given there is one cell at coordinates 1,1 that is alive
+		// with six living neighbours
 		cellMap[0][0]->revive();
 		cellMap[0][1]->revive();
 		cellMap[0][2]->revive();
@@ -533,6 +538,7 @@ TEST_CASE("Testing Pontus Rule") {
 	SECTION("A living cell that has seven neighbours vill live") {
 
 		// Given there is one cell at coordinates 1,1 that is alive
+		// with seven living neighbours
 		cellMap[0][0]->revive();
 		cellMap[0][1]->revive();
 		cellMap[0][2]->revive();
@@ -559,6 +565,7 @@ TEST_CASE("Testing Pontus Rule") {
 
 	SECTION("A dead cell that has one neighbour will revive") {
 		// Given there is one cell at coordinates 1,1 that is dead
+		// // with one living neighbour
 		cellMap[0][0]->revive();
 		cellMap[1][1]->kill();
 
@@ -577,6 +584,7 @@ TEST_CASE("Testing Pontus Rule") {
 
 	SECTION("A dead cell that has two neighbour will revive") {
 		// Given there is one cell at coordinates 1,1 that is dead
+		// with two living neighbours
 		cellMap[0][0]->revive();
 		cellMap[0][1]->revive();
 		cellMap[1][1]->kill();
@@ -596,6 +604,7 @@ TEST_CASE("Testing Pontus Rule") {
 
 	SECTION("A dead cell that has three neighbour will revive") {
 		// Given there is one cell at coordinates 1,1 that is dead
+		// with three living neighbours
 		cellMap[0][0]->revive();
 		cellMap[0][1]->revive();
 		cellMap[0][2]->revive();
@@ -616,6 +625,7 @@ TEST_CASE("Testing Pontus Rule") {
 
 	SECTION("A dead cell that has four neighbour will revive") {
 		// Given there is one cell at coordinates 1,1 that is dead
+		// with four living neighbours
 		cellMap[0][0]->revive();
 		cellMap[0][1]->revive();
 		cellMap[0][2]->revive();
@@ -637,6 +647,7 @@ TEST_CASE("Testing Pontus Rule") {
 
 	SECTION("A dead cell that has five neighbour will revive") {
 		// Given there is one cell at coordinates 1,1 that is dead
+		// with five living neighbours
 		cellMap[0][0]->revive();
 		cellMap[0][1]->revive();
 		cellMap[0][2]->revive();
@@ -659,6 +670,7 @@ TEST_CASE("Testing Pontus Rule") {
 
 	SECTION("A dead cell that has six neighbour will revive") {
 		// Given there is one cell at coordinates 1,1 that is dead
+		// with six living neighbours
 		cellMap[0][0]->revive();
 		cellMap[0][1]->revive();
 		cellMap[0][2]->revive();
@@ -682,6 +694,7 @@ TEST_CASE("Testing Pontus Rule") {
 
 	SECTION("A dead cell that has seven neighbour will revive") {
 		// Given there is one cell at coordinates 1,1 that is dead
+		// with seven living neighbours
 		cellMap[0][0]->revive();
 		cellMap[0][1]->revive();
 		cellMap[0][2]->revive();
@@ -706,6 +719,7 @@ TEST_CASE("Testing Pontus Rule") {
 
 	SECTION("A living cell with zero neighbours will die") {
 		// Given there is one cell at coordinates 1,1 that is living
+		// with zero living neighbours
 		cellMap[1][1]->revive();
 
 		// When rules are applied
@@ -723,6 +737,7 @@ TEST_CASE("Testing Pontus Rule") {
 
 	SECTION("A living cell with eight neighbours will die") {
 		// Given there is one cell at coordinates 1,1 that is living
+		// with eight living neighbours
 		cellMap[0][0]->revive();
 		cellMap[0][1]->revive();
 		cellMap[0][2]->revive();
@@ -748,6 +763,7 @@ TEST_CASE("Testing Pontus Rule") {
 
 	SECTION("A dead cell with zero neighbours will not turn to living") {
 		// Given there is one cell at coordinates 1,1 that is dead
+		// with zero living neighbours
 		cellMap[1][1]->kill();
 
 		// When rules are applied
@@ -765,6 +781,7 @@ TEST_CASE("Testing Pontus Rule") {
 
 	SECTION("A dead cell with eight neighbours will not turn to living") {
 		// Given there is one cell at coordinates 1,1 that is dead
+		// with eight living neighbours
 		cellMap[0][0]->revive();
 		cellMap[0][1]->revive();
 		cellMap[0][2]->revive();

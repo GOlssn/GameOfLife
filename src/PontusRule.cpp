@@ -1,7 +1,6 @@
 #include "PontusRule.h"
 
 /**
-*
 * @author Pontus Stenlund
 * @param cell contains the current cell being checked in applyRules function.
 * @param pNeighboursAlive contains the living cell neighbours to the current cell (param cell).
