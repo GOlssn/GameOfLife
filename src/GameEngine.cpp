@@ -71,13 +71,8 @@ void GameEngine::run() {
 		}
 
 		screen.draw(terminal);
-		std::this_thread::sleep_for(std::chrono::seconds(1));
-		std::cout << std::endl << std::endl;
-		
+		std::this_thread::sleep_for(std::chrono::milliseconds(700));
 	}
-	
-	
-	system("pause");
 }
 
 
@@ -179,7 +174,7 @@ void GameEngine::readStartCellsFromFile(std::string file)
 
 			posY = stoi(tmp);
 
-			cellMap[posX][posY]->revive();
+			cellMap[posY][posX]->revive();
 		}
 	}
 
