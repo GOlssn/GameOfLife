@@ -1,10 +1,12 @@
-Game of Life - README.md Version 1.0
+Game of Life - Version 1.0
 =====================================
 
 General info
 ------------
-Conway's Game of Life is a zero player game with cellular automaton.  
-It uses arguments on startup and there after the game it self evolves from generation to generation. This without further user input. 
+The Game of Life, also known simply as Life, is a cellular automaton devised by the British mathematician John Horton Conway in 1970.  
+The "game" is a zero-player game, meaning that its evolution is determined by its initial state, requiring no further input.  
+One interacts with the Game of Life by creating an initial configuration and observing how it evolves.  
+
  
 Conway's rules are:   
 
@@ -12,6 +14,8 @@ Conway's rules are:
 * Any live cell with two or three live neighbours lives on to the next generation.
 * Any live cell with more than three live neighbours dies, as if by over-population.
 * Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.
+
+Wiki [link](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life)
 
 How to run "gameoflife"
 ------------------------
@@ -25,6 +29,13 @@ How to run "gameoflife"
 * __-f <filename for initial state>[default = random state]__
 
 Different rulenames to use are: pontus, gustav and daniel.
+
+File format example:
+20x20
+10,10
+10,11
+11,40
+10,39
 
 
 Developers
