@@ -30,7 +30,7 @@ How to run "gameoflife"
 
 Different rulenames to use are: pontus, gustav and daniel.
 
-File format example:
+File format example:  
 20x20  
 10,10  
 10,11  
