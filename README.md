@@ -15,7 +15,7 @@ Conway's rules are:
 * Any live cell with more than three live neighbours dies, as if by over-population.
 * Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.
 
-Wiki [link](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life)
+Wikipedia [link](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life)
 
 How to run "gameoflife"
 ------------------------
@@ -31,11 +31,11 @@ How to run "gameoflife"
 Different rulenames to use are: pontus, gustav and daniel.
 
 File format example:
-20x20
-10,10
-10,11
-11,40
-10,39
+20x20  
+10,10  
+10,11  
+11,40  
+10,39  
 
 
 Developers
