@@ -3,9 +3,9 @@ Game of Life - Version 1.0
 
 General info
 ------------
-The Game of Life, also known simply as Life, is a cellular automaton devised by the British mathematician John Horton Conway in 1970.  
+"The Game of Life, also known simply as Life, is a cellular automaton devised by the British mathematician John Horton Conway in 1970.  
 The "game" is a zero-player game, meaning that its evolution is determined by its initial state, requiring no further input.  
-One interacts with the Game of Life by creating an initial configuration and observing how it evolves.  
+One interacts with the Game of Life by creating an initial configuration and observing how it evolves."  
 
  
 Conway's rules are:   
@@ -30,7 +30,11 @@ How to run "gameoflife"
 
 Different rulenames to use are: pontus, gustav and daniel.
 
-File format example:  
+
+File format:  
+First you need to specify the size of the board buy width * height.  
+Then you need to specify all the cells that you want to be living.  
+An example is presented below   
 20x20  
 10,10  
 10,11  
