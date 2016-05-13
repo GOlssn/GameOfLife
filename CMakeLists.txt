@@ -31,6 +31,7 @@ set(SRC_LIST
 	src/Rule.cpp
 	src/DanielRule.cpp
 	src/PontusRule.cpp
+	src/GustavRule.cpp
 )
 
 set(TEST_LIST
@@ -44,6 +45,7 @@ set(TEST_LIST
 	src/Rule.cpp
 	src/DanielRule.cpp
 	src/PontusRule.cpp
+	src/GustavRule.cpp
 )
 
 # Om Debug mode
