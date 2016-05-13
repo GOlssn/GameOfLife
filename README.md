@@ -5,7 +5,7 @@ General info
 ------------
 "The Game of Life, also known simply as Life, is a cellular automaton devised by the British mathematician John Horton Conway in 1970.  
 The "game" is a zero-player game, meaning that its evolution is determined by its initial state, requiring no further input.  
-One interacts with the Game of Life by creating an initial configuration and observing how it evolves."  
+One interacts with the Game of Life by creating an initial configuration and observing how it evolves." - [Wikipedia](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life)
 
  
 Conway's rules are:   
@@ -15,7 +15,6 @@ Conway's rules are:
 * Any live cell with more than three live neighbours dies, as if by over-population.
 * Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.
 
-Wikipedia [link](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life)
 
 How to run "gameoflife"
 ------------------------
@@ -28,12 +27,17 @@ How to run "gameoflife"
 * __-s <widthxheight>[default = 80x24]__
 * __-f <filename for initial state>[default = random state]__
 
-Different rulenames to use are: pontus, gustav and daniel.
+### Rules  
+* pontus
+* gustav
+* daniel
 
 
-File format:  
+File format
+-----------  
 First you need to specify the size of the board buy width * height.  
-Then you need to specify all the cells that you want to be living.  
+Then you need to specify all the cells that should be alive in the initialze.  
+  
 An example is presented below   
 20x20  
 10,10  
