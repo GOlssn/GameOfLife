@@ -10,6 +10,7 @@
 #include "ConwayRule.h"
 #include "DanielRule.h"
 #include "PontusRule.h"
+#include "GustavRule.h"
 
 class RuleFactory {
 public:

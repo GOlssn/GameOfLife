@@ -1,8 +1,9 @@
 /**
 * @interface Rule
 * @author Gustav Olsson
-* @brief 
+* @brief This is the base class for concrete implementations of rules.
 */
+
 #ifndef RULE_H
 #define RULE_H
 

@@ -5,6 +5,7 @@
 #include <fstream>
 #include "memstat.hpp"
 #include "DanielRule.h"
+#include "GustavRule.h"
 
 TEST_CASE("Cell class test") {
 	SECTION("Check isAlive function TRUE") {
@@ -155,7 +156,7 @@ TEST_CASE("Testing Conway Rule") {
 	Rule *rule = new ConwayRule();
 
 
-	SECTION("A living cell that has less than two living neighbours will die") {
+	SECTION("A living cell that has fewer than two living neighbours will die") {
 
 		// Given there is one cell at coordinates 1,1 that is alive
 		// And no more than ONE of the surrounding cells are alive
@@ -319,8 +320,6 @@ TEST_CASE("Testing Daniel Rule") {
 		cellMap[1][2]->revive();
 		cellMap[1][0]->revive();
 		cellMap[0][0]->revive();
-
-	
 
 		drule->applyRules(cellMap, newCellMap);
 
@@ -776,6 +775,115 @@ TEST_CASE("Testing Pontus Rule") {
 		REQUIRE(!newCellMap[1][1]->isAlive());
 	}
 
+
+	for (auto row : cellMap) {
+		for (auto cell : row) {
+			delete cell;
+		}
+	}
+
+	for (auto row : newCellMap) {
+		for (auto cell : row) {
+			delete cell;
+		}
+	}
+
+	delete rule;
+
+}
+
+TEST_CASE("Gustav Rule") {
+	
+	std::vector<std::vector<Cell*>> cellMap;
+	std::vector<std::vector<Cell*>> newCellMap;
+	std::vector<Cell*> cellMapRow;
+	std::vector<Cell*> newCellMapRow;
+
+	cellMapRow.push_back(new Cell());
+	cellMapRow.push_back(new Cell());
+	cellMapRow.push_back(new Cell());
+	cellMap.push_back(cellMapRow);
+	cellMapRow.clear();
+	cellMapRow.push_back(new Cell());
+	cellMapRow.push_back(new Cell());
+	cellMapRow.push_back(new Cell());
+	cellMap.push_back(cellMapRow);
+	cellMapRow.clear();
+	cellMapRow.push_back(new Cell());
+	cellMapRow.push_back(new Cell());
+	cellMapRow.push_back(new Cell());
+	cellMap.push_back(cellMapRow);
+	cellMapRow.clear();
+
+	newCellMapRow.push_back(new Cell());
+	newCellMapRow.push_back(new Cell());
+	newCellMapRow.push_back(new Cell());
+	newCellMap.push_back(newCellMapRow);
+	newCellMapRow.clear();
+	newCellMapRow.push_back(new Cell());
+	newCellMapRow.push_back(new Cell());
+	newCellMapRow.push_back(new Cell());
+	newCellMap.push_back(newCellMapRow);
+	newCellMapRow.clear();
+	newCellMapRow.push_back(new Cell());
+	newCellMapRow.push_back(new Cell());
+	newCellMapRow.push_back(new Cell());
+	newCellMap.push_back(newCellMapRow);
+	newCellMapRow.clear();
+
+	Rule *rule = new GustavRule();
+
+	SECTION("If a dead cell has exactly two living neighbours it will revive") {
+		cellMap[1][1]->kill();
+		cellMap[0][0]->revive();
+		cellMap[1][0]->revive();
+
+		rule->applyRules(cellMap, newCellMap);
+
+		REQUIRE(newCellMap[1][1]->isAlive());
+	}
+
+	SECTION("If a living cell has any living neighbours that are exactly age 2, it will die") {
+		cellMap[1][1]->revive();
+		cellMap[0][1]->revive();
+		cellMap[1][0]->revive();
+		cellMap[0][1]->setAge(2);
+		cellMap[1][0]->setAge(2);
+
+		rule->applyRules(cellMap, newCellMap);
+
+		REQUIRE(!newCellMap[1][1]->isAlive());
+	}
+
+	SECTION("If a cell has 6 to 8 neighbours that are alive, it will die") {
+		cellMap[1][1]->revive();
+		cellMap[2][2]->revive();
+		cellMap[0][0]->revive();
+		cellMap[0][1]->revive();
+		cellMap[1][0]->revive();
+		cellMap[1][2]->revive();
+		cellMap[2][1]->revive();
+
+		rule->applyRules(cellMap, newCellMap);
+
+		REQUIRE(!newCellMap[1][1]->isAlive());
+	}
+
+	SECTION("If a dead cell has one living neighbours that is above age 0, it will revive") {
+		cellMap[1][1]->kill();
+		cellMap[0][0]->revive();
+		cellMap[0][1]->revive();
+		cellMap[0][1]->setAge(3);
+
+		rule->applyRules(cellMap, newCellMap);
+
+		REQUIRE(newCellMap[1][1]->isAlive());
+	}
+
+	SECTION("Dead cells should be color RED") {
+		rule->applyRules(cellMap, newCellMap);
+		REQUIRE(static_cast<int>(newCellMap[0][0]->getColorDead()) == static_cast<int>(COLOR::RED));
+	}
 
 	for (auto row : cellMap) {
 		for (auto cell : row) {

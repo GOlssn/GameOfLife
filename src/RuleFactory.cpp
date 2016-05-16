@@ -24,5 +24,8 @@ Rule* RuleFactory::createRule(std::string rule) {
 	else if (rule == "pontus") {
 		return new PontusRule();
 	}
+	else if (rule == "gustav") {
+		return new GustavRule();
+	}
 	return new ConwayRule();
 }
