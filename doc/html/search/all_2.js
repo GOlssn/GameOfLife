@@ -1,23 +1,5 @@
 var searchData=
 [
-  ['catch_5fconfig_5fmain',['CATCH_CONFIG_MAIN',['../_catch_main_8cpp.html#a656eb5868e824d59f489f910db438420',1,'CatchMain.cpp']]],
-  ['catchmain_2ecpp',['CatchMain.cpp',['../_catch_main_8cpp.html',1,'']]],
-  ['cell',['Cell',['../class_cell.html',1,'Cell'],['../class_cell.html#a394510643e8664cf12b5efaf5cb99f71',1,'Cell::Cell()']]],
-  ['cell_2ecpp',['Cell.cpp',['../_cell_8cpp.html',1,'']]],
-  ['cell_2eh',['Cell.h',['../_cell_8h.html',1,'']]],
-  ['cellmap',['cellMap',['../class_game_engine.html#ad26a13e107597628d5aab5c7ac5ab450',1,'GameEngine']]],
-  ['clear',['clear',['../class_screen.html#a35e74266b2a04e37b354ceff7a5f1031',1,'Screen::clear()'],['../class_terminal.html#a4be741767b27739eec98901477e1c3d4',1,'Terminal::clear()']]],
-  ['clearcolors',['clearColors',['../class_terminal.html#ac96b313ba40f38b88cdbda71a1458033',1,'Terminal']]],
-  ['cmakeccompilerid_2ec',['CMakeCCompilerId.c',['../_c_make_c_compiler_id_8c.html',1,'']]],
-  ['cmakecxxcompilerid_2ecpp',['CMakeCXXCompilerId.cpp',['../_c_make_c_x_x_compiler_id_8cpp.html',1,'']]],
-  ['color',['color',['../class_terminal.html#adab99bfc368af6b480e04b8a628ab9a2',1,'Terminal::color()'],['../terminal_8h.html#af90824509586333cf45ce757d2711ce3',1,'COLOR():&#160;terminal.h']]],
-  ['coloralive',['colorAlive',['../class_cell.html#ad32fa880913e98498244a0dfd8dd9de5',1,'Cell']]],
-  ['colordead',['colorDead',['../class_cell.html#a3d896fc6945368c5dda674bed5a649b8',1,'Cell']]],
-  ['compiler_5fid',['COMPILER_ID',['../_c_make_c_compiler_id_8c.html#a81dee0709ded976b2e0319239f72d174',1,'COMPILER_ID():&#160;CMakeCCompilerId.c'],['../_c_make_c_x_x_compiler_id_8cpp.html#a81dee0709ded976b2e0319239f72d174',1,'COMPILER_ID():&#160;CMakeCXXCompilerId.cpp']]],
-  ['conwayrule',['ConwayRule',['../class_conway_rule.html',1,'ConwayRule'],['../class_conway_rule.html#a6ad2261837d8fdcff7bd3ece3377d035',1,'ConwayRule::ConwayRule()']]],
-  ['conwayrule_2ecpp',['ConwayRule.cpp',['../_conway_rule_8cpp.html',1,'']]],
-  ['conwayrule_2eh',['ConwayRule.h',['../_conway_rule_8h.html',1,'']]],
-  ['createrule',['createRule',['../class_rule_factory.html#a00081ec998df88bf1bc546a435b3a790',1,'RuleFactory']]],
-  ['cti',['cti',['../class_terminal.html#abdb8212adad409a85cdb8b5dca85ccc8',1,'Terminal']]],
-  ['cyan',['CYAN',['../terminal_8h.html#af90824509586333cf45ce757d2711ce3a344dd8cd533280795b9db82ef0c92749',1,'terminal.h']]]
+  ['danielrule',['DanielRule',['../class_daniel_rule.html',1,'']]],
+  ['drawonscreen',['drawOnScreen',['../class_game_engine.html#ac81a074756e8fbe9558534c1ae9ee601',1,'GameEngine']]]
 ];

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>GameOfLife: Rule Interface Reference</title>
+<title>Game Of Life: Rule Interface Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -23,7 +23,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">GameOfLife
+   <div id="projectname">Game Of Life
    </div>
   </td>
  </tr>
@@ -38,7 +38,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -91,6 +90,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
+<p>This is the base class for concrete implementations of rules.  
+ <a href="class_rule.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_rule_8h_source.html">Rule.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Rule:</div>
@@ -98,9 +100,10 @@ Inheritance diagram for Rule:</div>
  <div class="center">
   <img src="class_rule.png" usemap="#Rule_map" alt=""/>
   <map id="Rule_map" name="Rule_map">
-<area href="class_conway_rule.html" title="CONWAY. " alt="ConwayRule" shape="rect" coords="0,56,83,80"/>
-<area href="class_daniel_rule.html" title="This class handles the implementation of DanielRule. " alt="DanielRule" shape="rect" coords="93,56,176,80"/>
-<area href="class_pontus_rule.html" title="PONTUS. " alt="PontusRule" shape="rect" coords="186,56,269,80"/>
+<area href="class_conway_rule.html" title="A concrete rule. Derived from base class Rule. " alt="ConwayRule" shape="rect" coords="0,56,83,80"/>
+<area href="class_daniel_rule.html" title="A concrete rule. Derived from base class Rule. " alt="DanielRule" shape="rect" coords="93,56,176,80"/>
+<area href="class_gustav_rule.html" title="A concrete rule. Derived from base class Rule. " alt="GustavRule" shape="rect" coords="186,56,269,80"/>
+<area href="class_pontus_rule.html" title="A concrete rule. Derived from base class Rule. " alt="PontusRule" shape="rect" coords="279,56,362,80"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -112,14 +115,16 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a5f9104b39f2eb32df1713a98d44d6cdb"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rule.html#a5f9104b39f2eb32df1713a98d44d6cdb">~Rule</a> ()</td></tr>
 <tr class="memdesc:a5f9104b39f2eb32df1713a98d44d6cdb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default destruct, no implementation.  <a href="#a5f9104b39f2eb32df1713a98d44d6cdb">More...</a><br /></td></tr>
 <tr class="separator:a5f9104b39f2eb32df1713a98d44d6cdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af4b35ebeb514ade41be7c433d60d68ac"><td class="memItemLeft" align="right" valign="top">virtual vector&lt; vector&lt; <a class="el" href="class_cell.html">Cell</a> * &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rule.html#af4b35ebeb514ade41be7c433d60d68ac">applyRules</a> (vector&lt; vector&lt; <a class="el" href="class_cell.html">Cell</a> * &gt;&gt; &amp;cellMap)</td></tr>
-<tr class="memdesc:af4b35ebeb514ade41be7c433d60d68ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">PONTUS.  <a href="#af4b35ebeb514ade41be7c433d60d68ac">More...</a><br /></td></tr>
-<tr class="separator:af4b35ebeb514ade41be7c433d60d68ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a033ff4b55a89733b5a17947c7bc36f62"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rule.html#a033ff4b55a89733b5a17947c7bc36f62">specificRule</a> (<a class="el" href="class_cell.html">Cell</a> *cell, vector&lt; <a class="el" href="class_cell.html">Cell</a> * &gt; pNeighboursAlive)=0</td></tr>
+<tr class="memitem:a883a1d3188c7b078b1c9f870983b04fd"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rule.html#a883a1d3188c7b078b1c9f870983b04fd">applyRules</a> (const vector&lt; vector&lt; <a class="el" href="class_cell.html">Cell</a> * &gt;&gt; &amp;cellMap, vector&lt; vector&lt; <a class="el" href="class_cell.html">Cell</a> * &gt;&gt; &amp;newCellMap)</td></tr>
+<tr class="memdesc:a883a1d3188c7b078b1c9f870983b04fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Counts neighbouring cells and applies rules to every cell. Invokes specificRule() to apply derived implementations of rules on cells.  <a href="#a883a1d3188c7b078b1c9f870983b04fd">More...</a><br /></td></tr>
+<tr class="separator:a883a1d3188c7b078b1c9f870983b04fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a033ff4b55a89733b5a17947c7bc36f62"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a033ff4b55a89733b5a17947c7bc36f62"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>specificRule</b> (<a class="el" href="class_cell.html">Cell</a> *cell, vector&lt; <a class="el" href="class_cell.html">Cell</a> * &gt; pNeighboursAlive)=0</td></tr>
 <tr class="separator:a033ff4b55a89733b5a17947c7bc36f62"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><dl class="section author"><dt>Author</dt><dd>Gustav Olsson </dd></dl>
+<div class="textblock"><p>This is the base class for concrete implementations of rules. </p>
+<dl class="section author"><dt>Author</dt><dd>Gustav Olsson </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="aeb73d8de3bba02f37d8cab6efb645424"></a>
 <div class="memitem">
@@ -174,7 +179,7 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="af4b35ebeb514ade41be7c433d60d68ac"></a>
+<a class="anchor" id="a883a1d3188c7b078b1c9f870983b04fd"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -182,43 +187,16 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">vector&lt; vector&lt; <a class="el" href="class_cell.html">Cell</a> * &gt; &gt; Rule::applyRules </td>
+          <td class="memname">void Rule::applyRules </td>
           <td>(</td>
-          <td class="paramtype">vector&lt; vector&lt; <a class="el" href="class_cell.html">Cell</a> * &gt;&gt; &amp;&#160;</td>
-          <td class="paramname"><em>cellMap</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>PONTUS. </p>
-<dl class="section author"><dt>Author</dt><dd>Pontus Stenlund </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="a033ff4b55a89733b5a17947c7bc36f62"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual void Rule::specificRule </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_cell.html">Cell</a> *&#160;</td>
-          <td class="paramname"><em>cell</em>, </td>
+          <td class="paramtype">const vector&lt; vector&lt; <a class="el" href="class_cell.html">Cell</a> * &gt;&gt; &amp;&#160;</td>
+          <td class="paramname"><em>cellMap</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">vector&lt; <a class="el" href="class_cell.html">Cell</a> * &gt;&#160;</td>
-          <td class="paramname"><em>pNeighboursAlive</em>&#160;</td>
+          <td class="paramtype">vector&lt; vector&lt; <a class="el" href="class_cell.html">Cell</a> * &gt;&gt; &amp;&#160;</td>
+          <td class="paramname"><em>newCellMap</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -228,18 +206,27 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="class_daniel_rule.html#a2ab1c97d83982a67ed4a78489e5da7be">DanielRule</a>, <a class="el" href="class_conway_rule.html#a520b803b44e953dbeb818e18c691c302">ConwayRule</a>, and <a class="el" href="class_pontus_rule.html#a2fd25273288a9501b4df65f8134af46d">PontusRule</a>.</p>
+<p>Counts neighbouring cells and applies rules to every cell. Invokes specificRule() to apply derived implementations of rules on cells. </p>
+<dl class="section author"><dt>Author</dt><dd>Gustav Olsson </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cellMap</td><td>is a vector that contains the current generation of cells. </td></tr>
+    <tr><td class="paramname">newCellMap</td><td>is a vector that will hold the next generation of cells, i.e. the cells after rules are applied. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd>Rule::specificRule(Cell* cell, vector&lt;Cell*&gt; pNeighboursAlive) </dd></dl>
 
 </div>
 </div>
 <hr/>The documentation for this interface was generated from the following files:<ul>
 <li>C:/Users/Nollan/GitWork/gameoflife/include/<a class="el" href="_rule_8h_source.html">Rule.h</a></li>
-<li>C:/Users/Nollan/GitWork/gameoflife/src/<a class="el" href="_rule_8cpp.html">Rule.cpp</a></li>
+<li>C:/Users/Nollan/GitWork/gameoflife/src/Rule.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

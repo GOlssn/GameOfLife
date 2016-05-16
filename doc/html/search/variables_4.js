@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['features',['features',['../feature__tests_8cxx.html#a1582568e32f689337602a16bf8a5bff0',1,'feature_tests.cxx']]]
+  ['oddcellmap',['oddCellMap',['../class_game_engine.html#a64b6bb417d9513d0ae96ff97b91d8bcc',1,'GameEngine']]],
+  ['oddrule',['oddRule',['../class_game_engine.html#adec881327601577169fb975edd5e1426',1,'GameEngine']]]
 ];

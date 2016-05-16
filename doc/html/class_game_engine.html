@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>GameOfLife: GameEngine Class Reference</title>
+<title>Game Of Life: GameEngine Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -23,7 +23,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">GameOfLife
+   <div id="projectname">Game Of Life
    </div>
   </td>
  </tr>
@@ -38,7 +38,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -103,10 +102,11 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a64c430f74d72e2745646fdbffbd97930"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constuct for <a class="el" href="class_game_engine.html" title="This class handles runtime of program. ">GameEngine</a> class.  <a href="#a64c430f74d72e2745646fdbffbd97930">More...</a><br /></td></tr>
 <tr class="separator:a64c430f74d72e2745646fdbffbd97930"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8e59d8341ef9d2dcc62eee1437e37f14"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_engine.html#a8e59d8341ef9d2dcc62eee1437e37f14">~GameEngine</a> ()</td></tr>
-<tr class="memdesc:a8e59d8341ef9d2dcc62eee1437e37f14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor for <a class="el" href="class_game_engine.html" title="This class handles runtime of program. ">GameEngine</a> class. Deletes pointers in <a class="el" href="class_game_engine.html#ad26a13e107597628d5aab5c7ac5ab450">cellMap</a> and rule pointer members.  <a href="#a8e59d8341ef9d2dcc62eee1437e37f14">More...</a><br /></td></tr>
+<tr class="memdesc:a8e59d8341ef9d2dcc62eee1437e37f14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor for <a class="el" href="class_game_engine.html" title="This class handles runtime of program. ">GameEngine</a> class. Deletes pointers in <a class="el" href="class_game_engine.html#a2b32167ce089a027597df703ca90071b">evenCellMap</a>, <a class="el" href="class_game_engine.html#a64b6bb417d9513d0ae96ff97b91d8bcc">oddCellMap</a> &amp; pointers <a class="el" href="class_game_engine.html#adec881327601577169fb975edd5e1426">oddRule</a>, <a class="el" href="class_game_engine.html#a58b8c07b389169a5a2f64e6db1c651a9">evenRule</a>.  <a href="#a8e59d8341ef9d2dcc62eee1437e37f14">More...</a><br /></td></tr>
 <tr class="separator:a8e59d8341ef9d2dcc62eee1437e37f14"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab01970da2c68fefbf48b98c59d5627ae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_engine.html#ab01970da2c68fefbf48b98c59d5627ae">run</a> ()</td></tr>
-<tr class="memdesc:ab01970da2c68fefbf48b98c59d5627ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function handles the programs runtime.  <a href="#ab01970da2c68fefbf48b98c59d5627ae">More...</a><br /></td></tr>
+<tr class="memitem:ab01970da2c68fefbf48b98c59d5627ae"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab01970da2c68fefbf48b98c59d5627ae"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_engine.html#ab01970da2c68fefbf48b98c59d5627ae">run</a> ()</td></tr>
+<tr class="memdesc:ab01970da2c68fefbf48b98c59d5627ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains the game loop and draws cellmaps in the terminal window. <br /></td></tr>
 <tr class="separator:ab01970da2c68fefbf48b98c59d5627ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad425edb3daa4d8948edfd861c9ff2243"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_engine.html#ad425edb3daa4d8948edfd861c9ff2243">setWindowSize</a> (std::string size)</td></tr>
 <tr class="memdesc:ad425edb3daa4d8948edfd861c9ff2243"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function sets <a class="el" href="class_game_engine.html#ac291b94aff32c9a2da2b4f0e2800f4b6">x</a> and <a class="el" href="class_game_engine.html#a8e61024b5d58fdea67a35acfd62ab358">y</a> values to determine size of terminal window.  <a href="#ad425edb3daa4d8948edfd861c9ff2243">More...</a><br /></td></tr>
@@ -126,10 +126,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ab9dfa14b6797e6a3ee218ac491ee4f6b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_engine.html#ab9dfa14b6797e6a3ee218ac491ee4f6b">readStartCellsFromFile</a> (std::string file)</td></tr>
 <tr class="memdesc:ab9dfa14b6797e6a3ee218ac491ee4f6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads from file and sets windowsize and which cells to be alive.  <a href="#ab9dfa14b6797e6a3ee218ac491ee4f6b">More...</a><br /></td></tr>
 <tr class="separator:ab9dfa14b6797e6a3ee218ac491ee4f6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab48298575e18cd471849123f6b8404bc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_engine.html#ab48298575e18cd471849123f6b8404bc">getCell</a> ()</td></tr>
-<tr class="separator:ab48298575e18cd471849123f6b8404bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7c67acbd0aedf0cadeca5735ac097a57"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_engine.html#a7c67acbd0aedf0cadeca5735ac097a57">setStartCellsRandom</a> ()</td></tr>
-<tr class="memdesc:a7c67acbd0aedf0cadeca5735ac097a57"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function make random number of cells alive at random places in cellMap.  <a href="#a7c67acbd0aedf0cadeca5735ac097a57">More...</a><br /></td></tr>
+<tr class="memdesc:a7c67acbd0aedf0cadeca5735ac097a57"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function make random number of cells alive at random places in <a class="el" href="class_game_engine.html#a2b32167ce089a027597df703ca90071b">evenCellMap</a> This is the initial state.  <a href="#a7c67acbd0aedf0cadeca5735ac097a57">More...</a><br /></td></tr>
 <tr class="separator:a7c67acbd0aedf0cadeca5735ac097a57"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac7b245e49b066367e236ea667eb47da1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_engine.html#ac7b245e49b066367e236ea667eb47da1">getX</a> () const </td></tr>
 <tr class="memdesc:ac7b245e49b066367e236ea667eb47da1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function returns membervariable <a class="el" href="class_game_engine.html#ac291b94aff32c9a2da2b4f0e2800f4b6">x</a>.  <a href="#ac7b245e49b066367e236ea667eb47da1">More...</a><br /></td></tr>
@@ -147,14 +145,14 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a4d5cbe9e3ea4fa75f4f57b3605d6de90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function returns a string with help.  <a href="#a4d5cbe9e3ea4fa75f4f57b3605d6de90">More...</a><br /></td></tr>
 <tr class="separator:a4d5cbe9e3ea4fa75f4f57b3605d6de90"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9704ca97df8353c1c232085caea38fa2"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::vector&lt; <a class="el" href="class_cell.html">Cell</a> * &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_engine.html#a9704ca97df8353c1c232085caea38fa2">getVector</a> ()</td></tr>
-<tr class="memdesc:a9704ca97df8353c1c232085caea38fa2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the vector <a class="el" href="class_game_engine.html#ad26a13e107597628d5aab5c7ac5ab450">cellMap</a>.  <a href="#a9704ca97df8353c1c232085caea38fa2">More...</a><br /></td></tr>
+<tr class="memdesc:a9704ca97df8353c1c232085caea38fa2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the vector <a class="el" href="class_game_engine.html#a2b32167ce089a027597df703ca90071b">evenCellMap</a>.  <a href="#a9704ca97df8353c1c232085caea38fa2">More...</a><br /></td></tr>
 <tr class="separator:a9704ca97df8353c1c232085caea38fa2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae5c581eb646fb1ec986c15c8c3749f38"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_engine.html#ae5c581eb646fb1ec986c15c8c3749f38">initCellMap</a> ()</td></tr>
-<tr class="memdesc:ae5c581eb646fb1ec986c15c8c3749f38"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function initiate the cellMap vector with dead cells.  <a href="#ae5c581eb646fb1ec986c15c8c3749f38">More...</a><br /></td></tr>
-<tr class="separator:ae5c581eb646fb1ec986c15c8c3749f38"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afa90ccb38ced12cc1d3eced4082d54c6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_engine.html#afa90ccb38ced12cc1d3eced4082d54c6">drawOnScreen</a> ()</td></tr>
-<tr class="memdesc:afa90ccb38ced12cc1d3eced4082d54c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function handles draw on screen (print the alive and dead cells to terminal)  <a href="#afa90ccb38ced12cc1d3eced4082d54c6">More...</a><br /></td></tr>
-<tr class="separator:afa90ccb38ced12cc1d3eced4082d54c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ff3162379f2fcc47c54032300dd8015"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_engine.html#a9ff3162379f2fcc47c54032300dd8015">initCellMaps</a> ()</td></tr>
+<tr class="memdesc:a9ff3162379f2fcc47c54032300dd8015"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function initiate the <a class="el" href="class_game_engine.html#a2b32167ce089a027597df703ca90071b">evenCellMap</a> &amp; <a class="el" href="class_game_engine.html#a64b6bb417d9513d0ae96ff97b91d8bcc">oddCellMap</a> vectors with dead cells.  <a href="#a9ff3162379f2fcc47c54032300dd8015">More...</a><br /></td></tr>
+<tr class="separator:a9ff3162379f2fcc47c54032300dd8015"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac81a074756e8fbe9558534c1ae9ee601"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_engine.html#ac81a074756e8fbe9558534c1ae9ee601">drawOnScreen</a> (vector&lt; vector&lt; <a class="el" href="class_cell.html">Cell</a> * &gt;&gt; pCellMap)</td></tr>
+<tr class="memdesc:ac81a074756e8fbe9558534c1ae9ee601"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function handles draw on screen (print the alive and dead cells to terminal)  <a href="#ac81a074756e8fbe9558534c1ae9ee601">More...</a><br /></td></tr>
+<tr class="separator:ac81a074756e8fbe9558534c1ae9ee601"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -168,8 +166,10 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a8e61024b5d58fdea67a35acfd62ab358"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8edfe169e71c0b573fce065aacc2112e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_engine.html#a8edfe169e71c0b573fce065aacc2112e">generations</a> = 500</td></tr>
 <tr class="separator:a8edfe169e71c0b573fce065aacc2112e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad26a13e107597628d5aab5c7ac5ab450"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::vector&lt; <a class="el" href="class_cell.html">Cell</a> * &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_engine.html#ad26a13e107597628d5aab5c7ac5ab450">cellMap</a></td></tr>
-<tr class="separator:ad26a13e107597628d5aab5c7ac5ab450"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b32167ce089a027597df703ca90071b"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::vector&lt; <a class="el" href="class_cell.html">Cell</a> * &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_engine.html#a2b32167ce089a027597df703ca90071b">evenCellMap</a></td></tr>
+<tr class="separator:a2b32167ce089a027597df703ca90071b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a64b6bb417d9513d0ae96ff97b91d8bcc"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::vector&lt; <a class="el" href="class_cell.html">Cell</a> * &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_engine.html#a64b6bb417d9513d0ae96ff97b91d8bcc">oddCellMap</a></td></tr>
+<tr class="separator:a64b6bb417d9513d0ae96ff97b91d8bcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This class handles runtime of program. </p>
@@ -206,20 +206,21 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Destructor for <a class="el" href="class_game_engine.html" title="This class handles runtime of program. ">GameEngine</a> class. Deletes pointers in <a class="el" href="class_game_engine.html#ad26a13e107597628d5aab5c7ac5ab450">cellMap</a> and rule pointer members. </p>
+<p>Destructor for <a class="el" href="class_game_engine.html" title="This class handles runtime of program. ">GameEngine</a> class. Deletes pointers in <a class="el" href="class_game_engine.html#a2b32167ce089a027597df703ca90071b">evenCellMap</a>, <a class="el" href="class_game_engine.html#a64b6bb417d9513d0ae96ff97b91d8bcc">oddCellMap</a> &amp; pointers <a class="el" href="class_game_engine.html#adec881327601577169fb975edd5e1426">oddRule</a>, <a class="el" href="class_game_engine.html#a58b8c07b389169a5a2f64e6db1c651a9">evenRule</a>. </p>
 <dl class="section author"><dt>Author</dt><dd>Daniel Jennebo. </dd></dl>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="afa90ccb38ced12cc1d3eced4082d54c6"></a>
+<a class="anchor" id="ac81a074756e8fbe9558534c1ae9ee601"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void GameEngine::drawOnScreen </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">vector&lt; vector&lt; <a class="el" href="class_cell.html">Cell</a> * &gt;&gt;&#160;</td>
+          <td class="paramname"><em>pCellMap</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -227,21 +228,6 @@ Private Attributes</h2></td></tr>
 
 <p>This function handles draw on screen (print the alive and dead cells to terminal) </p>
 <dl class="section author"><dt>Author</dt><dd>Daniel Jennebo, Gustav Olsson </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="ab48298575e18cd471849123f6b8404bc"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool GameEngine::getCell </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
 
 </div>
 </div>
@@ -277,7 +263,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns the vector <a class="el" href="class_game_engine.html#ad26a13e107597628d5aab5c7ac5ab450">cellMap</a>. </p>
+<p>Returns the vector <a class="el" href="class_game_engine.html#a2b32167ce089a027597df703ca90071b">evenCellMap</a>. </p>
 <dl class="section author"><dt>Author</dt><dd>Daniel Jennebo. </dd></dl>
 
 </div>
@@ -320,12 +306,12 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ae5c581eb646fb1ec986c15c8c3749f38"></a>
+<a class="anchor" id="a9ff3162379f2fcc47c54032300dd8015"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void GameEngine::initCellMap </td>
+          <td class="memname">void GameEngine::initCellMaps </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -333,7 +319,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Function initiate the cellMap vector with dead cells. </p>
+<p>Function initiate the <a class="el" href="class_game_engine.html#a2b32167ce089a027597df703ca90071b">evenCellMap</a> &amp; <a class="el" href="class_game_engine.html#a64b6bb417d9513d0ae96ff97b91d8bcc">oddCellMap</a> vectors with dead cells. </p>
 <dl class="section author"><dt>Author</dt><dd>Daniel Jennebo. </dd></dl>
 
 </div>
@@ -360,23 +346,6 @@ Private Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-
-</div>
-</div>
-<a class="anchor" id="ab01970da2c68fefbf48b98c59d5627ae"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void GameEngine::run </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Function handles the programs runtime. </p>
 
 </div>
 </div>
@@ -468,7 +437,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Function make random number of cells alive at random places in cellMap. </p>
+<p>Function make random number of cells alive at random places in <a class="el" href="class_game_engine.html#a2b32167ce089a027597df703ca90071b">evenCellMap</a> This is the initial state. </p>
 <dl class="section author"><dt>Author</dt><dd>Daniel Jennebo. </dd></dl>
 
 </div>
@@ -516,7 +485,7 @@ Private Attributes</h2></td></tr>
 <dl class="section author"><dt>Author</dt><dd>Daniel Jennebo. </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">pX</td><td>(int) contains number of columns. </td></tr>
+    <tr><td class="paramname">pX</td><td>(int) contains number of columns (width). </td></tr>
   </table>
   </dd>
 </dl>
@@ -541,7 +510,7 @@ Private Attributes</h2></td></tr>
 <dl class="section author"><dt>Author</dt><dd>Daniel Jennebo. </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">pY</td><td>(int) contains number of columns. </td></tr>
+    <tr><td class="paramname">pY</td><td>(int) contains number of rows (height). </td></tr>
   </table>
   </dd>
 </dl>
@@ -568,7 +537,7 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="ad26a13e107597628d5aab5c7ac5ab450"></a>
+<a class="anchor" id="a2b32167ce089a027597df703ca90071b"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -576,7 +545,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt;std::vector&lt;<a class="el" href="class_cell.html">Cell</a>*&gt; &gt; GameEngine::cellMap</td>
+          <td class="memname">std::vector&lt;std::vector&lt;<a class="el" href="class_cell.html">Cell</a>*&gt; &gt; GameEngine::evenCellMap</td>
         </tr>
       </table>
   </td>
@@ -585,7 +554,7 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Member variable that holds the cellMap with the cells states </p>
+<p>Member variable that holds the evenCellMap </p>
 
 </div>
 </div>
@@ -628,6 +597,27 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>Member variale that holds the generations value (the times to iterate) </p>
+
+</div>
+</div>
+<a class="anchor" id="a64b6bb417d9513d0ae96ff97b91d8bcc"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::vector&lt;<a class="el" href="class_cell.html">Cell</a>*&gt; &gt; GameEngine::oddCellMap</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Member variable that holds the oddCellMap </p>
 
 </div>
 </div>
@@ -696,7 +686,7 @@ Private Attributes</h2></td></tr>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>C:/Users/Nollan/GitWork/gameoflife/include/<a class="el" href="_game_engine_8h_source.html">GameEngine.h</a></li>
-<li>C:/Users/Nollan/GitWork/gameoflife/src/<a class="el" href="_game_engine_8cpp.html">GameEngine.cpp</a></li>
+<li>C:/Users/Nollan/GitWork/gameoflife/src/GameEngine.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

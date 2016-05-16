@@ -1,6 +1,6 @@
 /**
 * @author Daniel Jennebo
-* @brief This class handles the implementation of DanielRule.
+* @brief A concrete rule. Derived from base class Rule.
 * @details The rules are:
 * - If a living cell is older then age 4 it dies.
 * - If a living cell has 4 or more neighbours it dies.

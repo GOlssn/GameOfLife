@@ -1,6 +1,6 @@
 /**
 * @author Pontus Stenlund
-* @brief This class handles the implementation of PontusRule.
+* @brief A concrete rule. Derived from base class Rule.
 * @details the rules are:
 * - A living cell with one to seven neighbours will live on
 * - A living cell with zero or eight neighbours will die

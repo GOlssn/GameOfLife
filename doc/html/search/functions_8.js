@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['main',['main',['../_c_make_c_compiler_id_8c.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main(int argc, char *argv[]):&#160;CMakeCCompilerId.c'],['../_c_make_c_x_x_compiler_id_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main(int argc, char *argv[]):&#160;CMakeCXXCompilerId.cpp'],['../feature__tests_8cxx.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'main(int argc, char **argv):&#160;feature_tests.cxx'],['../src_2main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main(int argc, char *argv[]):&#160;main.cpp'],['../terminal_2main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main(int argc, char *argv[]):&#160;main.cpp']]]
+  ['_7ecell',['~Cell',['../class_cell.html#a9fa559f7a28e2b4336c6879ca09304d8',1,'Cell']]],
+  ['_7egameengine',['~GameEngine',['../class_game_engine.html#a8e59d8341ef9d2dcc62eee1437e37f14',1,'GameEngine']]],
+  ['_7erule',['~Rule',['../class_rule.html#a5f9104b39f2eb32df1713a98d44d6cdb',1,'Rule']]]
 ];

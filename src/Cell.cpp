@@ -16,7 +16,7 @@ Cell::~Cell()
 
 /**
 * @author Daniel Jennebo
-* @brief Function kills a cell. I sets the #alive to false and #age to 0.
+* @brief Function kills a cell. It sets the #alive to false and #age to 0.
 */
 void Cell::kill()
 {
@@ -26,7 +26,7 @@ void Cell::kill()
 
 /**
 * @author Daniel Jennebo
-* @brief Function revives a cell. I sets the #alive to true.
+* @brief Function revives a cell. It sets the #alive to true.
 */
 void Cell::revive()
 {

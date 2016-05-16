@@ -1,15 +1,16 @@
 var searchData=
 [
-  ['m_5fbg',['m_bg',['../class_terminal_color.html#a3114c4777e7e2fd1a9186acf21c25753',1,'TerminalColor']]],
-  ['m_5fcolor',['m_color',['../class_screen.html#ab8a60514b48d5535455c8eef5e379aff',1,'Screen']]],
-  ['m_5fcolors',['m_colors',['../class_terminal.html#a740376274b647a2de612002770baca42',1,'Terminal']]],
-  ['m_5fdata',['m_data',['../class_screen.html#adcaf2b14279d184669ad89acbb9d0b20',1,'Screen']]],
-  ['m_5ffg',['m_fg',['../class_terminal_color.html#ae30f1e8895e447c980a7c0bbfe1ff47f',1,'TerminalColor']]],
-  ['m_5fheight',['m_height',['../class_screen.html#a9f99394f4d38307212bef0913bee3f57',1,'Screen']]],
-  ['m_5fsize',['m_size',['../class_screen.html#a1b49d6d6d8d4fd3d98cc385d14bc42aa',1,'Screen']]],
-  ['m_5fwidth',['m_width',['../class_screen.html#a508fdf181c501383878d79187ac3a8b5',1,'Screen']]],
-  ['magenta',['MAGENTA',['../terminal_8h.html#af90824509586333cf45ce757d2711ce3ac634ffea7195608364671ac52ee59a61',1,'terminal.h']]],
-  ['main',['main',['../_c_make_c_compiler_id_8c.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main(int argc, char *argv[]):&#160;CMakeCCompilerId.c'],['../_c_make_c_x_x_compiler_id_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main(int argc, char *argv[]):&#160;CMakeCXXCompilerId.cpp'],['../feature__tests_8cxx.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'main(int argc, char **argv):&#160;feature_tests.cxx'],['../src_2main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main(int argc, char *argv[]):&#160;main.cpp'],['../terminal_2main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main(int argc, char *argv[]):&#160;main.cpp']]],
-  ['main_2ecpp',['main.cpp',['../src_2main_8cpp.html',1,'']]],
-  ['main_2ecpp',['main.cpp',['../terminal_2main_8cpp.html',1,'']]]
+  ['screen',['Screen',['../class_screen.html',1,'']]],
+  ['setage',['setAge',['../class_cell.html#a4f634082a59d0235b1c996b79c8d8611',1,'Cell']]],
+  ['setcoloralive',['setColorAlive',['../class_cell.html#a0d960c136a6dd64cbc1dc3195f4529c0',1,'Cell']]],
+  ['setcolordead',['setColorDead',['../class_cell.html#af31f1de92404a60d59ab5db353d29e75',1,'Cell']]],
+  ['setevenrule',['setEvenRule',['../class_game_engine.html#ad07ca0d10d952ef45877b8f7be7afc20',1,'GameEngine']]],
+  ['setgenerations',['setGenerations',['../class_game_engine.html#aa707e695fabb41214f08d4a8d2861c15',1,'GameEngine']]],
+  ['setoddrule',['setOddRule',['../class_game_engine.html#a01e85bbdf31804ec04fd38114b9bc5cf',1,'GameEngine']]],
+  ['setstartcellsrandom',['setStartCellsRandom',['../class_game_engine.html#a7c67acbd0aedf0cadeca5735ac097a57',1,'GameEngine']]],
+  ['setwindowsize',['setWindowSize',['../class_game_engine.html#ad425edb3daa4d8948edfd861c9ff2243',1,'GameEngine']]],
+  ['setx',['setX',['../class_game_engine.html#ae2d20c45c808a3dc98b08d4db9fd6b38',1,'GameEngine']]],
+  ['sety',['setY',['../class_game_engine.html#a42f09ca5a97e7aaaa28ecac4df47de88',1,'GameEngine']]],
+  ['showhelp',['showHelp',['../class_game_engine.html#a4d5cbe9e3ea4fa75f4f57b3605d6de90',1,'GameEngine']]],
+  ['specificrule',['specificRule',['../class_conway_rule.html#a520b803b44e953dbeb818e18c691c302',1,'ConwayRule::specificRule()'],['../class_daniel_rule.html#a2ab1c97d83982a67ed4a78489e5da7be',1,'DanielRule::specificRule()'],['../class_gustav_rule.html#a581bb1903b270cbd3c06ac8d784a4be9',1,'GustavRule::specificRule()'],['../class_pontus_rule.html#a2fd25273288a9501b4df65f8134af46d',1,'PontusRule::specificRule()']]]
 ];

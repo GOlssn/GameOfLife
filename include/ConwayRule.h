@@ -6,7 +6,6 @@
 * - A living cell with two to three living neighbours will survive
 * - A living cell with more than three living neighbours will die
 * - A dead cell with exactly three neighbours will reproduce
-* - If a dead cell has one living neighbours that is above age 0, it will revive
 */
 
 #ifndef CONWAYRULE_H

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>GameOfLife: C:/Users/Nollan/GitWork/gameoflife/include/DanielRule.h Source File</title>
+<title>Game Of Life: C:/Users/Nollan/GitWork/gameoflife/include/DanielRule.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -23,7 +23,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">GameOfLife
+   <div id="projectname">Game Of Life
    </div>
   </td>
  </tr>
@@ -38,7 +38,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -62,7 +61,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
-      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -89,12 +87,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">DanielRule.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="_daniel_rule_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#ifndef DANIELRULE_H</span></div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#define DANIELRULE_H</span></div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_rule_8h.html">Rule.h</a>&quot;</span></div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div><div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="class_daniel_rule.html">   19</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_daniel_rule.html">DanielRule</a> : <span class="keyword">public</span> <a class="code" href="class_rule.html">Rule</a> {</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">public</span>:</div><div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="class_daniel_rule.html#a375308858ba0cee9993bfb3036bdb722">   21</a></span>&#160;        <a class="code" href="class_daniel_rule.html#a375308858ba0cee9993bfb3036bdb722">DanielRule</a>() { }</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_daniel_rule.html#a2ab1c97d83982a67ed4a78489e5da7be">specificRule</a>(<a class="code" href="class_cell.html">Cell</a>* cell, vector&lt;Cell*&gt; pNeighboursAlive);</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;};</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#endif // !DANIELRULE_H</span></div><div class="ttc" id="class_cell_html"><div class="ttname"><a href="class_cell.html">Cell</a></div><div class="ttdoc">This class represents a cell that is a 1 by 1 tile in a cellmap. The cell can be either dead or alive...</div><div class="ttdef"><b>Definition:</b> Cell.h:13</div></div>
-<div class="ttc" id="class_rule_html"><div class="ttname"><a href="class_rule.html">Rule</a></div><div class="ttdef"><b>Definition:</b> Rule.h:14</div></div>
-<div class="ttc" id="class_daniel_rule_html_a375308858ba0cee9993bfb3036bdb722"><div class="ttname"><a href="class_daniel_rule.html#a375308858ba0cee9993bfb3036bdb722">DanielRule::DanielRule</a></div><div class="ttdeci">DanielRule()</div><div class="ttdef"><b>Definition:</b> DanielRule.h:21</div></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#ifndef DANIELRULE_H</span></div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#define DANIELRULE_H</span></div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;Rule.h&quot;</span></div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div><div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="class_daniel_rule.html">   19</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_daniel_rule.html">DanielRule</a> : <span class="keyword">public</span> <a class="code" href="class_rule.html">Rule</a> {</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">public</span>:</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <a class="code" href="class_daniel_rule.html">DanielRule</a>() { }</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_daniel_rule.html#a2ab1c97d83982a67ed4a78489e5da7be">specificRule</a>(<a class="code" href="class_cell.html">Cell</a>* cell, vector&lt;Cell*&gt; pNeighboursAlive);</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;};</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#endif // !DANIELRULE_H</span></div><div class="ttc" id="class_cell_html"><div class="ttname"><a href="class_cell.html">Cell</a></div><div class="ttdoc">This class represents a cell that is a 1 by 1 tile in a cellmap. The cell can be either dead or alive...</div><div class="ttdef"><b>Definition:</b> Cell.h:13</div></div>
+<div class="ttc" id="class_rule_html"><div class="ttname"><a href="class_rule.html">Rule</a></div><div class="ttdoc">This is the base class for concrete implementations of rules. </div><div class="ttdef"><b>Definition:</b> Rule.h:15</div></div>
 <div class="ttc" id="class_daniel_rule_html_a2ab1c97d83982a67ed4a78489e5da7be"><div class="ttname"><a href="class_daniel_rule.html#a2ab1c97d83982a67ed4a78489e5da7be">DanielRule::specificRule</a></div><div class="ttdeci">void specificRule(Cell *cell, vector&lt; Cell * &gt; pNeighboursAlive)</div><div class="ttdoc">applies the specific rules for DanielRule. Who lives and who dies. </div><div class="ttdef"><b>Definition:</b> DanielRule.cpp:10</div></div>
-<div class="ttc" id="_rule_8h_html"><div class="ttname"><a href="_rule_8h.html">Rule.h</a></div></div>
-<div class="ttc" id="class_daniel_rule_html"><div class="ttname"><a href="class_daniel_rule.html">DanielRule</a></div><div class="ttdoc">This class handles the implementation of DanielRule. </div><div class="ttdef"><b>Definition:</b> DanielRule.h:19</div></div>
+<div class="ttc" id="class_daniel_rule_html"><div class="ttname"><a href="class_daniel_rule.html">DanielRule</a></div><div class="ttdoc">A concrete rule. Derived from base class Rule. </div><div class="ttdef"><b>Definition:</b> DanielRule.h:19</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -26,9 +26,9 @@ class GameEngine {
 		/**Member variale that holds the generations value (the times to iterate)*/
 		int generations = 500;
 
-		/**Member variable that holds the cellMap with the cells states*/
+		/**Member variable that holds the evenCellMap*/
 		std::vector<std::vector<Cell*>> evenCellMap;
-		/**Member variable that holds the */
+		/**Member variable that holds the oddCellMap*/
 		std::vector<std::vector<Cell*>> oddCellMap;
 	
 	public:

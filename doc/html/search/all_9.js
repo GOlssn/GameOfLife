@@ -1,4 +1,8 @@
 var searchData=
 [
-  ['kill',['kill',['../class_cell.html#a956d5e8a4aa356fbb4dcfb0e11903836',1,'Cell']]]
+  ['readstartcellsfromfile',['readStartCellsFromFile',['../class_game_engine.html#ab9dfa14b6797e6a3ee218ac491ee4f6b',1,'GameEngine']]],
+  ['revive',['revive',['../class_cell.html#a908130b21a8c6f6b2397d59b83fd5d9b',1,'Cell']]],
+  ['rule',['Rule',['../class_rule.html',1,'Rule'],['../class_rule.html#aeb73d8de3bba02f37d8cab6efb645424',1,'Rule::Rule()']]],
+  ['rulefactory',['RuleFactory',['../class_rule_factory.html',1,'RuleFactory'],['../class_rule_factory.html#aadd3a923fdef1b1913364291423c55c2',1,'RuleFactory::RuleFactory()']]],
+  ['run',['run',['../class_game_engine.html#ab01970da2c68fefbf48b98c59d5627ae',1,'GameEngine']]]
 ];

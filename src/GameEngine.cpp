@@ -193,8 +193,8 @@ void GameEngine::readStartCellsFromFile(std::string file)
 
 
 * @author Daniel Jennebo.
-* @brief Function make random number of cells alive at random places in #evenCellMap cause that's the 
-* initial state.
+* @brief Function make random number of cells alive at random places in #evenCellMap  
+* This is the initial state.
 */
 void GameEngine::setStartCellsRandom()
 {

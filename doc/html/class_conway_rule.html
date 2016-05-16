@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>GameOfLife: ConwayRule Class Reference</title>
+<title>Game Of Life: ConwayRule Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -23,7 +23,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">GameOfLife
+   <div id="projectname">Game Of Life
    </div>
   </td>
  </tr>
@@ -38,7 +38,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -91,7 +90,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
-<p>CONWAY.  
+<p>A concrete rule. Derived from base class <a class="el" href="class_rule.html" title="This is the base class for concrete implementations of rules. ">Rule</a>.  
  <a href="class_conway_rule.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_conway_rule_8h_source.html">ConwayRule.h</a>&gt;</code></p>
@@ -101,15 +100,14 @@ Inheritance diagram for ConwayRule:</div>
  <div class="center">
   <img src="class_conway_rule.png" usemap="#ConwayRule_map" alt=""/>
   <map id="ConwayRule_map" name="ConwayRule_map">
-<area href="class_rule.html" alt="Rule" shape="rect" coords="0,0,83,24"/>
+<area href="class_rule.html" title="This is the base class for concrete implementations of rules. " alt="Rule" shape="rect" coords="0,0,83,24"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a6ad2261837d8fdcff7bd3ece3377d035"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_conway_rule.html#a6ad2261837d8fdcff7bd3ece3377d035">ConwayRule</a> ()</td></tr>
-<tr class="separator:a6ad2261837d8fdcff7bd3ece3377d035"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a520b803b44e953dbeb818e18c691c302"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_conway_rule.html#a520b803b44e953dbeb818e18c691c302">specificRule</a> (<a class="el" href="class_cell.html">Cell</a> *cell, vector&lt; <a class="el" href="class_cell.html">Cell</a> * &gt; pNeighboursAlive)</td></tr>
+<tr class="memdesc:a520b803b44e953dbeb818e18c691c302"><td class="mdescLeft">&#160;</td><td class="mdescRight">applies the specific rules for <a class="el" href="class_conway_rule.html" title="A concrete rule. Derived from base class Rule. ">ConwayRule</a>. Who lives and who dies.  <a href="#a520b803b44e953dbeb818e18c691c302">More...</a><br /></td></tr>
 <tr class="separator:a520b803b44e953dbeb818e18c691c302"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_rule"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_rule')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_rule.html">Rule</a></td></tr>
 <tr class="memitem:aeb73d8de3bba02f37d8cab6efb645424 inherit pub_methods_class_rule"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rule.html#aeb73d8de3bba02f37d8cab6efb645424">Rule</a> ()</td></tr>
@@ -118,38 +116,20 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a5f9104b39f2eb32df1713a98d44d6cdb inherit pub_methods_class_rule"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rule.html#a5f9104b39f2eb32df1713a98d44d6cdb">~Rule</a> ()</td></tr>
 <tr class="memdesc:a5f9104b39f2eb32df1713a98d44d6cdb inherit pub_methods_class_rule"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default destruct, no implementation.  <a href="#a5f9104b39f2eb32df1713a98d44d6cdb">More...</a><br /></td></tr>
 <tr class="separator:a5f9104b39f2eb32df1713a98d44d6cdb inherit pub_methods_class_rule"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af4b35ebeb514ade41be7c433d60d68ac inherit pub_methods_class_rule"><td class="memItemLeft" align="right" valign="top">virtual vector&lt; vector&lt; <a class="el" href="class_cell.html">Cell</a> * &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rule.html#af4b35ebeb514ade41be7c433d60d68ac">applyRules</a> (vector&lt; vector&lt; <a class="el" href="class_cell.html">Cell</a> * &gt;&gt; &amp;cellMap)</td></tr>
-<tr class="memdesc:af4b35ebeb514ade41be7c433d60d68ac inherit pub_methods_class_rule"><td class="mdescLeft">&#160;</td><td class="mdescRight">PONTUS.  <a href="#af4b35ebeb514ade41be7c433d60d68ac">More...</a><br /></td></tr>
-<tr class="separator:af4b35ebeb514ade41be7c433d60d68ac inherit pub_methods_class_rule"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a883a1d3188c7b078b1c9f870983b04fd inherit pub_methods_class_rule"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rule.html#a883a1d3188c7b078b1c9f870983b04fd">applyRules</a> (const vector&lt; vector&lt; <a class="el" href="class_cell.html">Cell</a> * &gt;&gt; &amp;cellMap, vector&lt; vector&lt; <a class="el" href="class_cell.html">Cell</a> * &gt;&gt; &amp;newCellMap)</td></tr>
+<tr class="memdesc:a883a1d3188c7b078b1c9f870983b04fd inherit pub_methods_class_rule"><td class="mdescLeft">&#160;</td><td class="mdescRight">Counts neighbouring cells and applies rules to every cell. Invokes specificRule() to apply derived implementations of rules on cells.  <a href="#a883a1d3188c7b078b1c9f870983b04fd">More...</a><br /></td></tr>
+<tr class="separator:a883a1d3188c7b078b1c9f870983b04fd inherit pub_methods_class_rule"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>CONWAY. </p>
-<dl class="section author"><dt>Author</dt><dd>Gustav Olsson </dd></dl>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a6ad2261837d8fdcff7bd3ece3377d035"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">ConwayRule::ConwayRule </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
+<div class="textblock"><p>A concrete rule. Derived from base class <a class="el" href="class_rule.html" title="This is the base class for concrete implementations of rules. ">Rule</a>. </p>
+<dl class="section author"><dt>Author</dt><dd>Gustav Olsson</dd></dl>
+<p>The rules are:</p><ul>
+<li>A living cell that has fewer than two living neighbours will die</li>
+<li>A living cell with two to three living neighbours will survive</li>
+<li>A living cell with more than three living neighbours will die</li>
+<li>A dead cell with exactly three neighbours will reproduce </li>
+</ul>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a520b803b44e953dbeb818e18c691c302"></a>
 <div class="memitem">
 <div class="memproto">
@@ -182,13 +162,24 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="class_rule.html#a033ff4b55a89733b5a17947c7bc36f62">Rule</a>.</p>
+<p>applies the specific rules for <a class="el" href="class_conway_rule.html" title="A concrete rule. Derived from base class Rule. ">ConwayRule</a>. Who lives and who dies. </p>
+<dl class="section author"><dt>Author</dt><dd>Gustav Olsson </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cell</td><td>contains the current cell being checked in applyRules function. </td></tr>
+    <tr><td class="paramname">pNeighboursAlive</td><td>contains the living cell neighbours to the current cell (param cell). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd>Rule::applyRules(vector&lt;vector&lt;Cell*&gt;&gt; &amp;cellMap) </dd></dl>
+
+<p>Implements <a class="el" href="class_rule.html">Rule</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>C:/Users/Nollan/GitWork/gameoflife/include/<a class="el" href="_conway_rule_8h_source.html">ConwayRule.h</a></li>
-<li>C:/Users/Nollan/GitWork/gameoflife/src/<a class="el" href="_conway_rule_8cpp.html">ConwayRule.cpp</a></li>
+<li>C:/Users/Nollan/GitWork/gameoflife/src/ConwayRule.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

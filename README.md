@@ -7,16 +7,20 @@ General info
 The "game" is a zero-player game, meaning that its evolution is determined by its initial state, requiring no further input.  
 One interacts with the Game of Life by creating an initial configuration and observing how it evolves." - [Wikipedia](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life)
 
+Demo
+------------
+There are some demo files included in this project. See the demo directory for these files and start with parameter -f <filename> to test them out.
+
 How to run "gameoflife"
 ------------------------
 #####Example: gameoflife.exe -er pontus -or daniel -g 100 -s 50x50
 
 * -h help
-* -er <even rulename>[default = conway]
-* -or <odd rulename>[default = conway]
-* -g <generations>[default = 500]
-* -s <widthxheight>[default = 80x24]
-* -f <filename for initial state>[default = random state]
+* -er <even rulename> [default = conway]
+* -or <odd rulename> [default = conway]
+* -g <generations> [default = 500]
+* -s <widthxheight> [default = 80x24]
+* -f <filename> [default = random state]
 
 ### Rules  
 - conway
@@ -50,7 +54,7 @@ File format
 First you need to specify the size of the board by width * height.  
 Then you need to specify all the cells that should be alive in the initialize.  
   
-An example is presented below   
+An example is presented below  
 20x20  
 10,10  
 10,11  
