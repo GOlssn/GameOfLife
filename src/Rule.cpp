@@ -56,6 +56,7 @@ void Rule::applyRules(const vector<vector<Cell*>> &cellMap, vector<vector<Cell*>
 			} else {
 				newCellMap[i][j]->kill();
 			}
+
 			specificRule(newCellMap[i][j], neighboursAlive);
 			neighboursAlive.clear();
 		}
