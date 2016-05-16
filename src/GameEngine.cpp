@@ -44,22 +44,24 @@ GameEngine::~GameEngine() {
 }
 
 /**
-* @brief Function handles the programs runtime.
+* @brief Contains the game loop and draws cellmaps in the terminal window.
 */
 void GameEngine::run() {
 
+	// If the initial cellmap is empty (i.e. if no file was read), populate a cellmap randomly
 	if (evenCellMap.size() == 0) {
 		setStartCellsRandom();
 	}
 
+	// Draw the first generation (generation 0)
 	drawOnScreen(evenCellMap);
+
 	for (int i = 1; i <= generations; i++) {
 
-		if (i % 2 == 0) {
+		if (i % 2 == 0) { // Apply even rules
 			evenRule->applyRules(oddCellMap, evenCellMap);
 			drawOnScreen(evenCellMap);
-		}
-		else {
+		} else { // Apply odd rules
 			oddRule->applyRules(evenCellMap, oddCellMap);
 			drawOnScreen(oddCellMap);
 		}
