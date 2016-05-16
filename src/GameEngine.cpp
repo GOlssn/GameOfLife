@@ -191,7 +191,7 @@ void GameEngine::readStartCellsFromFile(std::string file)
 
 
 * @author Daniel Jennebo.
-* @brief Function make random number of cells alive at random places in evenCellMap cause that's the 
+* @brief Function make random number of cells alive at random places in #evenCellMap cause that's the 
 * initial state.
 */
 void GameEngine::setStartCellsRandom()
@@ -212,7 +212,7 @@ void GameEngine::setStartCellsRandom()
 
 
 * @author Daniel Jennebo.
-* @brief Function initiate the cellMap vector with dead cells.
+* @brief Function initiate the #evenCellMap & #oddCellMap vectors with dead cells.
 */
 void GameEngine::initCellMaps() {
 	std::vector<Cell*> tmp;
@@ -246,7 +246,7 @@ int GameEngine::getX() const
 
 * @author Daniel Jennebo.
 * @brief Function sets membervariable #x to params value.
-* @param pX (int) contains number of columns.
+* @param pX (int) contains number of columns (width).
 */
 void GameEngine::setX(int pX)
 {
@@ -270,7 +270,7 @@ int GameEngine::getY() const
 
 * @author Daniel Jennebo.
 * @brief Function sets membervariable #y to params value.
-* @param pY (int) contains number of columns.
+* @param pY (int) contains number of rows (height).
 */
 void GameEngine::setY(int pY)
 {
