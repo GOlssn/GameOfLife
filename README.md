@@ -35,8 +35,8 @@ How to run "gameoflife"
 
 File format
 -----------  
-First you need to specify the size of the board buy width * height.  
-Then you need to specify all the cells that should be alive in the initialze.  
+First you need to specify the size of the board by width * height.  
+Then you need to specify all the cells that should be alive in the initialize.  
   
 An example is presented below   
 20x20  

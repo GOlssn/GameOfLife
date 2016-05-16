@@ -23,21 +23,21 @@ GameEngine::GameEngine()
 
 /**
 * @author Daniel Jennebo.
-* @brief Destructor for GameEngine class. Deletes pointers in #cellMap and rule pointer members
+* @brief Destructor for GameEngine class. Deletes pointers in #evenCellMap, #oddCellMap & pointers #oddRule, #evenRule
 */
 GameEngine::~GameEngine() {
-	for (auto row : cellMap) {
+	for (auto row : evenCellMap) {
 		for (auto cell : row) {
 			delete cell;
 		}
 	}
-	for (auto row : newCellMap) {
+	for (auto row : oddCellMap) {
 		for (auto cell : row) {
 			delete cell;
 		}
 	}
-	cellMap.clear();
-	newCellMap.clear();
+	evenCellMap.clear();
+	oddCellMap.clear();
 	delete oddRule;
 	delete evenRule;
 
@@ -48,20 +48,20 @@ GameEngine::~GameEngine() {
 */
 void GameEngine::run() {
 
-	if (cellMap.size() == 0) {
+	if (evenCellMap.size() == 0) {
 		setStartCellsRandom();
 	}
 
-	drawOnScreen(cellMap);
+	drawOnScreen(evenCellMap);
 	for (int i = 1; i <= generations; i++) {
 
 		if (i % 2 == 0) {
-			evenRule->applyRules(newCellMap, cellMap);
-			drawOnScreen(cellMap);
+			evenRule->applyRules(oddCellMap, evenCellMap);
+			drawOnScreen(evenCellMap);
 		}
 		else {
-			oddRule->applyRules(cellMap, newCellMap);
-			drawOnScreen(newCellMap);
+			oddRule->applyRules(evenCellMap, oddCellMap);
+			drawOnScreen(oddCellMap);
 		}
 	}
 }
@@ -90,7 +90,6 @@ void GameEngine::drawOnScreen(vector<vector<Cell*>> pCellMap) {
 }
 
 /**
-
 * @author Daniel Jennebo.
 * @brief Function sets #x and #y values to determine size of terminal window.
 * @param size contains a string with "WIDTHxHEIGHT".
@@ -105,7 +104,6 @@ void GameEngine::setWindowSize(std::string size)
 
 
 /**
-
 * @author Daniel Jennebo.
 * @brief Function sets number of generations to iterate trough. Sets the membervariable #generations to params value.
 * @param pGenerations contains a string with number of generations.
@@ -116,7 +114,6 @@ void GameEngine::setGenerations(std::string pGenerations)
 }
 
 /**
-
 * @author Daniel Jennebo.
 * @brief Function returns membervariable #generations.
 * @return membervariable generations as int.
@@ -163,21 +160,13 @@ void GameEngine::setEvenRule(Rule *rule)
 */
 void GameEngine::readStartCellsFromFile(std::string file)
 {
-	/*
-	ex:
-	80x24
-	10,10
-	10,11
-	10,20 
-	etc
-	*/
 	std::ifstream inFile(file);
 	if (inFile.good())
 	{
 		std::string size;
 		getline(inFile, size);
 		setWindowSize(size);
-		initCellMap();
+		initCellMaps();
 
 		std::string tmp;
 		std::size_t pos;
@@ -191,7 +180,7 @@ void GameEngine::readStartCellsFromFile(std::string file)
 
 			posY = stoi(tmp);
 
-			cellMap[posY][posX]->revive();
+			evenCellMap[posY][posX]->revive();
 		}
 	}
 
@@ -202,11 +191,12 @@ void GameEngine::readStartCellsFromFile(std::string file)
 
 
 * @author Daniel Jennebo.
-* @brief Function make random number of cells alive at random places in cellMap.
+* @brief Function make random number of cells alive at random places in evenCellMap cause that's the 
+* initial state.
 */
 void GameEngine::setStartCellsRandom()
 {
-	initCellMap();
+	initCellMaps();
 	std::default_random_engine generator(time(0));
 	std::uniform_int_distribution<int> cellNumRand(1,x*y);
 	std::uniform_int_distribution<int> rowRand(0, y-1);
@@ -214,7 +204,7 @@ void GameEngine::setStartCellsRandom()
 
 	int numberOfAlive = cellNumRand(generator);
 	for (int i = 0; i < numberOfAlive; i++) {
-		cellMap[rowRand(generator)].at(colRand(generator))->revive();
+		evenCellMap[rowRand(generator)].at(colRand(generator))->revive();
 	}
 }
 
@@ -224,7 +214,7 @@ void GameEngine::setStartCellsRandom()
 * @author Daniel Jennebo.
 * @brief Function initiate the cellMap vector with dead cells.
 */
-void GameEngine::initCellMap() {
+void GameEngine::initCellMaps() {
 	std::vector<Cell*> tmp;
 	std::vector<Cell*> newTmp;
 
@@ -233,8 +223,8 @@ void GameEngine::initCellMap() {
 			tmp.push_back(new Cell());
 			newTmp.push_back(new Cell());
 		}
-		cellMap.push_back(tmp);
-		newCellMap.push_back(newTmp);
+		evenCellMap.push_back(tmp);
+		oddCellMap.push_back(newTmp);
 		newTmp.clear();
 		tmp.clear();
 	}
@@ -300,9 +290,9 @@ std::string GameEngine::showHelp()
 
 /**
 * @author Daniel Jennebo.
-* @brief Returns the vector #cellMap.
+* @brief Returns the vector #evenCellMap.
 */
 std::vector<std::vector<Cell*>> GameEngine::getVector()
 {
-	return cellMap;
+	return evenCellMap;
 }

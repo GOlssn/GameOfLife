@@ -27,8 +27,9 @@ class GameEngine {
 		int generations = 500;
 
 		/**Member variable that holds the cellMap with the cells states*/
-		std::vector<std::vector<Cell*>> cellMap;
-		std::vector<std::vector<Cell*>> newCellMap;
+		std::vector<std::vector<Cell*>> evenCellMap;
+		/**Member variable that holds the */
+		std::vector<std::vector<Cell*>> oddCellMap;
 	
 	public:
 		GameEngine();
@@ -48,7 +49,7 @@ class GameEngine {
 		void setY(int pY);
 		std::string showHelp();
 		std::vector<std::vector<Cell*>> getVector();
-		void initCellMap();
+		void initCellMaps();
 		void drawOnScreen(vector<vector<Cell*>> pCellMap);
 
 };
