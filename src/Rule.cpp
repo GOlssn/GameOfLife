@@ -48,6 +48,9 @@ void Rule::applyRules(const vector<vector<Cell*>> &cellMap, vector<vector<Cell*>
 				newCellMap[i][j]->revive();
 				newCellMap[i][j]->setAge(cellMap[i][j]->getAge()+1);
 			}
+			else {
+				newCellMap[i][j]->kill();
+			}
 
 			specificRule(newCellMap[i][j], neighboursAlive);
 			neighboursAlive.clear();
