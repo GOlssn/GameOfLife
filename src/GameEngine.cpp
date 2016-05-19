@@ -17,8 +17,7 @@ const std::string DELIM = ",";
 */
 GameEngine::GameEngine()
 {
-	oddRule = new ConwayRule();
-	evenRule = new ConwayRule();
+
 }
 
 /**
@@ -133,8 +132,6 @@ int GameEngine::getGenerations() const
 
 void GameEngine::setOddRule(Rule *rule)
 {
-
-	delete oddRule;
 	oddRule = rule;
 }
 
@@ -147,8 +144,6 @@ void GameEngine::setOddRule(Rule *rule)
 
 void GameEngine::setEvenRule(Rule *rule)
 {
-
-	delete evenRule;
 	evenRule = rule;
 }
 

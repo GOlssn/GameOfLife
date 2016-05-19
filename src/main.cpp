@@ -6,6 +6,7 @@
 #include "RuleFactory.h"
 int main(int argc, char *argv[]) {
 	GameEngine ge;
+	std::string oddRule, evenRule;
 
 	bool readFromFile = false;
 
@@ -22,30 +23,26 @@ int main(int argc, char *argv[]) {
 			return 0;
 		}
 		else if (s == "-or") {
-
-			ge.setOddRule(RuleFactory::createRule(argv[i + 1]));
+			oddRule = argv[i + 1];
 		}
 		else if (s == "-er") {
-
-			ge.setEvenRule(RuleFactory::createRule(argv[i + 1]));
+			evenRule = argv[i + 1];
 		}
 		else if (s == "-g") {
 			ge.setGenerations(argv[i+1]);
 		}
 
 		else if ((s == "-s") && !readFromFile) {
-			// -s 80x24
 			ge.setWindowSize(argv[i + 1]);
 		}
 		else {
-			//Print error message plus help and exit?
 			std::cout << "Unknown argument was used, here is a list of known arguments" << std::endl << std::endl;
-
 			std::cout << ge.showHelp();
 			return 0;
 		}
 	}
-	
+	ge.setEvenRule(RuleFactory::createRule(evenRule));
+	ge.setOddRule(RuleFactory::createRule(oddRule));
 	ge.run();
 
 	return 0;
