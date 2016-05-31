@@ -13,9 +13,9 @@ There are some demo files included in this project. See the demo directory for t
 
 How to run "gameoflife"
 ------------------------
-#####Example: gameoflife.exe -er pontus -or daniel -g 100 -s 50x50
+Example: gameoflife.exe -er pontus -or daniel -g 100 -s 50x50
 
-
+### Commands
 	 -h help
 	 -er <even rulename> [default = conway]
 	 -or <odd rulename> [default = conway]
