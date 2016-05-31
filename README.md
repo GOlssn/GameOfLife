@@ -15,12 +15,12 @@ How to run "gameoflife"
 ------------------------
 #####Example: gameoflife.exe -er pontus -or daniel -g 100 -s 50x50
 
-* -h help
-* -er <even rulename> [default = conway]
-* -or <odd rulename> [default = conway]
-* -g <generations> [default = 500]
-* -s <widthxheight> [default = 80x24]
-* -f <filename> [default = random state]
+	 -h help
+	 -er <even rulename> [default = conway]
+	 -or <odd rulename> [default = conway]
+	 -g <generations> [default = 500]
+	 -s <widthxheight> [default = 80x24]
+	 -f <filename> [default = random state]
 
 ### Rules  
 - conway
@@ -55,15 +55,17 @@ First you need to specify the size of the board by width * height.
 Then you need to specify all the cells that should be alive in the initialize.  
   
 An example is presented below  
-20x20  
-10,10  
-10,11  
-11,40  
-10,39  
 
+	20x20  
+	10,10  
+	10,11  
+	11,40  	
+	10,39	
 
 Developers
 -----------
 __Pontus Stenlund__  
+
 __Daniel Jennebo__  
-__Gustav Olsson__
+
+__Gustav Olsson__  
