@@ -55,7 +55,7 @@ First you need to specify the size of the board by width * height.
 Then you need to specify all the cells that should be alive in the initialize.  
   
 An example is presented below  
-20x20  
+20x20\n
 10,10  
 10,11  
 11,40  
