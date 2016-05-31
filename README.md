@@ -15,6 +15,7 @@ How to run "gameoflife"
 ------------------------
 #####Example: gameoflife.exe -er pontus -or daniel -g 100 -s 50x50
 
+
 	 -h help
 	 -er <even rulename> [default = conway]
 	 -or <odd rulename> [default = conway]
@@ -55,6 +56,7 @@ First you need to specify the size of the board by width * height.
 Then you need to specify all the cells that should be alive in the initialize.  
   
 An example is presented below  
+
 
 	20x20  
 	10,10  
