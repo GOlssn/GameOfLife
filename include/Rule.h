@@ -25,6 +25,12 @@ class Rule {
 		*/
 		virtual ~Rule() { }
 		virtual void applyRules(const vector<vector<Cell*>> &cellMap, vector<vector<Cell*>> &newCellMap);
+		/**
+		* @author Gustav Olsson
+		* @brief Declaration for specificRule pure virtual function. This function is implemented in derived classes from Rule.
+		* @param cell contains the current cell being checked in applyRules function.
+		* @param pNeighboursAlive contains the living cell neighbours to the current cell (param cell).
+		*/
 		virtual void specificRule(Cell* cell, vector<Cell*> pNeighboursAlive) = 0;
 };
 

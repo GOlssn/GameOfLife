@@ -9,7 +9,7 @@ One interacts with the Game of Life by creating an initial configuration and obs
 
 Demo
 ------------
-There are some demo files included in this project. See the demo directory for these files and start with parameter -f <filename> to test them out.
+There are some demo files included in this project. See the demo directory for these files and start with parameter `-f <filename>` to test them out.
 
 How to run "gameoflife"
 ------------------------
@@ -59,11 +59,11 @@ Then you need to specify all the cells that should be alive in the initialize.
 An example is presented below  
 
 
-	20x20  
-	10,10  
-	10,11  
-	11,40  	
-	10,39	
+	20x20
+	10,10
+	10,11
+	11,40
+	10,39
 
 Developers
 -----------
